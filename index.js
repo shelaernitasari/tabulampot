@@ -10,6 +10,7 @@ const port = process.env.PORT;
 
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 
 // No need to pass any parameters as we will handle the updates with Express
@@ -24,6 +25,11 @@ const app = express();
 
 // parse the updates to JSON
 app.use(bodyParser.json());
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // We are receiving updates at the route below!
 app.post(`/bot${TOKEN}`, (req, res) => {
