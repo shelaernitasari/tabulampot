@@ -29,6 +29,10 @@ app.post(`/bot${TOKEN}`, (req, res) => {
   res.sendStatus(200);
 });
 
+app.get('/shela', function(req, res, next){
+    res.sendFile(__dirname + '/shela.html');
+});
+
 // Start Express Server
 app.listen(port, () => {
   console.log(`Server started on ${port}`);
