@@ -61,15 +61,4 @@ app.listen(port, () => {
   console.log(`Server started on ${port}`);
 });
 
-bot.onText(/\/start/, (msg) => {
-    bot.sendMessage(msg.chat.id, "Welcome To TabuLampot", {
-    "reply_markup": {
-        "keyboard": [["Penanaman", "Perawatan"],   ["Tips & Trik"], ["Keluhan", "FAQ"]]
-        }
-    });
-});
-
-// Just to ping!
-bot.on('message', msg => {
-  bot.sendMessage(msg.chat.id, 'I am alive!');
-});
+require('./telegram')(bot);
