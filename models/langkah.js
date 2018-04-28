@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const langkahSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     langkah: String,
-    idProsedur: String
+    tipeProsedur : {type: mongoose.Schema.Types.ObjectId, ref : 'tipeProsedur', required: true},
 });
 
-module.exports = mongoose.model('langkah', productSchema);
+module.exports = mongoose.model('Langkah', langkahSchema);

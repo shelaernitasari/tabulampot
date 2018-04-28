@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const tipeProsedurSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     prosedur: String
 });
 
-module.exports = mongoose.model('prosedur', productSchema);
+module.exports = mongoose.model('tipeProsedur', tipeProsedurSchema);

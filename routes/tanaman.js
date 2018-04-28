@@ -5,7 +5,7 @@ const Tanaman = require('../models/tanaman');
 
 router.get('/', (req, res, next ) => {
     Tanaman.find()
-        .select("_id tanaman")
+        .select("_id namatanaman")
         .exec()
         .then(docs => {
             console.log(docs);
@@ -26,25 +26,23 @@ router.get('/', (req, res, next ) => {
         });
 });
 
-router.post('/', (req, res, next ) => {
+router.post('/', function(req, res, next ) {
     /*const product = {
         name: req.body.name,
         price: req.body.price
     };*/
     const tanaman = new Tanaman({
         _id: new mongoose.Types.ObjectId(),
-        tanaman: req.body.name,
+        namatanaman: req.body.namatanaman,
        
     });
-    tanaman
-    .select("_id tanaman")
-    .save()
-    .then(result => {
-        console.log(result);
-        res.status(200).json({
-            message: "Handlig POST request to /product",
-            createdPrduct: result
-        });
+    tanaman.save()
+           .then(function(result) {
+             console.log(result);
+             res.status(200).json({
+               message: "Berhasil menambah data tanaman",
+               createdTanaman: result
+           });
     })
     .catch(err => {
         console.log(err);

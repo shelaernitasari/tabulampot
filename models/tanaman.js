@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const tanamanSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    tanaman: String
+    namatanaman:  { type: String}
 });
 
-module.exports = mongoose.model('tanaman', productSchema);
+module.exports = mongoose.model('Tanaman', tanamanSchema);

@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 
-const productSchema = mongoose.Schema({
+const prosedurTanamSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    idLangkah: String,
-    idTanaman: String,
-    idProsedur: String,
-    urutanLangkah: Number
+    tanaman : {type: mongoose.Schema.Types.ObjectId, ref : 'Tanaman', required: true},
+    urutanLangkah:  { type: Number}
 });
 
-module.exports = mongoose.model('prosedurTanam', productSchema);
+module.exports = mongoose.model('prosedurTanam', prosedurTanamSchema);

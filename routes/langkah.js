@@ -1,23 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const prosedurTanam = require('../models/prosedurTanam');
-const Tanaman = require('../models/tanaman');
+const Langkah = require('../models/langkah');
+const tipeProsedur = require('../models/tipeProsedur');
 
 router.get('/', (req, res, next ) => {
-    prosedurTanam.find()
-        .select("_id urutanLangkah tanaman")
-        .populate('tanaman', '_id namatanaman')
+    Langkah.find()
+        .select("_id langkah tipeProsedur ")
+        .populate('tipeProsedur', '_id prosedur')
         .then(docs => {
             console.log(docs);
             if(docs.length >= 0){
                 res.status(200).json({
                     count : docs.length,
-                    prosedurTanam : docs.map(doc => {
+                    Langkah : docs.map(doc => {
                         return {
                             _id : doc._id,
-                            urutanLangkah : doc.urutanLangkah,
-                            tanaman : doc.tanaman
+                            langkah : doc.langkah,
+                            tipeProsedur : doc.tipeProsedur
                         }
                     })
                 });
@@ -41,26 +41,26 @@ router.post('/', (req, res, next ) => {
         name: req.body.name,
         price: req.body.price
     };*/
-    Tanaman.findById(req.body.tanamanid)
-    .then(tanaman =>{
-        if(!tanaman){
+    tipeProsedur.findById(req.body.prosedurid)
+    .then(tipeProsedur =>{
+        if(!tipeProsedur){
             return res.status(404).json({
-                message:'tanaman not found'
+                message:'tipe prosedur tanam not found'
             });
         }
-        const prosedur = new prosedurTanam({
+        const langkah = new Langkah({
             _id: new mongoose.Types.ObjectId(),
-            tanaman: req.body.tanamanid,
-            urutanLangkah: req.body.urutanLangkah
+            langkah: req.body.langkah,
+            tipeProsedur: req.body.prosedurid
         });
-        return prosedur.save()
+        return langkah.save()
     })
     
     .then(result => {
         console.log(result);
         res.status(200).json({
             message: "berhasil disimpan",
-            createdProsedurTanam: result
+            createdLangkah: result
         });
     })
     .catch(err => {
@@ -73,9 +73,9 @@ router.post('/', (req, res, next ) => {
     
 });
 
-router.get('/:prosedurid', (req, res, next) => {
-    const id = req.params.prosedurid;
-    prosedurTanam.findById(id)
+router.get('/:langkahid', (req, res, next) => {
+    const id = req.params.langkahid;
+    Langkah.findById(id)
     .exec()
     .then(doc => {
         console.log("from database",doc);
@@ -93,13 +93,13 @@ router.get('/:prosedurid', (req, res, next) => {
     });
 });
 
-router.patch('/:prosedurid', (req, res, next) => {
-   const id= req.params.prosedurid;
+router.patch('/:langkahid', (req, res, next) => {
+   const id= req.params.langkahid;
    const updateOps = {};
    for (const ops of req.body){
        updateOps[ops.propName]= ops.value;
    }
-   prosedurTanam.update({ _id: id}, {$set: updateOps})
+   Langkah.update({ _id: id}, {$set: updateOps})
     .exec()
     .then(result => {
         console.log(result);
@@ -113,9 +113,9 @@ router.patch('/:prosedurid', (req, res, next) => {
     });
 });
 
-router.delete('/:prosedurid', (req, res, next) => {
-   const id = req.params.prosedurid;
-   prosedurTanam.remove({ _id: id})
+router.delete('/:langkahid', (req, res, next) => {
+   const id = req.params.langkahid;
+   Langkah.remove({ _id: id})
     .exec()
     .then(result => {
         res.status(200).json(result);

@@ -7,7 +7,7 @@
 const TOKEN = process.env.TELEGRAM_TOKEN || '454976546:AAF_8hsRhRMDlkT-03IqSSr6AVULJpCoz0s';
 const url = 'https://web-tabulampot.herokuapp.com';
 //const port = 4000;
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
@@ -17,7 +17,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 //mongoose.connect("mongodb://tabulampotproject:"+process.env.MONGO_ATLAS_PW+"@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
-// mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://tabulampotproject:shela123@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
+mongoose.Promise = global.Promise;
 
 // No need to pass any parameters as we will handle the updates with Express
 const bot = new TelegramBot(TOKEN);
@@ -26,8 +27,10 @@ const bot = new TelegramBot(TOKEN);
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
 var indexRoute = require('./routes/index');
-// var tanamanRoute = require('./routes/tanaman');
-// var prosedurtanamRoute = require('./routes/prosedurTanam');
+var tanamanRoute = require('./routes/tanaman');
+var prosedurtanamRoute = require('./routes/prosedurTanam');
+var tipeProsedurRoute = require('./routes/tipeProsedur');
+var langkahRoute = require('./routes/langkah');
 
 const app = express();
 
@@ -46,8 +49,10 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 });
 
 app.use('/shela', indexRoute);
-// app.use('/tanaman', tanamanRoute);
-// app.use('/prosedurTanam', prosedurtanamRoute);
+app.use('/tanaman', tanamanRoute);
+app.use('/prosedurTanam', prosedurtanamRoute);
+app.use('/tipeProsedur', tipeProsedurRoute);
+app.use('/langkah', langkahRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
