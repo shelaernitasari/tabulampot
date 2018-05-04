@@ -31,12 +31,12 @@ router.post('/', function(req, res, next ) {
         name: req.body.name,
         price: req.body.price
     };*/
-    const tipeProsedur = new tipeProsedur({
+    const tipeprosedur = new tipeProsedur({
         _id: new mongoose.Types.ObjectId(),
         prosedur: req.body.prosedur,
        
     });
-    tipeProsedur.save()
+    tipeprosedur.save()
            .then(function(result) {
              console.log(result);
              res.status(200).json({

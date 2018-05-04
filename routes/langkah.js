@@ -36,40 +36,38 @@ router.get('/', (req, res, next ) => {
         });
 });
 
-router.post('/', (req, res, next ) => {
+router.post('/', async (req, res, next ) => {
     /*const product = {
         name: req.body.name,
         price: req.body.price
     };*/
-    tipeProsedur.findById(req.body.prosedurid)
-    .then(tipeProsedur =>{
-        if(!tipeProsedur){
-            return res.status(404).json({
-                message:'tipe prosedur tanam not found'
-            });
-        }
+    let findtipeprosedur = await  tipeProsedur.findById(req.body.prosedurid);
+    if(findtipeprosedur === null){
+        message:"id tidak ditemukan";
+    }
+    else{
         const langkah = new Langkah({
             _id: new mongoose.Types.ObjectId(),
             langkah: req.body.langkah,
             tipeProsedur: req.body.prosedurid
         });
-        return langkah.save()
-    })
+        langkah.save()
     
-    .then(result => {
-        console.log(result);
-        res.status(200).json({
-            message: "berhasil disimpan",
-            createdLangkah: result
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error: err
-        });
+        .then(result => {
+            console.log(result);
+            res.status(200).json({
+                message: "berhasil disimpan",
+                createdLangkah: result
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
 
-    });
+        });
+    }
     
 });
 
@@ -111,6 +109,8 @@ router.patch('/:langkahid', (req, res, next) => {
             error: err
         });
     });
+    
+        
 });
 
 router.delete('/:langkahid', (req, res, next) => {

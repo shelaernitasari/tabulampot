@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const prosedurTanam = require('../models/prosedurTanam');
+const Langkah = require('../models/langkah');
 const Tanaman = require('../models/tanaman');
+const tipeProsedur = require('../models/tipeProsedur');
 
 router.get('/', (req, res, next ) => {
     prosedurTanam.find()
-        .select("_id urutanLangkah tanaman")
-        .populate('tanaman', '_id namatanaman')
+        .select("_id urutanLangkah langkah tanaman")
+        .populate({path:'langkah', model:Langkah, select:'langkah tipePosedur', populate: {path: 'tipeProsedur', model:tipeProsedur, select:'prosedur'}})
         .then(docs => {
             console.log(docs);
             if(docs.length >= 0){
@@ -17,7 +19,8 @@ router.get('/', (req, res, next ) => {
                         return {
                             _id : doc._id,
                             urutanLangkah : doc.urutanLangkah,
-                            tanaman : doc.tanaman
+                            langkah : doc.langkah,
+                            tanaman : doc.tanaman,
                         }
                     })
                 });
@@ -36,40 +39,41 @@ router.get('/', (req, res, next ) => {
         });
 });
 
-router.post('/', (req, res, next ) => {
+router.post('/', async (req, res, next ) => {
     /*const product = {
         name: req.body.name,
         price: req.body.price
     };*/
-    Tanaman.findById(req.body.tanamanid)
-    .then(tanaman =>{
-        if(!tanaman){
-            return res.status(404).json({
-                message:'tanaman not found'
-            });
-        }
+    let findlangkah = await  Langkah.findById(req.body.langkahid);
+    let findtanaman = await  Tanaman.findById(req.body.tanamanid);
+    let findtipeprosedur = await  tipeProsedur.findById(req.body.tipeprosedurid);
+   
+    if(findlangkah === null || findtanaman === null || findtipeprosedur === null){
+        message : "id tidak ditemukan" ;
+    } 
+    else{
         const prosedur = new prosedurTanam({
             _id: new mongoose.Types.ObjectId(),
+            langkah: req.body.langkahid,
             tanaman: req.body.tanamanid,
             urutanLangkah: req.body.urutanLangkah
         });
-        return prosedur.save()
-    })
-    
-    .then(result => {
-        console.log(result);
-        res.status(200).json({
-            message: "berhasil disimpan",
-            createdProsedurTanam: result
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error: err
-        });
+        prosedur.save()
+        .then(result => {
+            console.log(result);
+            res.status(200).json({
+                message: "berhasil disimpan",
+                createdProsedurTanam: result
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                error: err
+            });
 
-    });
+        });
+    }
     
 });
 
