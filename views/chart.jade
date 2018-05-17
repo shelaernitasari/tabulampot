@@ -1,0 +1,45 @@
+extend layout
+
+block content
+  .content-wrapper
+    .page-header
+      h3.page-title
+        | Chart-js
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Charts
+          li.breadcrumb-item.active(aria-current='page') Chart-js
+    .row
+      .col-lg-6.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Line chart
+            canvas#lineChart(style='height:250px')
+      .col-lg-6.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Bar chart
+            canvas#barChart(style='height:230px')
+    .row
+      .col-lg-6.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Area chart
+            canvas#areaChart(style='height:250px')
+      .col-lg-6.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Doughnut chart
+            canvas#doughnutChart(style='height:250px')
+    .row
+      .col-lg-6.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Pie chart
+            canvas#pieChart(style='height:250px')
+      .col-lg-6.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Scatter chart
+            canvas#scatterChart(style='height:250px')

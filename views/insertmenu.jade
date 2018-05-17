@@ -1,0 +1,66 @@
+extend layout
+
+block content
+
+  .content-wrapper
+    .page-header
+      h3.page-title
+        | Forms
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Forms
+          li.breadcrumb-item.active(aria-current='page') Basic elements
+    .row
+      .col-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Form Menu
+            p.card-description
+              | Input Menu
+            form.forms-sample(action='/insertmenu', method='post')
+              //- .form-group
+              //-   label(for='exampleSelectGender') Root
+              //-   select#root.form-control
+              //-     option id Root 1
+              //-     option id Root 2
+              .form-group
+                label(for='exampleInputName1') Root Input
+                input#menu.form-control(type='text', placeholder='Root', name='root')
+              .form-group
+                label(for='exampleInputName2') Menu
+                input#menu.form-control(type='text', placeholder='Menu', name='menu')
+              button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+              button.btn.btn-light Cancel
+    // tabel
+    .col-lg-12.stretch-card
+      .card
+        .card-body
+          h4.card-title Table with contextual classes
+          p.card-description
+            | Add class 
+            code .table-{color}
+          table.table.table-bordered
+            thead
+              tr.table-danger
+                th
+                  | No
+                th
+                  | id
+                th
+                  | root
+                th
+                  | menu
+            tbody
+            each data, i in menu
+              tr.table-primary
+                td
+                  | #{i+1}
+                td
+                  | #{data.id}
+                td
+                  | #{data.root}
+                td
+                  | #{data.menu}
+              
+  // tabel ends

@@ -1,0 +1,126 @@
+extend layout
+
+block content
+  .content-wrapper
+    .page-header
+      h3.page-title
+        span.page-title-icon.bg-gradient-primary.text-white.mr-2
+          i.mdi.mdi-home
+        |       Dashboard
+      nav(aria-label='breadcrumb')
+        ul.breadcrumb
+          li.breadcrumb-item.active(aria-current='page')
+            span
+            | Overview
+            i.mdi.mdi-alert-circle-outline.icon-sm.text-primary.align-middle
+    .row
+      .col-md-4.stretch-card.grid-margin
+        .card.bg-gradient-danger.card-img-holder.text-white
+          .card-body
+            img.card-img-absolute(src='images/dashboard/circle.svg', alt='circle-image')
+            h4.font-weight-normal.mb-3
+              | Weekly Sales
+              i.mdi.mdi-chart-line.mdi-24px.float-right
+            h2.mb-5 $ 15,0000
+            h6.card-text Increased by 60%
+      .col-md-4.stretch-card.grid-margin
+        .card.bg-gradient-info.card-img-holder.text-white
+          .card-body
+            img.card-img-absolute(src='images/dashboard/circle.svg', alt='circle-image')
+            h4.font-weight-normal.mb-3
+              | Weekly Orders
+              i.mdi.mdi-bookmark-outline.mdi-24px.float-right
+            h2.mb-5 45,6334
+            h6.card-text Decreased by 10%
+      .col-md-4.stretch-card.grid-margin
+        .card.bg-gradient-success.card-img-holder.text-white
+          .card-body
+            img.card-img-absolute(src='images/dashboard/circle.svg', alt='circle-image')
+            h4.font-weight-normal.mb-3
+              | Visitors Online
+              i.mdi.mdi-diamond.mdi-24px.float-right
+            h2.mb-5 95,5741
+            h6.card-text Increased by 5%
+    .row
+      .col-md-7.grid-margin.stretch-card
+        .card
+          .card-body
+            .clearfix
+              h4.card-title.float-left Visit And Sales Statistics
+              #visit-sale-chart-legend.rounded-legend.legend-horizontal.legend-top-right.float-right
+            canvas#visit-sale-chart.mt-4
+      .col-md-5.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Traffic Sources
+            canvas#traffic-chart
+            #traffic-chart-legend.rounded-legend.legend-vertical.legend-bottom-left.pt-4
+    .row
+      .col-12.grid-margin
+        .card
+          .card-body
+            h4.card-title Recent Tickets
+            .table-responsive
+              table.table
+                thead
+                  tr
+                    th
+                      | Assignee
+                    th
+                      | Subject
+                    th
+                      | Status
+                    th
+                      | Last Update
+                    th
+                      | Tracking ID
+                tbody
+                  tr
+                    td
+                      img.mr-2(src='images/faces/face1.jpg', alt='image')
+                      |                     David Grey
+                    td
+                      | Fund is not recieved
+                    td
+                      label.badge.badge-gradient-success DONE
+                    td
+                      | Dec 5, 2017
+                    td
+                      | WD-12345
+                  tr
+                    td
+                      img.mr-2(src='images/faces/face2.jpg', alt='image')
+                      |                     Stella Johnson
+                    td
+                      | High loading time
+                    td
+                      label.badge.badge-gradient-warning PROGRESS
+                    td
+                      | Dec 12, 2017
+                    td
+                      | WD-12346
+                  tr
+                    td
+                      img.mr-2(src='images/faces/face3.jpg', alt='image')
+                      |                     Marina Michel
+                    td
+                      | Website down for one week
+                    td
+                      label.badge.badge-gradient-info ON HOLD
+                    td
+                      | Dec 16, 2017
+                    td
+                      | WD-12347
+                  tr
+                    td
+                      img.mr-2(src='images/faces/face4.jpg', alt='image')
+                      |                     John Doe
+                    td
+                      | Loosing control on server
+                    td
+                      label.badge.badge-gradient-danger REJECTED
+                    td
+                      | Dec 3, 2017
+                    td
+                      | WD-12348
+// partial
