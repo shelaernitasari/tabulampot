@@ -1,6 +1,6 @@
 const MenuModel = require('./api/models/menu')
 
-module.exports = function(bot, message){
+module.exports = async (bot, message) => {
     let keyboardResponse = {}
     keyboardResponse.reply_markup = {}
 
