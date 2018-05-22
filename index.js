@@ -7,7 +7,7 @@
 const TOKEN = process.env.TELEGRAM_TOKEN || '454976546:AAF_8hsRhRMDlkT-03IqSSr6AVULJpCoz0s';
 const url = 'https://web-tabulampot.herokuapp.com';
 //const port = 4000;
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3055;
 
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
@@ -17,7 +17,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 //mongoose.connect("mongodb://tabulampotproject:"+process.env.MONGO_ATLAS_PW+"@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
-mongoose.connect("mongodb://tabulampotproject:shela123@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
+//mongoose.connect("mongodb://tabulampotproject:shela123@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
+mongoose.connect("mongodb://shela:shela123456789@localhost:64526/tabulampot");
 mongoose.Promise = global.Promise;
 
 // No need to pass any parameters as we will handle the updates with Express
@@ -37,6 +38,7 @@ var tipeProsedurRoute = require('./api/routes/tipeProsedur');
 var langkahRoute = require('./api/routes/langkah');
 var menuRoute = require('./api/routes/menu');
 var isiRoute = require('./api/routes/isi');
+var adminRoute = require('./api/routes/admin');
 
 const app = express();
 
@@ -66,6 +68,7 @@ app.use('/tipeProsedur', tipeProsedurRoute);
 app.use('/langkah', langkahRoute);
 app.use('/menu', menuRoute);
 app.use('/isi', isiRoute);
+app.use('/admin', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
