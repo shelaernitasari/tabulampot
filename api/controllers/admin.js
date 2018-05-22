@@ -127,31 +127,6 @@ exports.admin_get_all = (req, res, next) => {
     });
 };
 
-exports.admin_post = (req, res, next) => {
-    const admin = new Admin({
-        _id: new mongoose.Types.ObjectId(),
-        username: req.body.username,
-        password: req.body.password,
-        foto: req.body.foto
-       
-    });
-    admin.save()
-           .then(function(result) {
-             console.log(result);
-             res.status(200).json({
-               message: "Berhasil menambah admin",
-               createdAdmin: result
-           });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error: err
-        });
-
-    });
-};
-
 exports.admin_get_id = (req, res, next) =>{
     const id = req.params.adminid;
     Admin.find()

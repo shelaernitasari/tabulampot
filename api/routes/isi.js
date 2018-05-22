@@ -7,14 +7,14 @@ const checkAuth = require('../middleware/check-auth');
 
 const IsiController = require ('../controllers/isi');
 
-router.get("/", checkAuth, IsiController.isi_get_all);
+router.get("/",  IsiController.isi_get_all);
 
-router.post('/', checkAuth, IsiController.isi_post);
+router.post('/',  IsiController.isi_post);
 
-router.get('/:isiid', checkAuth, IsiController.isi_get_id);
+router.get('/:isiid', IsiController.isi_get_id);
 
-router.patch('/:isiid', checkAuth, IsiController.isi_update);
+router.patch('/:isiid', IsiController.isi_update);
 
-router.delete('/:isiid', checkAuth, IsiController.isi_delete);
+router.delete('/:isiid', IsiController.isi_delete);
 
 module.exports= router;

@@ -18,7 +18,7 @@ const cookieParser = require('cookie-parser');
 
 //mongoose.connect("mongodb://tabulampotproject:"+process.env.MONGO_ATLAS_PW+"@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
 //mongoose.connect("mongodb://tabulampotproject:shela123@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
-mongoose.connect("mongodb://shela:shela123456789@localhost:64526/tabulampot");
+mongoose.connect("mongodb://shela:shela123456789@localhost.com:64526/tabulampot");
 mongoose.Promise = global.Promise;
 
 // No need to pass any parameters as we will handle the updates with Express
@@ -27,18 +27,14 @@ const bot = new TelegramBot(TOKEN);
 // This informs the Telegram servers of the new webhook.
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-// var indexRoute = require('./routes/index');
-// var chartRoute = require('./routes/chart');
-// var insertmenuRoute = require('./routes/insertmenu');
-// var insertcontentRoute = require('./routes/insertcontent');
+var indexRoute = require('./routes/index');
+var chartRoute = require('./routes/chart');
+var insertmenuRoute = require('./routes/insertmenu');
+var insertcontentRoute = require('./routes/insertcontent');
 
-// var tanamanRoute = require('./api/routes/tanaman');
-// var prosedurtanamRoute = require('./api/routes/prosedurTanam');
-// var tipeProsedurRoute = require('./api/routes/tipeProsedur');
-// var langkahRoute = require('./api/routes/langkah');
-// var menuRoute = require('./api/routes/menu');
-// var isiRoute = require('./api/routes/isi');
- var adminRoute = require('./api/routes/admin');
+var menuRoute = require('./api/routes/menu');
+var isiRoute = require('./api/routes/isi');
+//  var adminRoute = require('./api/routes/admin');
 
 const app = express();
 
@@ -61,19 +57,15 @@ app.post(`/bot${TOKEN}`, (req, res) => {
   res.sendStatus(200);
 });
 
-//app.use('/shela', indexRoute);
-// app.use('/',indexRoute);
-// app.use('/chart',chartRoute);
-// app.use('/insertmenu',insertmenuRoute);
-// app.use('/insertcontent',insertcontentRoute);
+app.use('/shela', indexRoute);
+app.use('/',indexRoute);
+app.use('/chart',chartRoute);
+app.use('/insertmenu',insertmenuRoute);
+app.use('/insertcontent',insertcontentRoute);
 
-// app.use('/tanaman', tanamanRoute);
-// app.use('/prosedurTanam', prosedurtanamRoute);
-// app.use('/tipeProsedur', tipeProsedurRoute);
-// app.use('/langkah', langkahRoute);
-// app.use('/menu', menuRoute);
-// app.use('/isi', isiRoute);
- app.use('/admin', adminRoute);
+app.use('/menu', menuRoute);
+app.use('/isi', isiRoute);
+// app.use('/admin', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
