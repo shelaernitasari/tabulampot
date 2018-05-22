@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/admin');
 
-const BASE_URL = 'https://web-tabulampot.herokuapp.com'
+const BASE_URL = 'https://shela.jagopesan.com'
 
 exports.admin_signup = (req, res, next) => {
     Admin.find({ username: req.body.username })
