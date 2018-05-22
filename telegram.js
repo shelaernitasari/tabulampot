@@ -1,4 +1,4 @@
-module.exports = function(bot){
+module.exports = function(bot, message){
 
     // bot.onText(/\/start/, (msg) => {
     
@@ -7,9 +7,9 @@ module.exports = function(bot){
 
     // })
     
-    // bot.sendMessage(msg.chat.id, "Welcome To TabuLampot", getMenu); 
-        
-    // });
+    let getMenu = [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"],["uno", "due","tre","quattro"]]
+
+    bot.sendMessage(msg.chat.id, "Welcome To TabuLampot", getMenu); 
     
     // bot.on('message', msg => {
       

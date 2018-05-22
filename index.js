@@ -53,7 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // We are receiving updates at the route below!
 app.post(`/bot${TOKEN}`, (req, res) => {
   bot.processUpdate(req.body);
-  console.log(req.body)
+  require('./telegram')(bot, req.body);
   res.sendStatus(200);
 });
 
@@ -91,5 +91,3 @@ app.use(function(err, req, res, next) {
 app.listen(port, () => {
   console.log(`Server started on ${port}`);
 });
-
-require('./telegram')(bot);
