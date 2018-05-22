@@ -104,25 +104,20 @@ exports.admin_get_all = (req, res, next) => {
     Admin.find()
     .select("_id username password foto")
     .then(docs => {
-        console.log(docs);
-        if(docs.length >= 0){
-            res.status(200).json({
-                count : docs.length,
-                Admin  : docs.map(doc => {
-                    return {
-                        _id : doc._id,
-                        username : doc.username,
-                        password : doc.password,
-                        foto : doc.foto
-                    }
-                })
-            });
-        } else{
-            res.status(404).json({
-                message: 'no entries found'
-            });
-        }
-                
+        const response = {
+            count: doc.length,
+            status:200,
+            Admin  : docs.map(doc => {
+                return {
+                    _id : doc._id,
+                    username : doc.username,
+                    password : doc.password,
+                    foto : doc.foto
+                }
+            })
+        };
+        res.status(200).json(response);
+               
     })
     .catch(err => {
         console.log(err);
