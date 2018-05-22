@@ -22,7 +22,7 @@ module.exports = async (bot, message) => {
         let j = 0
         for (let i = 0 ; i < defaultMenu.length ; i++){
             if (i % 2 == 0){
-                keyboard[j] = []
+                keyboard.push([])
                 j++
             }
             keyboard[j][i % 2] = defaultMenu[i].menu
