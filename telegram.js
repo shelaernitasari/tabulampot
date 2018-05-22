@@ -10,7 +10,11 @@ module.exports = async (bot, message) => {
         console.log(menu)
     } else {
         let menuUtama = await MenuModel.find({menu: "Menu Utama"})
-        let defaultMenu = await MenuModel.find({root: menuUtama._id})
+        let defaultMenu = await MenuModel.aggregate([{
+            $match: {
+                root: menuUtama._id
+            }
+        }])
         console.log(defaultMenu)
     }
     keyboardResponse.reply_markup.keyboard = [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"],["uno", "due","tre","quattro"]]
