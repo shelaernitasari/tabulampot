@@ -7,16 +7,35 @@ module.exports = function(bot, message){
 
     // })
     
-    let getMenu = {
+    let getMenuA = {
         "reply_markup": {
             "keyboard": [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"],["uno", "due","tre","quattro"]]
         }
     }
 
+    let getMenuB = {
+        "reply_markup": {
+            "keyboard": [["uno :+1:"],["uno \ud83d\udc4d", "due"]]
+        }
+    }
+
+    let getMenuC = {
+        "reply_markup": {
+            "keyboard": [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"]]
+        }
+    }
+
+    switch (message.text){
+        case "a": 
+            bot.sendMessage(message.chat.id, "Menu A", getMenuA); 
+            break
+        case "b": 
+            bot.sendMessage(message.chat.id, "Menu A", getMenuA); 
+            break
+        case "c": 
+            bot.sendMessage(message.chat.id, "Menu A", getMenuA); 
+            break
+    }
+
     console.log(message)
-    bot.sendMessage(message.message.chat.id, "Welcome To TabuLampot", getMenu); 
-    
-    // bot.on('message', msg => {
-      
-    // });
 };
