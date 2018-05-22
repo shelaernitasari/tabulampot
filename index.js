@@ -53,7 +53,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // We are receiving updates at the route below!
 app.post(`/bot${TOKEN}`, (req, res) => {
   bot.processUpdate(req.body);
-  require('./telegram')(bot, req.body.message);
+  try {
+    require('./telegram')(bot, req.body.message);
+  } catch(e){
+    console.log(e)
+  }
   res.sendStatus(200);
 });
 
