@@ -15,6 +15,7 @@ module.exports = async (bot, message) => {
                 root: menuUtama._id
             }
         }])
+        console.log(menuUtama)
         console.log(defaultMenu)
     }
     keyboardResponse.reply_markup.keyboard = [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"],["uno", "due","tre","quattro"]]
