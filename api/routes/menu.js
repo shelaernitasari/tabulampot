@@ -6,7 +6,7 @@ const checkAuth = require('../middleware/check-auth');
 
 const MenuController = require ('../controllers/menu');
 
-router.get("/", checkAuth, MenuController.menu_get_all);
+// router.get("/", checkAuth, MenuController.menu_get_all);
 
 router.post('/', checkAuth, MenuController.menu_post);
 

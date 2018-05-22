@@ -5,9 +5,9 @@
 /* eslint-disable no-console */
 
 const TOKEN = process.env.TELEGRAM_TOKEN || '454976546:AAF_8hsRhRMDlkT-03IqSSr6AVULJpCoz0s';
-const url = 'https://web-tabulampot.herokuapp.com';
+const url = 'https://shela.jagopesan.com';
 //const port = 4000;
-const port = process.env.PORT || 3055;
+const port = 3055;
 
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
@@ -27,18 +27,18 @@ const bot = new TelegramBot(TOKEN);
 // This informs the Telegram servers of the new webhook.
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-var indexRoute = require('./routes/index');
-var chartRoute = require('./routes/chart');
-var insertmenuRoute = require('./routes/insertmenu');
-var insertcontentRoute = require('./routes/insertcontent');
+// var indexRoute = require('./routes/index');
+// var chartRoute = require('./routes/chart');
+// var insertmenuRoute = require('./routes/insertmenu');
+// var insertcontentRoute = require('./routes/insertcontent');
 
-var tanamanRoute = require('./api/routes/tanaman');
-var prosedurtanamRoute = require('./api/routes/prosedurTanam');
-var tipeProsedurRoute = require('./api/routes/tipeProsedur');
-var langkahRoute = require('./api/routes/langkah');
-var menuRoute = require('./api/routes/menu');
-var isiRoute = require('./api/routes/isi');
-var adminRoute = require('./api/routes/admin');
+// var tanamanRoute = require('./api/routes/tanaman');
+// var prosedurtanamRoute = require('./api/routes/prosedurTanam');
+// var tipeProsedurRoute = require('./api/routes/tipeProsedur');
+// var langkahRoute = require('./api/routes/langkah');
+// var menuRoute = require('./api/routes/menu');
+// var isiRoute = require('./api/routes/isi');
+// var adminRoute = require('./api/routes/admin');
 
 const app = express();
 
@@ -53,22 +53,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 // We are receiving updates at the route below!
 app.post(`/bot${TOKEN}`, (req, res) => {
   bot.processUpdate(req.body);
+  console.log(req.body)
   res.sendStatus(200);
 });
 
 //app.use('/shela', indexRoute);
-app.use('/',indexRoute);
-app.use('/chart',chartRoute);
-app.use('/insertmenu',insertmenuRoute);
-app.use('/insertcontent',insertcontentRoute);
+// app.use('/',indexRoute);
+// app.use('/chart',chartRoute);
+// app.use('/insertmenu',insertmenuRoute);
+// app.use('/insertcontent',insertcontentRoute);
 
-app.use('/tanaman', tanamanRoute);
-app.use('/prosedurTanam', prosedurtanamRoute);
-app.use('/tipeProsedur', tipeProsedurRoute);
-app.use('/langkah', langkahRoute);
-app.use('/menu', menuRoute);
-app.use('/isi', isiRoute);
-app.use('/admin', adminRoute);
+// app.use('/tanaman', tanamanRoute);
+// app.use('/prosedurTanam', prosedurtanamRoute);
+// app.use('/tipeProsedur', tipeProsedurRoute);
+// app.use('/langkah', langkahRoute);
+// app.use('/menu', menuRoute);
+// app.use('/isi', isiRoute);
+// app.use('/admin', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
