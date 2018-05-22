@@ -10,7 +10,7 @@ module.exports = function(bot, message){
     let getMenu = [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"],["uno", "due","tre","quattro"]]
 
     console.log(message)
-    bot.sendMessage(message.chat.id, "Welcome To TabuLampot", getMenu); 
+    bot.sendMessage(message.message.chat.id, "Welcome To TabuLampot", getMenu); 
     
     // bot.on('message', msg => {
       
