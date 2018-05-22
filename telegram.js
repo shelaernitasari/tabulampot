@@ -25,7 +25,7 @@ module.exports = async (bot, message) => {
                 keyboard.push([])
                 j++
             }
-            keyboard[j][i % 2] = defaultMenu[i].menu
+            keyboard[j].push(defaultMenu[i].menu)
         }
         console.log(keyboard)
     }
