@@ -19,10 +19,13 @@ module.exports = async (bot, message) => {
                 root: menuUtama[0]._id
             }
         }])
+        let j = 0
         for (let i = 0 ; i < defaultMenu.length ; i++){
-            for(let j = 0 ; j < 2 ; j++){
-                keyboard[i][j] = defaultMenu[i].menu
+            if (i % 2 == 0){
+                keyboard[j] = []
+                j++
             }
+            keyboard[j][i % 2] = defaultMenu[i].menu
         }
         console.log(keyboard)
     }
