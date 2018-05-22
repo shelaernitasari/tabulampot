@@ -12,7 +12,7 @@ module.exports = async (bot, message) => {
         let menuUtama = await MenuModel.find({menu: "Menu Utama"})
         let defaultMenu = await MenuModel.aggregate([{
             $match: {
-                root: menuUtama._id
+                root: menuUtama[0]._id
             }
         }])
         console.log(menuUtama)
