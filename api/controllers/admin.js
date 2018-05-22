@@ -62,7 +62,7 @@ exports.admin_login = (req, res, next) =>{
             });
         }
 
-        bcrypt.compare(req.body.password), admin[0].password, (err, result) => {
+        bcrypt.compare(req.body.password, admin[0].password, (err, result) => {
             if(err){
                 return res.status(401).json({
                     message: 'gagal sistem',
@@ -90,7 +90,7 @@ exports.admin_login = (req, res, next) =>{
                 token: 'null',
                 id_admin : 'null'
             });
-        }
+        });
     })
     .catch(err => {
         console.log(err);
