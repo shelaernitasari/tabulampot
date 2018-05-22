@@ -18,7 +18,7 @@ const cookieParser = require('cookie-parser');
 
 //mongoose.connect("mongodb://tabulampotproject:"+process.env.MONGO_ATLAS_PW+"@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
 //mongoose.connect("mongodb://tabulampotproject:shela123@tabulampotproject-shard-00-00-jnwur.mongodb.net:27017,tabulampotproject-shard-00-01-jnwur.mongodb.net:27017,tabulampotproject-shard-00-02-jnwur.mongodb.net:27017/test?ssl=true&replicaSet=TabulampotProject-shard-0&authSource=admin");
-mongoose.connect("mongodb://shela:shela123456789@localhost.com:64526/tabulampot");
+mongoose.connect("mongodb://shela:shela123456789@localhost:64526/tabulampot");
 mongoose.Promise = global.Promise;
 
 // No need to pass any parameters as we will handle the updates with Express
