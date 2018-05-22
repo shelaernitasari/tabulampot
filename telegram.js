@@ -30,10 +30,10 @@ module.exports = function(bot, message){
             bot.sendMessage(message.chat.id, "Menu A", getMenuA); 
             break
         case "b": 
-            bot.sendMessage(message.chat.id, "Menu A", getMenuA); 
+            bot.sendMessage(message.chat.id, "Menu B", getMenuB); 
             break
         case "c": 
-            bot.sendMessage(message.chat.id, "Menu A", getMenuA); 
+            bot.sendMessage(message.chat.id, "Menu C", getMenuC); 
             break
     }
 
