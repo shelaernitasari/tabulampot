@@ -38,7 +38,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 // var langkahRoute = require('./api/routes/langkah');
 // var menuRoute = require('./api/routes/menu');
 // var isiRoute = require('./api/routes/isi');
-// var adminRoute = require('./api/routes/admin');
+ var adminRoute = require('./api/routes/admin');
 
 const app = express();
 
@@ -73,7 +73,7 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 // app.use('/langkah', langkahRoute);
 // app.use('/menu', menuRoute);
 // app.use('/isi', isiRoute);
-// app.use('/admin', adminRoute);
+ app.use('/admin', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
