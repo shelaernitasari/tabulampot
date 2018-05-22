@@ -32,11 +32,11 @@ const upload = multer({
 
 router.post("/", checkAuth, upload.single('foto'), adminController.admin_signup);
 
-router.post("/login", checkAuth, adminController.admin_login);
+router.post("/login", adminController.admin_login);
 
 router.get("/", checkAuth, adminController.admin_get_all);
 
-router.post('/signup', checkAuth, adminController.admin_post);
+router.post('/signup', adminController.admin_signup);
 
 router.get('/:adminid', checkAuth, adminController.admin_get_id);
 
