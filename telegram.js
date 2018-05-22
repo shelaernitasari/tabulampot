@@ -33,7 +33,7 @@ module.exports = async (bot, message) => {
         console.log(keyboard)
     }
 
-    keyboardResponse.reply_markup.keyboard = [["uno :+1:"],["uno \ud83d\udc4d", "due"],["uno", "due","tre"],["uno", "due","tre","quattro"]]
+    keyboardResponse.reply_markup.keyboard = keyboard
     // console.log(keyboardResponse)
     bot.sendMessage(message.chat.id, chat, keyboardResponse); 
 
