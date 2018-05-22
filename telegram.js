@@ -7,7 +7,7 @@ module.exports = async (bot, message) => {
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
     if (menu.length > 0) {
-
+        console.log(menu)
     } else {
         let menuUtama = await MenuModel.find({root: "null"})
         console.log(menu, menuUtama)
