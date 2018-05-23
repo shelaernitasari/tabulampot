@@ -33,6 +33,11 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/edit/:idnya', (req, res, next)=>{
+    var idne = req.params.idnya;
+    res.send(idne);
+});
+
 router.post('/', function(req, res){
     // console.log(req.body.root);
     // console.log(req.body.menu);
