@@ -24,11 +24,16 @@ module.exports = async (bot, message) => {
         let half = defaultMenu.length / 2
 
         console.log(defaultMenu);
-        for (let i = 0 ; i < half ; i++){
+        for (let i = 0 ; i < defaultMenu.length ; i++){
             console.log(defaultMenu[i].menu) 
             let subKeyboard = []
+
             subKeyboard.push(defaultMenu[i].menu)
-            subKeyboard.push(defaultMenu[i+half].menu)
+           
+
+            if ((i+half) < defaultMenu.length - 1){
+                subKeyboard.push(defaultMenu[i+half].menu)
+            }
             
             // if (i % 2 == 0){
             //     keyboard.push(new Array(2))
