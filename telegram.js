@@ -21,18 +21,22 @@ module.exports = async (bot, message) => {
         }])
         // let j = 0
         // let k = 0
+        let half = defaultMenu.length / 2
+
         console.log(defaultMenu);
-        for (let i = 0 ; i < defaultMenu.length ; i++){
-            console.log(defaultMenu[i].menu)
+        for (let i = 0 ; i < half ; i++){
+            console.log(defaultMenu[i].menu) 
+            let subKeyboard = []
+            subKeyboard.push(defaultMenu[i].menu)
+            subKeyboard.push(defaultMenu[i+half].menu)
+            
             // if (i % 2 == 0){
             //     keyboard.push(new Array(2))
             //     k = 0
             //     j++
             // }
 
-            for(let j = 0; defaultMenu[i].length; j++ ){
-                keyboard.push(defaultMenu[i][j])
-            }
+            keyboard.push(subKeyboard)
 
             // keyboard.push(defaultMenu[i].menu)
         }
