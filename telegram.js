@@ -12,7 +12,7 @@ module.exports = async (bot, message) => {
     if (menu.length > 0) {
         // console.log(menu)
     } else {
-        chat = "Menu utama"
+        chat = "Menu Utama"
         let menuUtama = await MenuModel.find({menu: "Menu Utama"})
         let defaultMenu = await MenuModel.aggregate([{
             $match: {
@@ -22,19 +22,16 @@ module.exports = async (bot, message) => {
         // let j = 0
         // let k = 0
         let half = defaultMenu.length / 2
-
         if(defaultMenu.length % 2 != 0){
             half = half + 0.5
         }
-
-        console.log(half);
+        // console.log(half);
         for (let i = 0 ; i < half; i++){
             console.log(defaultMenu[i].menu) 
             let subKeyboard = []
 
             subKeyboard.push(defaultMenu[i].menu)
-           
-
+        
             if ((i+half) < defaultMenu.length){
                 subKeyboard.push(defaultMenu[i+half].menu)
             }
