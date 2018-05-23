@@ -35,7 +35,7 @@ module.exports = async (bot, message) => {
             subKeyboard.push(defaultMenu[i].menu)
            
 
-            if ((i+half) < defaultMenu.length - 1){
+            if ((i+half) < defaultMenu.length){
                 subKeyboard.push(defaultMenu[i+half].menu)
             }
             
