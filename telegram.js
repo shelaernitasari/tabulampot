@@ -21,6 +21,7 @@ module.exports = async (bot, message) => {
         }])
         // let j = 0
         // let k = 0
+        console.log(defaultMenu);
         for (let i = 0 ; i < defaultMenu.length ; i++){
             console.log(defaultMenu[i].menu)
             // if (i % 2 == 0){
