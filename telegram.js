@@ -27,7 +27,7 @@ module.exports = async (bot, message) => {
             half = half + 0.5
         }
 
-        //console.log(half);
+        console.log(half);
         for (let i = 0 ; i < half; i++){
             console.log(defaultMenu[i].menu) 
             let subKeyboard = []
