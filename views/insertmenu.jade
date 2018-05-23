@@ -44,22 +44,19 @@ block content
             thead
               tr.table-danger
                 th No
-                th
-                  | id
-                th
-                  | root
-                th
-                  | menu
+                th id
+                th root
+                th menu
+                th aksi
             tbody
             each data, i in menu
               tr.table-primary
+                td #{i+1}
+                td #{data.id}
+                td #{data.root}
+                td #{data.menu}
                 td
-                  | #{i+1}
-                td
-                  | #{data.id}
-                td
-                  | #{data.root}
-                td
-                  | #{data.menu}
+                  a.btn.btn-primary(href='/edit') edit
+                  a.btn.btn-danger(href='/hapus') hapus
               
   // tabel ends
