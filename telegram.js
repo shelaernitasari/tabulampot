@@ -22,18 +22,18 @@ module.exports = async (bot, message) => {
         let j = 0
         let k = 0
         for (let i = 0 ; i < defaultMenu.length ; i++){
-            // console.log(defaultMenu[i].menu)
-            // if (i % 2 == 0){
-            //     keyboard.push(new Array(2))
-            //     k = 0
-            //     j++
-            // }
+            console.log(defaultMenu[i].menu)
+            if (i % 2 == 0){
+                keyboard.push(new Array(2))
+                k = 0
+                j++
+            }
             keyboard.push(defaultMenu[i].menu)
         }
         console.log(keyboard)
     }
 
-    keyboardResponse.reply_markup.keyboard = keyboard
+    keyboardResponse.reply_markup.keyboard = [["Penanaman", "Perawatan"],   ["Tips & Trik"], ["Keluhan", "FAQ"]]
     // console.log(keyboardResponse)
     bot.sendMessage(message.chat.id, chat, keyboardResponse); 
 
