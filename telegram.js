@@ -10,7 +10,8 @@ module.exports = async (bot, message) => {
     let keyboard = []
 
     if (menu.length > 0) {
-        console.log(menu)
+        let targetMenu = await MenuModel.find({root: menu[0]._id})
+        console.log(targetMenu)
     } else {
         chat = "Menu Utama"
         let menuUtama = await MenuModel.find({menu: "Menu Utama"})
