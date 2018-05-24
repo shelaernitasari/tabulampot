@@ -1,4 +1,5 @@
 const MenuModel = require('./api/models/menu')
+const MenuModel = require('./api/models/isi')
 
 module.exports = async (bot, message) => {
     let keyboardResponse = {}
@@ -9,7 +10,12 @@ module.exports = async (bot, message) => {
 
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
-        keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
+        if(targetMenu.length == 0 ){
+            chat = "ini isi"
+        }else{
+            keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
+        }
+        
     } else {
         chat = "Menu Utama"
         let menuUtama = await MenuModel.find({menu: "Menu Utama"})
@@ -23,6 +29,8 @@ module.exports = async (bot, message) => {
         keyboardResponse.reply_markup.keyboard = parseMenu(defaultMenu)
     }
     // console.log(keyboardResponse)
+
+
     bot.sendMessage(message.chat.id, chat, keyboardResponse); 
 
     // console.log(message)
