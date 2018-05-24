@@ -1,5 +1,5 @@
 const MenuModel = require('./api/models/menu')
-const MenuModel = require('./api/models/isi')
+const isiModel = require('./api/models/isi')
 
 module.exports = async (bot, message) => {
     let keyboardResponse = {}
