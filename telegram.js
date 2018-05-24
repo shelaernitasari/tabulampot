@@ -7,11 +7,12 @@ module.exports = async (bot, message) => {
 
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
+    let isi = await isiModel.find({isi: chat})
 
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         if(targetMenu.length == 0 ){
-            chat = "ini isi"
+            chat = isi
         }else{
             keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
         }
