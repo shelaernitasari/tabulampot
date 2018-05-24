@@ -8,11 +8,12 @@ module.exports = async (bot, message) => {
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
     let isi = await isiModel.find({isi: chat})
-
+    console.log(menu)
+    
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         if(targetMenu.length == 0 ){
-            //let hasil = await isiModel.find({content: isi})
+            let hasil = await isiModel.find({content: isi[0].})
             console.log(isi)
             //chat = hasil
         }else{
