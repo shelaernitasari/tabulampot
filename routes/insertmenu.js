@@ -35,6 +35,14 @@ router.get('/', function(req, res){
 
 router.get('/edit/:idnya', (req, res, next)=>{
     var idne = req.params.idnya;
+    Menu.findById(idne, (data)=>{
+        res.send(data);
+    })
+    // res.send(idne);
+});
+
+router.get('/hapus/:idnya', (req, res, next)=>{
+    var idne = req.params.idnya;
     res.send(idne);
 });
 
