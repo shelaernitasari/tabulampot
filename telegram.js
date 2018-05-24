@@ -20,7 +20,7 @@ module.exports = async (bot, message) => {
             //console.log('isi',isi)
             //chat = isi[0].content
             chat = tampil
-            console.log(chat)
+            console.log(tampil)
             
 
         }else{
