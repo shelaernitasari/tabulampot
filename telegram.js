@@ -18,6 +18,7 @@ module.exports = async (bot, message) => {
             console.log('ambil', tampil)
             //console.log('hasil',isi)
             //chat = isi[0].content
+            chat = tampil[0].content
 
         }else{
             keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
