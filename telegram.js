@@ -7,7 +7,7 @@ module.exports = async (bot, message) => {
 
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
-    let isi = await isiModel.find({isi: menu._id})
+    let isi = await isiModel.find({isi: chat})
     // console.log('menu',menu)
 
     if (menu.length > 0) {
@@ -19,7 +19,7 @@ module.exports = async (bot, message) => {
 
             //console.log('isi',isi)
             //chat = isi[0].content
-            chat = tampil
+            //chat = tampil
             console.log(tampil)
             
 
