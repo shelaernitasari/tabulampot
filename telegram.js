@@ -14,14 +14,16 @@ module.exports = async (bot, message) => {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
-            let isi = await isiModel.find({content: idmenu.menu})
+            let isi = await isiModel.find({idmenu: menu._id})
+            let tampil = await isiModel.find({content: isi._id})
             //let tampil = await isiModel.find({content: isi._id})
             // console.log('ambil', tampil)
 
-            console.log('isi',isi)
+            
             //chat = isi[0].content
             //chat = tampil
-            // console.log(tampil)
+            console.log(tampil)
+            console.log('isi',isi)
             
 
         }else{
