@@ -7,7 +7,7 @@ module.exports = async (bot, message) => {
 
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
-    let isi = await isiModel.find({isi: menu._id})
+    let isi = await isiModel.find({isi: menu[0]._id})
     // console.log('menu',menu)
     // console.log('isi',isi)
 
@@ -18,7 +18,7 @@ module.exports = async (bot, message) => {
             console.log('ambil', tampil)
             //console.log('hasil',isi)
             //chat = isi[0].content
-            chat = tampil[0].content
+            chat = tampil
 
         }else{
             keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
