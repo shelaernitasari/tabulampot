@@ -7,8 +7,6 @@ module.exports = async (bot, message) => {
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
 
-    let keyboard = []
-
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
@@ -31,6 +29,7 @@ module.exports = async (bot, message) => {
 };
 
 function parseMenu (menu) {
+    let keyboard = []
     let half = menu.length / 2
     if(menu.length % 2 != 0){
         half = half + 0.5
