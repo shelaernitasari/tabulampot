@@ -9,7 +9,7 @@ module.exports = async (bot, message) => {
     let menu = await MenuModel.find({menu: chat})
     let isi = await isiModel.find({isi: menu._id})
     // console.log('menu',menu)
-    // console.log('isi',isi)
+    console.log('isi atas',isi)
 
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
