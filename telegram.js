@@ -12,9 +12,10 @@ module.exports = async (bot, message) => {
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         if(targetMenu.length == 0 ){
-            targetMenu = isi
+            bot.sendMessage(message.chat.id, isi);
         }else{
             keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
+            bot.sendMessage(message.chat.id, chat, keyboardResponse);
         }
         
     } else {
@@ -28,11 +29,12 @@ module.exports = async (bot, message) => {
         // let j = 0
         // let k = 0
         keyboardResponse.reply_markup.keyboard = parseMenu(defaultMenu)
+        bot.sendMessage(message.chat.id, chat, keyboardResponse);
     }
     // console.log(keyboardResponse)
 
 
-    bot.sendMessage(message.chat.id, chat, keyboardResponse); 
+   // bot.sendMessage(message.chat.id, chat, keyboardResponse); 
 
     // console.log(message)
 };
