@@ -66,9 +66,9 @@ block content
               //action for delete
               this.Delete = function(data) {
                 $.ajax({
-                  url: 'https://shela.jagopesan.com/insertmenu/delete'
-                  method: 'post',
-                  data: 'id='+data,
+                  url: "https://shela.jagopesan.com/insertmenu/delete",
+                  method: "POST",
+                  data: "id="+data,
                   success: (rst){
                     alert('sip');
                   }
