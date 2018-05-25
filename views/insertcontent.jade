@@ -53,32 +53,39 @@ block content
           table.table.table-striped
             thead
               tr
-                th
-                  | No
-                th
-                  | id
-                th
-                  | judul
-                th
-                  | content
-                th
-                  | tanggal
-                th
-                  | menu
+                th No
+                th id
+                th judul
+                th content
+                th tanggal
+                th menu
             tbody
              each data, i in content
               tr
+                td #{i+1}
+                td #{data.id}
+                td #{data.judul}
+                td #{data.content}
+                td #{data.tanggal}
+                td #{data.idmenu}
                 td
-                  | #{i+1}
-                td
-                  | #{data.id}
-                td
-                  | #{data.judul}
-                td
-                  | #{data.content}
-                td
-                  | #{data.tanggal}
-                td
-                  | #{data.idmenu}
-              
+                  a.btn.btn-primary(href='/insertcontent/edit/' + data.id) edit
+                  button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
+
+          script(src="https://code.jquery.com/jquery-3.3.1.js", integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", crossorigin="anonymous")
+          script.
+            var app = new function() {
+
+              //action for delete
+              this.Delete = function(data) {
+                $.ajax({
+                  url: "https://shela.jagopesan.com/insertcontent/delete",
+                  method: "POST",
+                  data: "id="+data
+                })
+                .done(function(data){
+                  location.reload()
+                })
+              }
+            }   
   // penutup tabel
