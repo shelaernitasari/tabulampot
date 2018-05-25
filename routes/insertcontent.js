@@ -70,14 +70,14 @@ router.post('/', async (req, res, next)=>{
 
 router.get('/edit/:idnya', (req, res, next)=>{
     var idne = req.params.idnya;
-    Content.findById(idne, (data)=>{
+    Isi.findById(idne, (data)=>{
         res.send(data);
     })
     // res.send(idne);
 });
 
 router.post('/delete', function(req, res, next){  
-    Content.findByIdAndRemove(req.body.id, function(err, post){
+    Isi.findByIdAndRemove(req.body.id, function(err, post){
         if(err) return next(err);
         res.redirect('/insertcontent')
     });
