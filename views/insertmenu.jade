@@ -66,9 +66,6 @@ block content
               this.Delete = function(data) {
                 fetch('insertmenu', function(){
                   method: 'post',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
                   body: JSON.stringify({
                     'id': data
                   })
