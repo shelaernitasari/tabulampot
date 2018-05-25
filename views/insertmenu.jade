@@ -59,23 +59,19 @@ block content
                   a.btn.btn-primary(href='/insertmenu/edit/' + data.id) edit
                   button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
           
+          script(src="https://code.jquery.com/jquery-3.3.1.js", integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", crossorigin="anonymous")
           script.
             var app = new function() {
 
               //action for delete
               this.Delete = function(data) {
-                fetch('insertmenu', function(){
+                $.ajax({
+                  url: 'https://shela.jagopesan.com/insertmenu/delete'
                   method: 'post',
-                  body: JSON.stringify({
-                    'id': data
-                  })
-                })
-                .then(res => {
-                  if (res.ok) return res.json()
-                })
-                .then(rst => {
-                  console.log(rst)
-                  window.location.reload()
+                  data: 'id='+data,
+                  success: (rst){
+                    alert('sip');
+                  }
                 })
               }
             }    
