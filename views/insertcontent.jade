@@ -67,7 +67,7 @@ block content
                 td #{data.judul}
                 td #{data.content}
                 td #{data.tanggal}
-                td #{data.idmenu}
+                td #{data.idmenu.menu}
                 td
                   a.btn.btn-primary(href='/insertcontent/edit/' + data.id) edit
                   button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
