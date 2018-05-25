@@ -8,40 +8,40 @@ module.exports = async (bot, message) => {
     let chat = message.text
     let menu = await MenuModel.find({menu: chat})
     // let isi = await isiModel.find({isi: menu._id})
-    console.log('menu',menu)
+    // console.log('menu',menu)
 
-    // if (menu.length > 0) {
-    //     let targetMenu = await MenuModel.find({root: menu[0]._id})
-    //     //console.log(targetMenu)
-    //     if(targetMenu.length == 0 ){
-    //         let isi = await isiModel.find({isi: menu._id})
-    //         //let tampil = await isiModel.find({content: targetMenu})
-    //         //let tampil = await isiModel.find({content: isi._id})            
-    //         chat = isi[0].content
-    //         //chat = tampil
-    //         console.log('isi',isi)
-    //         console.log('tampil',tampil)
+    if (menu.length > 0) {
+        let targetMenu = await MenuModel.find({root: menu[0]._id})
+        //console.log(targetMenu)
+        if(targetMenu.length == 0 ){
+            let isi = await isiModel.find({isi: menu._id})
+            //let tampil = await isiModel.find({content: targetMenu})
+            //let tampil = await isiModel.find({content: isi._id})            
+            chat = isi[0].content
+            //chat = tampil
+            console.log('isi',isi)
+            console.log('tampil',tampil)
            
-    //     }else{
-    //         keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
-    //     }
+        }else{
+            keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
+        }
         
-    // } else {
-    //     chat = "Menu Utama"
-    //     let menuUtama = await MenuModel.find({menu: "Menu Utama"})
-    //     let defaultMenu = await MenuModel.aggregate([{
-    //         $match: {
-    //             root: menuUtama[0]._id
-    //         }
-    //     }])
-    //     // let j = 0
-    //     // let k = 0
-    //     keyboardResponse.reply_markup.keyboard = parseMenu(defaultMenu)
-    // }
+    } else {
+        chat = "Menu Utama"
+        let menuUtama = await MenuModel.find({menu: "Menu Utama"})
+        let defaultMenu = await MenuModel.aggregate([{
+            $match: {
+                root: menuUtama[0]._id
+            }
+        }])
+        // let j = 0
+        // let k = 0
+        keyboardResponse.reply_markup.keyboard = parseMenu(defaultMenu)
+    }
     // console.log(keyboardResponse)
 
 
-    // bot.sendMessage(message.chat.id, chat, keyboardResponse); 
+    bot.sendMessage(message.chat.id, chat, keyboardResponse); 
 
     // console.log(message)
 };
