@@ -68,10 +68,10 @@ block content
                 $.ajax({
                   url: "https://shela.jagopesan.com/insertmenu/delete",
                   method: "POST",
-                  data: "id="+data,
-                  success: (rst){
-                    alert('sip');
-                  }
+                  data: "id="+data
+                })
+                .done(function(data){
+                  alert('sip');
                 })
               }
             }    
