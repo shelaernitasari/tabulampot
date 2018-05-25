@@ -57,6 +57,6 @@ block content
                 td #{data.menu}
                 td
                   a.btn.btn-primary(href='/insertmenu/edit/' + data.id) edit
-                  a.btn.btn-danger(href='/insertmenu/hapus/' + data.id) hapus
+                  a.btn.btn-danger(href='/insertmenu/hapus/' + data.id, onclick='app.Delete('+data.id+')') hapus
               
   // tabel ends
