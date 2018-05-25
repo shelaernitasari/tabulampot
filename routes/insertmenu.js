@@ -41,6 +41,13 @@ router.get('/edit/:idnya', (req, res, next)=>{
     // res.send(idne);
 });
 
+router.delete('/:id', function(req, res, next){  
+    Menu.findByIdAndRemove(req.params.id, req.body, function(err, post){
+        if(err) return next(err);
+        res.redirect('/insertmenu')
+    });
+});
+
 router.get('/hapus/:idnya', (req, res, next)=>{
     var idne = req.params.idnya;
     res.send(idne);

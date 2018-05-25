@@ -61,8 +61,25 @@ block content
           
           script.
             var app = new function() {
+
+              //action for delete
               this.Delete = function(data) {
-                alert(data)
+                fetch('insertmenu', function(){
+                  method: 'delete',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    'id': data
+                  })
+                })
+                .then(res => {
+                  if (res.ok) return res.json()
+                })
+                .then(rst => {
+                  console.log(rst)
+                  window.location.reload()
+                })
               }
             }    
   // tabel ends
