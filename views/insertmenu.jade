@@ -57,12 +57,12 @@ block content
                 td #{data.menu}
                 td
                   a.btn.btn-primary(href='/insertmenu/edit/' + data.id) edit
-                  button.btn.btn-danger(onclick='app.Delete('+data.id+')') hapus
+                  button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
           
           script.
             var app = new function() {
               this.Delete = function(data) {
-                alert(data);
+                alert(data)
               }
             }    
   // tabel ends
