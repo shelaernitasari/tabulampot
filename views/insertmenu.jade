@@ -65,14 +65,19 @@ block content
 
               //action for delete
               this.Delete = function(data) {
-                $.ajax({
-                  url: "https://shela.jagopesan.com/insertmenu/delete",
-                  method: "POST",
-                  data: "id="+data
-                })
-                .done(function(data){
-                  location.reload()
-                })
+                var r = confirm("Press a button!");
+                if (r == true) {
+                    $.ajax({
+                      url: "https://shela.jagopesan.com/insertmenu/delete",
+                      method: "POST",
+                      data: "id="+data
+                    })
+                    .done(function(data){
+                      location.reload()
+                    })
+                } else {
+                    alert("cancel")
+                }
               }
             }    
   // tabel ends
