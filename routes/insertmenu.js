@@ -41,8 +41,8 @@ router.get('/edit/:idnya', (req, res, next)=>{
     // res.send(idne);
 });
 
-router.delete('/:id', function(req, res, next){  
-    Menu.findByIdAndRemove(req.params.id, req.body, function(err, post){
+router.post('/delete', function(req, res, next){  
+    Menu.findByIdAndRemove(req.body.id, function(err, post){
         if(err) return next(err);
         res.redirect('/insertmenu')
     });
