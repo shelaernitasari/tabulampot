@@ -78,14 +78,19 @@ block content
 
               //action for delete
               this.Delete = function(data) {
-                $.ajax({
-                  url: "https://shela.jagopesan.com/insertcontent/delete",
-                  method: "POST",
-                  data: "id="+data
-                })
-                .done(function(data){
-                  location.reload()
-                })
+                var r = confirm("Apakah anda yakin ingin menghapus ? ");
+                if (r == true) {
+                    $.ajax({
+                      url: "https://shela.jagopesan.com/insertcontent/delete",
+                      method: "POST",
+                      data: "id="+data
+                    })
+                    .done(function(data){
+                      location.reload()
+                    })
+                } else {
+                    alert("cancel")
+                }
               }
             }   
   // penutup tabel
