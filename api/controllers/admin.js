@@ -30,7 +30,7 @@ exports.admin_signup = (req, res, next) => {
                         foto: BASE_URL + 'uploads/' + req.file.filename
                     });
 
-                    menu.save()
+                    admin.save()
                         .then(function(result) {
                             console.log(result);
                             res.status(200).json({
