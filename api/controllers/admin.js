@@ -8,6 +8,7 @@ const Admin = require('../models/admin');
 const BASE_URL = 'https://shela.jagopesan.com/'
 
 exports.admin_signup = (req, res, next) => {
+    res.send(req.body);
     Admin.find({ username: req.body.username })
     .exec()
     .then(admin => {
