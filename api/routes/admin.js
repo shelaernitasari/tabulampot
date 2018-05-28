@@ -34,12 +34,12 @@ router.post("/signup",  upload.single('foto'), adminController.admin_signup);
 
 router.post("/login", adminController.admin_login);
 
-router.get("/", checkAuth, adminController.admin_get_all);
+// router.get("/", checkAuth, adminController.admin_get_all);
 
-router.get('/:adminid', checkAuth, adminController.admin_get_id);
+// router.get('/:adminid', checkAuth, adminController.admin_get_id);
 
-router.patch('/:adminid', checkAuth, adminController.admin_update);
+// router.patch('/:adminid', checkAuth, adminController.admin_update);
 
-router.delete('/:adminid', checkAuth, adminController.admin_delete);
+// router.delete('/:adminid', checkAuth, adminController.admin_delete);
 
 module.exports= router;
