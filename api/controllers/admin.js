@@ -73,6 +73,10 @@ exports.admin_login = (req, res, next) =>{
                 const token = jwt.sign(
                     {
                         username: admin[0].username
+                    },
+                    'shelaernitasari',
+                    {
+                        
                     }
                     
                 );

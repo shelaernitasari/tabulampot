@@ -1,0 +1,59 @@
+doctype html
+html(lang='en')
+  head
+    // Required meta tags
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Registrasi
+    // plugins:css
+    link(rel='stylesheet', href='../../vendors/iconfonts/mdi/css/materialdesignicons.min.css')
+    link(rel='stylesheet', href='../../vendors/css/vendor.bundle.base.css')
+    // endinject
+    // plugin css for this page
+    // End plugin css for this page
+    // inject:css
+    link(rel='stylesheet', href='../../css/style.css')
+    // endinject
+    link(rel='shortcut icon', href='../../images/favicon.png')
+  body
+    .container-scroller
+      .container-fluid.page-body-wrapper.full-page-wrapper
+        .content-wrapper.d-flex.align-items-center.auth
+          .row.w-100
+            .col-lg-4.mx-auto
+              .auth-form-light.text-left.p-5
+                h4 New Admin
+                h6.font-weight-light Signing up is easy. It only takes a few steps
+                form.pt-3
+                  .form-group
+                    input#exampleInputUsername1.form-control.form-control-lg(type='text', placeholder='Username')
+                  .form-group
+                    input#exampleInputPassword1.form-control.form-control-lg(type='password', placeholder='Password')
+                  .form-group
+                    label Upload foto
+                    input.file-upload-default(type='file', name='img[]')
+                    .input-group.col-xs-12
+                      input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
+                      span.input-group-append
+                        button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
+                    .form-check
+                      label.form-check-label.text-muted
+                        input.form-check-input(type='checkbox')
+                        |                       I agree to all Terms & Conditions
+                  .mt-3
+                    a.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(href='../../index.html') SIGN UP
+                  .text-center.mt-4.font-weight-light
+                    | Already have an account? 
+                    a.text-primary(href='login.html') Login
+        // content-wrapper ends
+      // page-body-wrapper ends
+    // container-scroller
+    // plugins:js
+    script(src='../../vendors/js/vendor.bundle.base.js')
+    script(src='../../vendors/js/vendor.bundle.addons.js')
+    // endinject
+    // inject:js
+    script(src='../../js/off-canvas.js')
+    script(src='../../js/misc.js')
+    // endinject
+    script(src='../../js/file-upload.js')
