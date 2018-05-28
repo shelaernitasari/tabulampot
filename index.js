@@ -70,9 +70,9 @@ app.use('/admin', adminRoute);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     // next(createError(404));
-    // const error = new Error('not found');
-    // error.status(404);
-    // next(error)
+    const error = new Error('not found');
+    error.status(404);
+    next(error)
 });
 
 // error handler
