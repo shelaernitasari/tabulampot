@@ -27,7 +27,7 @@ exports.admin_signup = (req, res, next) => {
                         _id: new mongoose.Types.ObjectId(),
                         username: req.body.username,
                         password: req.body.password,
-                        foto: BASE_URL + 'uploads/' + req.file.foto
+                        foto: BASE_URL + 'uploads/' + req.file.filename
                     });
 
                     menu.save()
@@ -76,7 +76,7 @@ exports.admin_login = (req, res, next) =>{
                     },
                     'shelaernitasari',
                     {
-                        
+
                     }
                     
                 );
