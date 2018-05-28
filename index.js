@@ -34,7 +34,7 @@ var insertcontentRoute = require('./routes/insertcontent');
 
 var menuRoute = require('./api/routes/menu');
 var isiRoute = require('./api/routes/isi');
-var adminRoute = require('./api/routes/admin');
+// var adminRoute = require('./api/routes/admin');
 
 const app = express();
 
@@ -65,7 +65,7 @@ app.use('/insertcontent',insertcontentRoute);
 
 app.use('/menu', menuRoute);
 app.use('/isi', isiRoute);
-app.use('/admin', adminRoute);
+// app.use('/admin', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
