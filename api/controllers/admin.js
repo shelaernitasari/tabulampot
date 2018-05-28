@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+//const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -8,8 +8,7 @@ const Admin = require('../models/admin');
 const BASE_URL = 'https://shela.jagopesan.com/'
 
 exports.admin_signup = (req, res, next) => {
-    console.log(req.body);
-    /*
+    //console.log(req.body);
     Admin.find({ username: req.body.username })
     .exec()
     .then(admin => {
@@ -29,11 +28,11 @@ exports.admin_signup = (req, res, next) => {
                         _id: new mongoose.Types.ObjectId(),
                         username: req.body.username,
                         password: req.body.password,
-                        foto: BASE_URL + 'uploads/' + req.file.foto
+                        foto: BASE_URL + 'uploads/' + req.file.filename,
                     });
 
                     admin.save()
-                        .then(function(result) {
+                        .then(result => {
                             console.log(result);
                             res.status(200).json({
                                 message: "Berhasil menambah admin",
@@ -51,7 +50,7 @@ exports.admin_signup = (req, res, next) => {
             });
         }
     });
-    */
+
 };
 
 exports.admin_login = (req, res, next) =>{
