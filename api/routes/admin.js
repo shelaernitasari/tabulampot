@@ -30,7 +30,7 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-router.post("/signup",  upload.single('foto'), adminController.admin_signup);
+router.post("/",  upload.single('foto'), adminController.admin_signup);
 
 router.post("/login", adminController.admin_login);
 
