@@ -8,7 +8,8 @@ const Admin = require('../models/admin');
 const BASE_URL = 'https://shela.jagopesan.com/'
 
 exports.admin_signup = (req, res, next) => {
-    res.send(req.body);
+    console.log(req.body);
+    /*
     Admin.find({ username: req.body.username })
     .exec()
     .then(admin => {
@@ -50,6 +51,7 @@ exports.admin_signup = (req, res, next) => {
             });
         }
     });
+    */
 };
 
 exports.admin_login = (req, res, next) =>{
