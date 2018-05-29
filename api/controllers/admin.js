@@ -29,7 +29,7 @@ exports.admin_signup = (req, res, next) => {
                         username: req.body.username,
                         password: req.body.password,
                         //foto: req.file.path
-                        foto: BASE_URL + '/uploads/' + req.file.filename
+                        foto: BASE_URL + '/uploads' + req.file.filename
                     });
 
                     admin.save()
