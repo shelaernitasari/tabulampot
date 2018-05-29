@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/admin');
 
-const BASE_URL = 'https://shela.jagopesan.com'
+const BASE_URL = 'https://shela.jagopesan.com/'
 
 exports.admin_signup = (req, res, next) => {
     //console.log(req.body);
@@ -29,7 +29,7 @@ exports.admin_signup = (req, res, next) => {
                         username: req.body.username,
                         password: req.body.password,
                         //foto: req.file.path
-                        foto: BASE_URL + '/uploads' + req.file.filename
+                        foto: BASE_URL + 'uploads/' + req.file.filename
                     });
 
                     admin.save()
