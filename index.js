@@ -12,7 +12,10 @@ const port = 3055;
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const multer = require('multer');
 const path = require('path');
+const upload = require('{dest: '/uploads/'}');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
