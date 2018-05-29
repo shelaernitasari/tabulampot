@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/admin');
 
-const BASE_URL = 'https://shela.jagopesan.com/'
+const BASE_URL = 'https://shela.jagopesan.com'
 
 exports.admin_signup = (req, res, next) => {
     //console.log(req.body);
