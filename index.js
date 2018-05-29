@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
-const upload = require('{dest: '/uploads/'}');
+const upload = multer('{dest: '/uploads/'}');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
@@ -48,6 +48,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static('uploads'));
 
 // We are receiving updates at the route below!
 app.post(`/bot${TOKEN}`, (req, res) => {
