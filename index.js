@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
-const upload = multer('{dest: '/uploads/'}');
+//const upload = multer('{dest:'/uploads/'}');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
