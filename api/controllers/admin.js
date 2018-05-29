@@ -55,7 +55,7 @@ exports.admin_signup = (req, res, next) => {
 };
 
 exports.admin_login = (req, res, next) =>{
-    Admin.find({ email: req.body.username })
+    Admin.find({ username: req.body.username })
     .exec()
     .then(admin => {
         if(admin.length < 1){
