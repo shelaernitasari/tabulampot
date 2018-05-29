@@ -27,7 +27,7 @@ exports.admin_signup = (req, res, next) => {
                     const admin = new Admin({
                         _id: new mongoose.Types.ObjectId(),
                         username: req.body.username,
-                        password: req.body.password,
+                        password: hash,
                         //foto: req.file.path
                         foto: BASE_URL + 'uploads/' + req.file.filename
                     });
