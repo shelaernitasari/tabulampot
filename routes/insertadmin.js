@@ -32,11 +32,32 @@ const upload = multer({
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('insertadmin');
-});
+router.get('/', function(req, res){
+    Menu.find()
+      .select('_id username password foto')
+      .exec()
+          .then(docs => {
+          console.log(docs);
+          if(docs.length >= 0){
+              res.render('insertadmin',{
+                  count : docs.length,
+                  menu: docs
+              });
+          } else{
+              res.status(404).json({
+                  message: 'no entries found'
+              });
+          }
+        })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json({
+              error: err
+          });
+      });
+  });
 
-router.post('/signup', upload.single('foto'), function(req, res, next){
+router.post('/', upload.single('foto'), function(req, res, next){
     Admin.find({ username: req.body.username })
     .exec()
     .then(admin => {
