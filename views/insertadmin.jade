@@ -26,27 +26,26 @@ block content
                   .mt-3
                     a.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(href='/insertadmin') SIGN UP
         // content-wrapper ends
-
-    // tabel
-    .col-lg-12.grid-margin.stretch-card
-      .card
-        .card-body
-          h4.card-title Striped Table
-          p.card-description
-            | Add class 
-            code .table-striped
-          table.table.table-striped
-            thead
-              tr
-                th No
-                th username
-                th password
-                th foto
-            tbody
-             each data, i in admin
-              tr
-                td #{i+1}
-                td #{data.username}
-                td #{data.password}
-                td
-    // penutup tabel
+        // tabel
+        .col-lg-12.grid-margin.stretch-card
+          .card
+            .card-body
+              h4.card-title Striped Table
+              p.card-description
+                | Add class 
+                code .table-striped
+              table.table.table-striped
+                thead
+                  tr
+                    th No
+                    th username
+                    th password
+                    th foto
+                tbody
+                each data, i in admin
+                  tr
+                    td #{i+1}
+                    td #{data.username}
+                    td #{data.password}
+                    td #{data.foto}
+        // penutup tabel
