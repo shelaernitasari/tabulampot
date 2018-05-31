@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/admin');
+var Admin = require('../api/models/admin');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login');
