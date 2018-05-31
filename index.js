@@ -35,7 +35,7 @@ var indexRoute = require('./routes/index');
 var chartRoute = require('./routes/chart');
 var insertmenuRoute = require('./routes/insertmenu');
 var insertcontentRoute = require('./routes/insertcontent');
-var insertadminRoute = require('./routes/insertadmin');
+//var insertadminRoute = require('./routes/insertadmin');
 
 var menuRoute = require('./api/routes/menu');
 var isiRoute = require('./api/routes/isi');
@@ -70,7 +70,7 @@ app.use('/index',indexRoute);
 app.use('/chart',chartRoute);
 app.use('/insertmenu',insertmenuRoute);
 app.use('/insertcontent',insertcontentRoute);
-app.use('/insertadmin',insertadminRoute);
+//app.use('/insertadmin',insertadminRoute);
 
 app.use('/menu', menuRoute);
 app.use('/isi', isiRoute);
