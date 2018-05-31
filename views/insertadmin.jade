@@ -7,16 +7,16 @@ block content
               .auth-form-light.text-left.p-5
                 h4 New Admin
                 h6.font-weight-light Signing up is easy. It only takes a few steps
-                form.pt-3
+                form.pt-3(action='/insertadmin', method='post')
                   .form-group
-                    input#exampleInputUsername1.form-control.form-control-lg(type='text', placeholder='Username')
+                    input#exampleInputUsername1.form-control.form-control-lg(type='text', placeholder='Username', name='username')
                   .form-group
-                    input#exampleInputPassword1.form-control.form-control-lg(type='password', placeholder='Password')
+                    input#exampleInputPassword1.form-control.form-control-lg(type='password', placeholder='Password', name='password')
                   .form-group
                     label Upload foto
                     input.file-upload-default(type='file', name='img[]')
                     .input-group.col-xs-12
-                      input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
+                      input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image', name='filename')
                       span.input-group-append
                         button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
                     .form-check
