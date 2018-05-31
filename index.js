@@ -30,6 +30,7 @@ const bot = new TelegramBot(TOKEN);
 // This informs the Telegram servers of the new webhook.
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
+var loginRoute = require('./routes/login');
 var indexRoute = require('./routes/index');
 var chartRoute = require('./routes/chart');
 var insertmenuRoute = require('./routes/insertmenu');
@@ -64,7 +65,8 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 });
 
 app.use('/shela', indexRoute);
-app.use('/',indexRoute);
+app.use('/',loginRoute);
+app.use('/index',indexRoute);
 app.use('/chart',chartRoute);
 app.use('/insertmenu',insertmenuRoute);
 app.use('/insertcontent',insertcontentRoute);

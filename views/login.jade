@@ -25,12 +25,12 @@ html(lang='en')
                 h4 Selamat datang !
                 h6.font-weight-light Sign in to continue.
                 form.pt-3
+                  .form-group(action='/login', method='post')
+                    input#exampleInputEmail1.form-control.form-control-lg(type='email', placeholder='Username', name='username')
                   .form-group
-                    input#exampleInputEmail1.form-control.form-control-lg(type='email', placeholder='Username')
-                  .form-group
-                    input#exampleInputPassword1.form-control.form-control-lg(type='password', placeholder='Password')
+                    input#exampleInputPassword1.form-control.form-control-lg(type='password', placeholder='Password', name='password')
                   .mt-3
-                    a.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(href='../../index.html') SIGN IN
+                    a.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(href='/index') SIGN IN
         // content-wrapper ends
       // page-body-wrapper ends
     // container-scroller
