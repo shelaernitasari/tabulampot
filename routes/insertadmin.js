@@ -33,7 +33,7 @@ const upload = multer({
 
 /* GET home page. */
 router.get('/', function(req, res){
-    Menu.find()
+    Admin.find()
       .select('_id username password foto')
       .exec()
           .then(docs => {
@@ -41,7 +41,7 @@ router.get('/', function(req, res){
           if(docs.length >= 0){
               res.render('insertadmin',{
                   count : docs.length,
-                  menu: docs
+                  admin: docs
               });
           } else{
               res.status(404).json({
