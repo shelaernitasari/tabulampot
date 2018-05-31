@@ -1,24 +1,7 @@
-doctype html
-html(lang='en')
-  head
-    // Required meta tags
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    title Registrasi
-    // plugins:css
-    link(rel='stylesheet', href='../../vendors/iconfonts/mdi/css/materialdesignicons.min.css')
-    link(rel='stylesheet', href='../../vendors/css/vendor.bundle.base.css')
-    // endinject
-    // plugin css for this page
-    // End plugin css for this page
-    // inject:css
-    link(rel='stylesheet', href='../../css/style.css')
-    // endinject
-    link(rel='shortcut icon', href='../../images/favicon.png')
-  body
-    .container-scroller
-      .container-fluid.page-body-wrapper.full-page-wrapper
-        .content-wrapper.d-flex.align-items-center.auth
+extend layout
+
+block content
+  .content-wrapper.d-flex.align-items-center.auth
           .row.w-100
             .col-lg-4.mx-auto
               .auth-form-light.text-left.p-5
@@ -46,14 +29,4 @@ html(lang='en')
                     | Already have an account? 
                     a.text-primary(href='login.html') Login
         // content-wrapper ends
-      // page-body-wrapper ends
-    // container-scroller
-    // plugins:js
-    script(src='../../vendors/js/vendor.bundle.base.js')
-    script(src='../../vendors/js/vendor.bundle.addons.js')
-    // endinject
-    // inject:js
-    script(src='../../js/off-canvas.js')
-    script(src='../../js/misc.js')
-    // endinject
     script(src='../../js/file-upload.js')
