@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
   res.render('insertadmin');
 });
 
-router.post('/', upload.single('foto'), function(req, res, next){
+router.post('/signup', upload.single('foto'), function(req, res, next){
     Admin.find({ username: req.body.username })
     .exec()
     .then(admin => {

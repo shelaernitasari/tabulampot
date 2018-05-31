@@ -7,7 +7,7 @@ block content
               .auth-form-light.text-left.p-5
                 h4 New Admin
                 h6.font-weight-light Signing up is easy. It only takes a few steps
-                form.pt-3(action='/insertadmin', method='post')
+                form.pt-3(action='/insertadmin/signup', method='post')
                   .form-group
                     input#exampleInputUsername1.form-control.form-control-lg(type='text', placeholder='Username', name='username')
                   .form-group
@@ -26,4 +26,31 @@ block content
                   .mt-3
                     a.btn.btn-block.btn-gradient-primary.btn-lg.font-weight-medium.auth-form-btn(href='/insertadmin') SIGN UP
         // content-wrapper ends
+
+            // tabel
+    .col-lg-12.grid-margin.stretch-card
+      .card
+        .card-body
+          h4.card-title Striped Table
+          p.card-description
+            | Add class 
+            code .table-striped
+          table.table.table-striped
+            thead
+              tr
+                th No
+                th username
+                th password
+                th foto
+            tbody
+             each data, i in content
+              tr
+                td #{i+1}
+                td #{data.username}
+                td #{data.password}
+                td #{data.foto}
+                td
+                  a.btn.btn-primary(href='/insertcontent/edit/' + data.id) edit
+                  button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
+  // penutup tabel
     
