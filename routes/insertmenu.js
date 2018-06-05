@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 
 router.get('/', function(req, res){
   Menu.find()
-    .select('_id root menu')
+    .select('_id root menu pertanyaan')
     .exec()
         .then(docs => {
         console.log(docs);
