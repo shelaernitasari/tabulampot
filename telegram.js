@@ -16,7 +16,8 @@ module.exports = async (bot, message) => {
             let isi = await isiModel.find({judul: chat})
             chat = isi[0].content
         }else{
-            chat = targetMenu.pertanyaan[0]
+            let tanya = await MenuModel.find({pertanyaan: menu[0]._id})
+            chat = tanya.pertanyaan[0]
             keyboardResponse.reply_markup.keyboard = parseMenu(targetMenu)
         }
         
