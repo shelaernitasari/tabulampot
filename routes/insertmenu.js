@@ -60,7 +60,8 @@ router.post('/', function(req, res){
     const menu = new Menu({
         _id: new mongoose.Types.ObjectId(),
         root: req.body.root,
-        menu: req.body.menu
+        menu: req.body.menu,
+        pertanyaan: req.body.pertanyaan
     });
     menu.save()
            .then(function(result) {

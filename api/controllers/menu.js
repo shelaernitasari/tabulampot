@@ -15,7 +15,8 @@ exports.menu_get_all = (req, res, next) => {
                     return {
                         _id : doc._id,
                         root : doc.root,
-                        menu : doc.menu
+                        menu : doc.menu,
+                        pertanyaan : doc.pertanyaan
                     }
                 })
             });
@@ -38,7 +39,8 @@ exports.menu_post = (req, res, next) => {
     const menu = new Menu({
         _id: new mongoose.Types.ObjectId(),
         root: req.body.root,
-        menu: req.body.menu
+        menu: req.body.menu,
+        pertanyaan : req.body.pertanyaan
        
     });
     menu.save()
@@ -71,7 +73,8 @@ exports.menu_get_id = (req, res, next) =>{
                 return {
                     _id: doc._id,
                     root: doc.root,
-                    menu: doc.menu
+                    menu: doc.menu,
+                    pertanyaan : doc.pertanyaan
                 }
             })
         };
