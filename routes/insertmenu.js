@@ -33,12 +33,30 @@ router.get('/', function(req, res){
     });
 });
 
-router.get('/edit/:idnya', (req, res, next)=>{
-    var idne = req.params.idnya;
-    Menu.findById(idne, (data)=>{
-        res.send(data);
-    })
+router.get('/edit/:idnya', (req, res, next) => {
+    Menu.findOne({_id: req.params.idnya}).exec(function (err, menu) {
+        if (err) {
+          console.log("Error:", err);
+        }
+        else {
+          res.render("../views/insertmenu/edit", {menu: menu});
+        }
+      });
+});
+
+router.post('/update/:idnya', (req, res, next)=>{
+    // var idne = req.params.idnya;
+    // Menu.findById(idne, (data)=>{
+    //     res.send(data);
+    // })
     // res.send(idne);
+    Menu.findByIdAndUpdate(req.params.id, { $set: { root: req.body.root, menu: req.body.menu, pertanyaan: req.body.pertanyaan}}, { new: true }, function (err, menu) {
+        if (err) {
+          console.log(err);
+          res.render("../views/insertmenu/edit", {menu: req.body});
+        }
+        res.redirect("/insertmenu/"+menu._id);
+      });
 });
 
 router.post('/delete', function(req, res, next){  
