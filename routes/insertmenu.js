@@ -39,7 +39,7 @@ router.get('/edit/:idnya', (req, res, next) => {
           console.log("Error:", err);
         }
         else {
-          res.render("../views/insertmenu/edit", {menu: menu});
+          res.render('insertmenu/edit', {menu: menu});
         }
       });
 });
@@ -53,9 +53,9 @@ router.post('/update/:idnya', (req, res, next)=>{
     Menu.findByIdAndUpdate(req.params.id, { $set: { root: req.body.root, menu: req.body.menu, pertanyaan: req.body.pertanyaan}}, { new: true }, function (err, menu) {
         if (err) {
           console.log(err);
-          res.render("../views/insertmenu/edit", {menu: req.body});
+          res.render('insertmenu/edit', {menu: req.body});
         }
-        res.redirect("/insertmenu/"+menu._id);
+        res.redirect('/insertmenu/'+menu._id);
       });
 });
 
