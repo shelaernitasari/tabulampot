@@ -33,7 +33,7 @@ router.get('/', function(req, res){
     });
 });
 
-router.get('/edit/(:id)', function (req, res, next) {
+router.get('/editmenu/:id', function (req, res, next) {
     Menu.findOne({_id:req.params.id}, function (err, menu){
         if (menu)
         {
@@ -49,7 +49,7 @@ router.get('/edit/(:id)', function (req, res, next) {
     });
 });
 
-router.put('/edit/(:id)', function (req, res, next){
+router.put('/editmenu/:id', function (req, res, next){
     v_root = req.sanitize( 'root' ).escape().trim();
     v_menu = req.sanitize( 'menu' ).escape().trim();
     v_pertanyaan = req.sanitize( 'pertanyaan' ).escape().trim();
