@@ -39,7 +39,7 @@ router.get('/edit/(:id)', function (req, res, next) {
         {
             console.log(menu);
 
-            res.render('editmenu/edit', { menu: menu });
+            res.render('editmenu', { menu: menu });
         }
         else
         {

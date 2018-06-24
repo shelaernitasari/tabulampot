@@ -74,7 +74,7 @@ app.use('/chart',chartRoute);
 app.use('/insertmenu',insertmenuRoute);
 app.use('/insertcontent',insertcontentRoute);
 //app.use('/viewmenu',viewmenuRoute);
-//app.use('/editmenu',editmenuRoute);
+app.use('/editmenu',insertmenuRoute);
 //app.use('/insertadmin',insertadminRoute);
 
 app.use('/menu', menuRoute);
