@@ -15,7 +15,7 @@ router.get('/', function(req, res){
         .then(docs => {
         console.log(docs);
         if(docs.length >= 0){
-            res.render('viewmenu',{
+            res.render('insertmenu',{
                 count : docs.length,
                 menu: docs
             });
@@ -44,7 +44,7 @@ router.get('/edit/(:id)', function (req, res, next) {
         else
         {
             req.flash('msg_error', 'Punten, user tidak ditemukan!');
-            res.redirect('/viewmenu');
+            res.redirect('/insertmenu');
         }
     });
 });
@@ -69,7 +69,7 @@ router.put('/edit/(:id)', function (req, res, next){
                 req.flash('msg_info', 'Edit menu berhasil!');
             }
 
-            res.redirect('/viewmenu'+req.params.id);
+            res.redirect('/insertmenu'+req.params.id);
 
         });
     });

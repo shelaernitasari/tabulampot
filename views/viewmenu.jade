@@ -11,62 +11,27 @@ block content
           li.breadcrumb-item
             a(href='#') Forms
           li.breadcrumb-item.active(aria-current='page') Basic elements
-    .box
-      .box-header
-        h3.box-title Pengguna
-          .box-tools
-            a(href="/insertmenu").btn.btn-primary.btn-sm
-              i.glyphicon.glyphicon-plus  
-              | &nbsp; Tambah menu Baru
-      .box-body.table-responsive.no-padding
-    .row          
-    .col-lg-12.stretch-card
-      .card
-        .card-body
-          h4.card-title Table with contextual classes
-          p.card-description
-            | Add class 
-            code .table-{color}
-          table.table.table-bordered
-            thead
-              tr.table-danger
-                th No
-                th id
-                th root
-                th menu
-                th pertanyaan
-                th aksi
-            tbody
-            each data, i in menu
-              tr.table-primary
-                td #{i+1}
-                td #{data.id}
-                td #{data.root}
-                td #{data.menu}
-                td #{data.pertanyaan}
-                td
-                  a.btn.btn-primary(href='/editmenu/edit/'#{menu._id}) edit
-                  button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
-          
-          script(src="https://code.jquery.com/jquery-3.3.1.js", integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", crossorigin="anonymous")
-          script.
-            var app = new function() {
-
-              //action for delete
-              this.Delete = function(data) {
-                var r = confirm("Apakah anda yakin ingin menghapus ? ");
-                if (r == true) {
-                    $.ajax({
-                      url: "https://shela.jagopesan.com/viewmenu/delete",
-                      method: "POST",
-                      data: "id="+data
-                    })
-                    .done(function(data){
-                      location.reload()
-                    })
-                } else {
-                    alert("cancel")
-                }
-              }
-            }    
-  // tabel ends
+    .row
+      .col-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Form Menu
+            p.card-description
+              | Input Menu
+            form.forms-sample(action='/insertmenu', method='post')
+              //- .form-group
+              //-   label(for='exampleSelectGender') Root
+              //-   select#root.form-control
+              //-     option id Root 1
+              //-     option id Root 2
+              .form-group
+                label(for='exampleInputName1') Root Input
+                input#menu.form-control(type='text', placeholder='Root', name='root')
+              .form-group
+                label(for='exampleInputName2') Menu
+                input#menu.form-control(type='text', placeholder='Menu', name='menu')
+              .form-group
+                label(for='exampleInputName2') Pertanyaan
+                input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan')
+              button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+              button.btn.btn-light Cancel
