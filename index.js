@@ -33,7 +33,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 var loginRoute = require('./routes/login');
 var indexRoute = require('./routes/index');
 var chartRoute = require('./routes/chart');
-var viewmenuRoute = require('./routes/viewmenu');
+var viewmenuRoute = require('./routes/insertmenu');
 var insertcontentRoute = require('./routes/insertcontent');
 //var viewmenuRoute = require('./routes/viewmenu');
 //var editmenuRoute = require('./routes/editmenu');
