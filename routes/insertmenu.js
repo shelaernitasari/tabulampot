@@ -15,7 +15,7 @@ router.get('/', function(req, res){
         .then(docs => {
         console.log(docs);
         if(docs.length >= 0){
-            res.render('insertmenu',{
+            res.render('viewmenu',{
                 count : docs.length,
                 menu: docs
             });
@@ -33,30 +33,46 @@ router.get('/', function(req, res){
     });
 });
 
-router.get('/edit/:idnya', (req, res, next) => {
-    Menu.findOne({_id: req.params.idnya}).exec(function (err, menu) {
-        if (err) {
-          console.log("Error:", err);
+router.get('/edit/(:id)', function (req, res, next) {
+    Menu.findOne({_id:req.params.id}, function (err, menu){
+        if (menu)
+        {
+            console.log(menu);
+
+            res.render('editmenu/edit', { menu: menu });
         }
-        else {
-          res.render('insertmenu/edit', {menu: menu});
+        else
+        {
+            req.flash('msg_error', 'Punten, user tidak ditemukan!');
+            res.redirect('/viewmenu');
         }
-      });
+    });
 });
 
-router.post('/update/:idnya', (req, res, next)=>{
-    // var idne = req.params.idnya;
-    // Menu.findById(idne, (data)=>{
-    //     res.send(data);
-    // })
-    // res.send(idne);
-    Menu.findByIdAndUpdate(req.params.id, { $set: { root: req.body.root, menu: req.body.menu, pertanyaan: req.body.pertanyaan}}, { new: true }, function (err, menu) {
-        if (err) {
-          console.log(err);
-          res.render('insertmenu/edit', {menu: req.body});
-        }
-        res.redirect('/insertmenu/'+menu._id);
-      });
+router.put('/edit/(:id)', function (req, res, next){
+    v_root = req.sanitize( 'root' ).escape().trim();
+    v_menu = req.sanitize( 'menu' ).escape().trim();
+    v_pertanyaan = req.sanitize( 'pertanyaan' ).escape().trim();
+    
+    Menu.findById(req.params.id, function(err, menu){
+        menu.root = req.param('root');
+        menu.menu = req.param('menu');
+        menu.pertanyaan = req.param('pertanyaan');
+       
+        menu.save(function(err, menu){
+            if (err) 
+            {
+                req.flash('msg_error', 'Punten, sepertinya ada masalah dengan sistem kami...');
+            }
+            else
+            {
+                req.flash('msg_info', 'Edit menu berhasil!');
+            }
+
+            res.redirect('/viewmenu'+req.params.id);
+
+        });
+    });
 });
 
 router.post('/delete', function(req, res, next){  

@@ -11,22 +11,14 @@ block content
           li.breadcrumb-item
             a(href='#') Forms
           li.breadcrumb-item.active(aria-current='page') Basic elements
-    .box
-      .box-header
-        h3.box-title Pengguna
-          .box-tools
-            a(href="/insertmenu").btn.btn-primary.btn-sm
-              i.glyphicon.glyphicon-plus  
-              | &nbsp; Tambah menu Baru
-      .box-body.table-responsive.no-padding
     .row
       .col-12.grid-margin.stretch-card
         .card
           .card-body
-            h4.card-title Form Menu
+            h4.card-title Form Edit Menu
             p.card-description
-              | Input Menu
-            form.forms-sample(action='/insertmenu', method='post')
+              | Edit Menu
+            form.forms-sample(action='/editmenu/edit', method='post')
               //- .form-group
               //-   label(for='exampleSelectGender') Root
               //-   select#root.form-control
