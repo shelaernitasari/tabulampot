@@ -43,7 +43,7 @@ router.get('/editmenu/:id', function (req, res, next) {
         }
         else
         {
-            req.flash('msg_error', 'Punten, user tidak ditemukan!');
+           // req.flash('msg_error', 'Punten, user tidak ditemukan!');
             res.redirect('/insertmenu');
         }
     });
@@ -66,7 +66,7 @@ router.put('/editmenu/:id', function (req, res, next){
             }
             else
             {
-                req.flash('msg_info', 'Edit menu berhasil!');
+               // req.flash('msg_info', 'Edit menu berhasil!');
             }
 
             res.redirect('/insertmenu'+req.params.id);
