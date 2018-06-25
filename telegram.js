@@ -17,7 +17,7 @@ module.exports = async (bot, message) => {
             if (isi.length > 0) {
                 chat = isi[0].content
             } else {
-                chat = "ga onok bos"
+                chat = "belum ada"
             }
             
         }else{
