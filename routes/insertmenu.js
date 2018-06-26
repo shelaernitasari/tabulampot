@@ -43,7 +43,7 @@ router.get('/editmenu/:id', function (req, res, next) {
     });
 });
 
-router.post('/editmenu/:id', function (req, res, next){
+router.post('/update', function (req, res, next){
     console.log(req.body.root);
     console.log(req.body.menu);
 
