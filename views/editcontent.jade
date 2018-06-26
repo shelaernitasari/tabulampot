@@ -1,0 +1,45 @@
+extend layout
+
+block content
+
+  .content-wrapper
+    .page-header
+      h3.page-title
+        | Basic Form
+      nav(aria-label='breadcrumb')
+        ol.breadcrumb
+          li.breadcrumb-item
+            a(href='#') Form Content
+          li.breadcrumb-item.active(aria-current='page') Input Content
+    .row
+      .col-12.grid-margin.stretch-card
+        .card
+          .card-body
+            h4.card-title Form Content
+            p.card-description
+              | Input Content
+            form.forms-sample(action='/insertcontent/update', method='post')
+              .form-group
+                label(for='exampleInputName1') Judul
+                input#judul.form-control(type='text', placeholder='Judul', name='judul', value="#{judul}")
+              .form-group
+                label(for='exampleTextarea1') Content
+                textarea#content.form-control(rows='4', name='content',value="#{content}")
+              //- .form-group
+              //-   label(for='exampleSelectGender') Menu
+              //-   select#exampleSelectGender.form-control
+              //-     option id menu 1
+              //-     option id menu 2
+              .form-group
+                label(for='exampleInputName2') ID Menu
+                input#judul.form-control(type='text', placeholder='id menu', name='idmenu', value="#{idmenu}")
+              //- .form-group
+              //-   label File upload
+              //-   input.file-upload-default(type='file', name='img[]')
+              //-   .input-group.col-xs-12
+              //-     input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
+              //-     span.input-group-append
+              //-       button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
+              button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+              button.btn.btn-light Cancel
+

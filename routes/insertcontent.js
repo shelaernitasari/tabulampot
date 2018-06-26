@@ -68,12 +68,36 @@ router.post('/', async (req, res, next)=>{
     }
 });
 
-router.get('/edit/:idnya', (req, res, next)=>{
-    var idne = req.params.idnya;
-    Isi.findById(idne, (data)=>{
-        res.send(data);
-    })
-    // res.send(idne);
+router.get('/editcontent/:id', function (req, res, next) {
+    Menu.findOne({_id:req.params.id}, function (err, data){
+       
+            console.log(data);
+
+            res.render('editcontent', { id:req.params.id, judul: data.judul, content: data.content, idmenu: data.idmenu});
+       
+    });
+});
+
+router.post('/update', function (req, res, next){
+    console.log(req.body.root);
+    console.log(req.body.menu);
+
+    var id = req.body.id;
+    var judul = req.body.judul;
+    var content = req.body.content;
+    var idmenu = req.body.idmenu;
+
+    var updateData = {"judul":judul, "content": content, "idmenu":idmenu};
+    Menu.findByIdAndUpdate(id, updateData, function(err, data){
+        if(err){
+            console.log("error");
+        }
+        else{
+            console.log("berhasil");
+        }
+        res.redirect('/insertcontent');
+    });
+
 });
 
 router.post('/delete', function(req, res, next){  

@@ -63,28 +63,6 @@ router.post('/update', function (req, res, next){
         res.redirect('/insertmenu');
     });
 
-
-    // Menu.findById(req.params.id, function(err, menu){
-    //     menu.root = req.param('root');
-    //     menu.menu = req.param('menu');
-    //     menu.pertanyaan = req.param('pertanyaan');
-        
-    //     console.log(menu.root);
-
-    //     menu.save(function(err, menu){
-    //         if (err) 
-    //         {
-    //             req.flash('msg_error', 'Punten, sepertinya ada masalah dengan sistem kami...');
-    //         }
-    //         else
-    //         {
-    //            // req.flash('msg_info', 'Edit menu berhasil!');
-    //         }
-
-    //         res.redirect('/insertmenu');
-
-    //     });
-    // });
 });
 
 router.post('/delete', function(req, res, next){  
