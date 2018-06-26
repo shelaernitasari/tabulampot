@@ -73,7 +73,7 @@ router.get('/editcontent/:id', function (req, res, next) {
        
             console.log(data);
 
-            res.render('editcontent', { id:req.params.id, judul: data.judul, content: data.content, idmenu: data.idmenu});
+            res.render('editcontent', { id:req.params.id, judul: data.judul, konten: data.content, idmenu: data.idmenu});
        
     });
 });
