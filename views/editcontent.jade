@@ -27,7 +27,8 @@ block content
                 input#judul.form-control(type='text', placeholder='Judul', name='judul', value="#{judul}")
               .form-group
                 label(for='exampleTextarea1') Content
-                textarea#content.form-control(rows='4', name='content',value="#{konten}")
+                textarea#content.form-control(rows='4', name='content')
+                 |#{konten}
               //- .form-group
               //-   label(for='exampleSelectGender') Menu
               //-   select#exampleSelectGender.form-control
