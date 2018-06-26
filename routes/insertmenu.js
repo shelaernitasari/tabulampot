@@ -44,15 +44,13 @@ router.get('/editmenu/:id', function (req, res, next) {
 });
 
 router.put('/editmenu/:id', function (req, res, next){
-    v_root = req.sanitize( 'root' ).escape().trim();
-    v_menu = req.sanitize( 'menu' ).escape().trim();
-    v_pertanyaan = req.sanitize( 'pertanyaan' ).escape().trim();
-    
     Menu.findById(req.params.id, function(err, menu){
         menu.root = req.param('root');
         menu.menu = req.param('menu');
         menu.pertanyaan = req.param('pertanyaan');
-       
+        
+        console.log(menu.root);
+
         menu.save(function(err, menu){
             if (err) 
             {
@@ -63,7 +61,7 @@ router.put('/editmenu/:id', function (req, res, next){
                // req.flash('msg_info', 'Edit menu berhasil!');
             }
 
-            res.redirect('/insertmenu'+req.params.id);
+            res.redirect('/insertmenu');
 
         });
     });
