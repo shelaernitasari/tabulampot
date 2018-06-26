@@ -35,17 +35,11 @@ router.get('/', function(req, res){
 
 router.get('/editmenu/:id', function (req, res, next) {
     Menu.findOne({_id:req.params.id}, function (err, data){
-        if (data)
-        {
+       
             console.log(data);
 
             res.render('editmenu', { root: data.root, menu: data.menu, pertanyaan: data.pertanyaan});
-        }
-        else
-        {
-           // req.flash('msg_error', 'Punten, user tidak ditemukan!');
-            res.redirect('/insertmenu');
-        }
+       
     });
 });
 
