@@ -25,6 +25,9 @@ block content
               //-     option id Root 1
               //-     option id Root 2
               .form-group
+                label(for='exampleInputName1') Data ID
+                input#menu.form-control(type='text', placeholder='id', name='id', value="#{id}" readonly)
+              .form-group
                 label(for='exampleInputName1') Root Input
                 input#menu.form-control(type='text', placeholder='Root', name='root', value="#{root}")
               .form-group
