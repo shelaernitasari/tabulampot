@@ -34,12 +34,12 @@ router.get('/', function(req, res){
 });
 
 router.get('/editmenu/:id', function (req, res, next) {
-    Menu.findOne({_id:req.params.id}, function (err, menu){
-        if (menu)
+    Menu.findOne({_id:req.params.id}, function (err, data){
+        if (data)
         {
-            console.log(menu);
+            console.log(data);
 
-            res.render('editmenu', { menu: menu });
+            res.render('editmenu', { root: data.root, menu: data.menu, pertanyaan: data.pertanyaan});
         }
         else
         {

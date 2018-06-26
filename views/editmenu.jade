@@ -26,12 +26,12 @@ block content
               //-     option id Root 2
               .form-group
                 label(for='exampleInputName1') Root Input
-                input#menu.form-control(type='text', placeholder='Root', name='root', value="#{ (root == undefined) ? menu.root : root }")
+                input#menu.form-control(type='text', placeholder='Root', name='root', value="#{root}")
               .form-group
                 label(for='exampleInputName2') Menu
-                input#menu.form-control(type='text', placeholder='Menu', name='menu')
+                input#menu.form-control(type='text', placeholder='Menu', name='menu', value="#{menu}")
               .form-group
                 label(for='exampleInputName2') Pertanyaan
-                input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan')
+                input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan', value="#{pertanyaan}")
               button.btn.btn-gradient-primary.mr-2(type='submit') Submit
               button.btn.btn-light Cancel
