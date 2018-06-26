@@ -26,13 +26,13 @@ block content
               //-     option id Root 2
               .form-group
                 label(for='exampleInputName1') Root Input
-                input#menu.form-control(type='text', placeholder='Root', name='root')
+                input#menu.form-control(type='text', placeholder='Root', name='root', value="#{ (root) ? root : '' }")
               .form-group
                 label(for='exampleInputName2') Menu
-                input#menu.form-control(type='text', placeholder='Menu', name='menu')
+                input#menu.form-control(type='text', placeholder='Menu', name='menu', value="#{ (menu) ? menu : '' }")
               .form-group
                 label(for='exampleInputName2') Pertanyaan
-                input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan')
+                input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan', value="#{ (pertanyaan) ? pertanyaan : '' }")
               button.btn.btn-gradient-primary.mr-2(type='submit') Submit
               button.btn.btn-light Cancel
     .row          
@@ -61,7 +61,7 @@ block content
                 td #{data.menu}
                 td #{data.pertanyaan}
                 td
-                  a.btn.btn-primary(href='insertmenu/editmenu/:id'+ menu._id) edit
+                  a.button.btn.btn-primary(href='/insertmenu/editmenu/:id'+ data.id) edit
                   button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus
           
           script(src="https://code.jquery.com/jquery-3.3.1.js", integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", crossorigin="anonymous")
