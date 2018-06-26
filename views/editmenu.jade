@@ -18,7 +18,7 @@ block content
             h4.card-title Form Edit Menu
             p.card-description
               | Edit Menu
-            form.forms-sample(action='/editmenu//#{ (_id == undefined) ? menu._id : _id }', method='POST')
+            form.forms-sample(action='/insertmenu/editmenu/:id', method='POST')
               //- .form-group
               //-   label(for='exampleSelectGender') Root
               //-   select#root.form-control
