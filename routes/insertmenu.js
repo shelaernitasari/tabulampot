@@ -47,6 +47,23 @@ router.post('/update', function (req, res, next){
     console.log(req.body.root);
     console.log(req.body.menu);
 
+    var id = req.body.id;
+    var root = req.body.root;
+    var menu = req.body.menu;
+    var pertanyaan = req.body.pertanyaan;
+
+    var updateData = {"root":root, "menu": menu, "pertanyaan":pertanyaan};
+    Menu.findByIdAndUpdate(id, updateData, function(err, data){
+        if(err){
+            console.log("error");
+        }
+        else{
+            console.log("berhasil");
+        }
+        res.redirect('/insertmenu');
+    });
+
+
     // Menu.findById(req.params.id, function(err, menu){
     //     menu.root = req.param('root');
     //     menu.menu = req.param('menu');
