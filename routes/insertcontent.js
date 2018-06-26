@@ -69,7 +69,7 @@ router.post('/', async (req, res, next)=>{
 });
 
 router.get('/editcontent/:id', function (req, res, next) {
-    Menu.findOne({_id:req.params.id}, function (err, data){
+    Isi.findOne({_id:req.params.id}, function (err, data){
        
             console.log(data);
 
@@ -79,16 +79,13 @@ router.get('/editcontent/:id', function (req, res, next) {
 });
 
 router.post('/update', function (req, res, next){
-    console.log(req.body.root);
-    console.log(req.body.menu);
-
     var id = req.body.id;
     var judul = req.body.judul;
     var content = req.body.content;
     var idmenu = req.body.idmenu;
 
     var updateData = {"judul":judul, "content": content, "idmenu":idmenu};
-    Menu.findByIdAndUpdate(id, updateData, function(err, data){
+    Isi.findByIdAndUpdate(id, updateData, function(err, data){
         if(err){
             console.log("error");
         }
