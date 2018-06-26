@@ -38,7 +38,7 @@ router.get('/editmenu/:id', function (req, res, next) {
        
             console.log(data);
 
-            res.render('editmenu', { root: data.root, menu: data.menu, pertanyaan: data.pertanyaan});
+            res.render('insertmenu', { root: data.root, menu: data.menu, pertanyaan: data.pertanyaan});
        
     });
 });
