@@ -20,6 +20,9 @@ block content
               | Input Content
             form.forms-sample(action='/insertcontent/update', method='post')
               .form-group
+                label(for='exampleInputName1') ID Content
+                input#judul.form-control(type='text', placeholder='ID Content', name='id', value="#{id}" readonly)
+              .form-group
                 label(for='exampleInputName1') Judul
                 input#judul.form-control(type='text', placeholder='Judul', name='judul', value="#{judul}")
               .form-group
