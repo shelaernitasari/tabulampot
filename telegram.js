@@ -26,7 +26,7 @@ module.exports = async (bot, message) => {
         }
         
     } else {
-        chat = "Menu Utama"
+        chat = "Selamat Datang di T-Messenger, silahkan memilih menu untuk konsultasi budidaya tabulampot"
         let menuUtama = await MenuModel.find({menu: "Menu Utama"})
         let defaultMenu = await MenuModel.aggregate([{
             $match: {
