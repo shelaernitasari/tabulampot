@@ -44,7 +44,7 @@ module.exports = async (bot, message) => {
 
 
     bot.sendMessage(message.chat.id, chat, keyboardResponse); 
-    bot.sendPhote(message.chat.id, photo);
+    bot.sendPhoto(message.chat.id, photo);
     bot.sendLocation(message.chat.id, lokasi);
     // console.log(message)
 };
