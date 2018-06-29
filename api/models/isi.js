@@ -6,9 +6,6 @@ const isiSchema = mongoose.Schema({
     content : {type: String},
     tanggal : {type: Date},
     idmenu : {type: mongoose.Schema.Types.ObjectId, ref : 'Menu', required: true}
-    
-}, {
-    timestamps: true
 });
 
 module.exports = mongoose.model('Isi', isiSchema);
