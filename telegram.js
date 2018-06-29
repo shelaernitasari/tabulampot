@@ -7,7 +7,7 @@ module.exports = async (bot, message) => {
 
     let chat = message.text
     let photo = message.photo
-    let lokasi = message.latitude.longitude
+    let lokasi = message.latitude
 
     let menu = await MenuModel.find({menu: chat})
     // console.log('menu',menu)
