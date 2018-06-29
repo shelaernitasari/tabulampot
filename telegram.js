@@ -6,6 +6,9 @@ module.exports = async (bot, message) => {
     keyboardResponse.reply_markup = {}
 
     let chat = message.text
+    let photo = message.photo
+    let lokasi = message.latitude.longitude
+
     let menu = await MenuModel.find({menu: chat})
     // console.log('menu',menu)
 
@@ -41,7 +44,8 @@ module.exports = async (bot, message) => {
 
 
     bot.sendMessage(message.chat.id, chat, keyboardResponse); 
-
+    bot.sendPhote(message.chat.id, photo);
+    bot.sendLocation(message.chat.id, lokasi);
     // console.log(message)
 };
 
