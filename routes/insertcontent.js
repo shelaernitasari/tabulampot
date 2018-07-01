@@ -16,10 +16,29 @@ router.get('/', function(req, res){
         .then(docs => {
         console.log(docs);
         if(docs.length >= 0){
-            res.render('insertcontent',{
-                count : docs.length,
-                content: docs
-            });
+            Menu.find()
+                .select('_id root menu pertanyaan')
+                .exec()
+                    .then(docs1 => {
+                    console.log(docs1);
+                    if(docs1.length >= 0){
+                        res.render('insertcontent',{
+                            count : docs.length,
+                            content: docs,
+                            menu: docs1
+                        });
+                    } else{
+                        res.status(404).json({
+                            message: 'no entries found'
+                        });
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json({
+                        error: err
+                    });
+                });
         } else{
             res.status(404).json({
                 message: 'no entries found'
@@ -33,28 +52,7 @@ router.get('/', function(req, res){
         });
     });
 
-    Menu.find()
-    .select('_id root menu pertanyaan')
-    .exec()
-        .then(docs => {
-        console.log(docs);
-        if(docs.length >= 0){
-            res.render('insertmenu',{
-                count : docs.length,
-                menu: docs
-            });
-        } else{
-            res.status(404).json({
-                message: 'no entries found'
-            });
-        }
-      })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error: err
-        });
-    });
+    
 });
 
 router.get('/pencarian', function(req, res){
