@@ -33,6 +33,33 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/pencarian', function(req, res){
+    let cari = req.query.carimenu;
+    Menu.findById(cari)
+      .select('_id root menu pertanyaan')
+      .exec()
+          .then(docs => {
+          console.log(docs);
+          if(docs.length >= 0){
+              res.render('insertmenu',{
+                  count : docs.length,
+                  menu: docs
+              });
+          } else{
+              res.status(404).json({
+                  message: 'no entries found'
+              });
+          }
+        })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json({
+              error: err
+          });
+      });
+  });
+  
+
 router.get('/editmenu/:id', function (req, res, next) {
     Menu.findOne({_id:req.params.id}, function (err, data){
        

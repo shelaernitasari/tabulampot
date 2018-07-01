@@ -45,7 +45,13 @@ block content
           h4.card-title Table with contextual classes
           p.card-description
             | Add class 
-            code .table-{color}
+          form.forms-sample(action='/pencarian', method='get')
+            .form-group
+              label(for='exampleInputName1') search menu
+              select.form-control(name="carimenu")
+                each dd, i in menu
+                  option(value='#{dd.id}') #{dd.menu}
+            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
           table.table.table-bordered
             thead
               tr.table-danger
