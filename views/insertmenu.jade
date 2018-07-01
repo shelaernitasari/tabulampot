@@ -27,7 +27,7 @@ block content
               .form-group
                 label(for='exampleInputName1') Root Input
                 //- input#menu.form-control(type='text', placeholder='Root', name='root')
-                select.form.control(name="root")
+                select.form-control(name="root")
                   each dd, i in menu
                     option(value='#{dd.id}') #{dd.menu}
               .form-group
