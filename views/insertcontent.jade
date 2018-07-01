@@ -54,10 +54,10 @@ block content
             | Add class 
           form.forms-sample(action='/insertcontent/pencarian', method='get')
             .form-group
-              label(for='exampleInputName1') search content
+              label(for='exampleInputName3') search content
               select.form-control(name="caricontent")
                 each dd, i in content
-                  option(value='#{dd.id}') #{dd.idmenu.menu}
+                  option(value='#{dd.id}') #{dd.judul}
             button.btn.btn-gradient-primary.mr-2(type='submit') Submit
             br
           table.table.table-striped
