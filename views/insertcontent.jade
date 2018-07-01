@@ -33,8 +33,8 @@ block content
               .form-group
                 label(for='exampleInputName2') Menu
                 select.form-control(name="idmenu")
-                  each dd, i in content
-                    option(value='#{dd.id}') #{dd.content.menu}
+                  each dd, i in menu
+                    option(value='#{dd.id}') #{dd.menu}
                 //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu')
               //- .form-group
               //-   label File upload
