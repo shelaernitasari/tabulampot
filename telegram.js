@@ -18,14 +18,14 @@ module.exports = async (bot, message) => {
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
             if (isi.length > 0) {
-                if(isi[0].photo > 0){
-                    photo = isi[0].photo
-                    chat = isi[0].content
-                }
-                else{
-                    chat = isi[0].content
-                }
-                
+                // if(isi[0].photo > 0){
+                //     photo = isi[0].photo
+                //     chat = isi[0].content
+                // }
+                // else{
+                //     chat = isi[0].content
+                // }
+                chat = isi[0].content
             } else {
                 chat = "belum ada"
             }
