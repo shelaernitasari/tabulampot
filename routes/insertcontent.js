@@ -34,6 +34,33 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/pencarian', function(req, res){
+    let cari = req.query.caricontent;
+    Menu.find()
+      .where('_id').equals(cari)
+      .select('_id judul content tanggal idmenu')
+      .exec()
+          .then(docs => {
+          console.log(docs);
+          if(docs.length >= 0){
+              res.render('insertcontent',{
+                  count : docs.length,
+                  content: docs
+              });
+          } else{
+              res.status(404).json({
+                  message: 'no entries found'
+              });
+          }
+        })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json({
+              error: err
+          });
+      });
+  });
+
 router.post('/', async (req, res, next)=>{
   // console.log(req.body.root);
   // console.log(req.body.menu);
