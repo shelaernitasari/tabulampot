@@ -36,7 +36,7 @@ router.get('/', function(req, res){
 router.get('/pencarian', function(req, res){
     let cari = req.query.carimenu;
     Menu.find()
-      .where('_id').equals(cari)
+      .where('root').equals(cari)
       .select('_id root menu pertanyaan')
       .exec()
           .then(docs => {
