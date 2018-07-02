@@ -32,7 +32,7 @@ block content
               //-     option id menu 2
               .form-group
                 label(for='exampleInputName2') Menu
-                select.form-control(name="idmenu")
+                select.form-control(name='idmenu')
                   each dd, i in menu
                     option(value='#{dd.id}') #{dd.menu}
                 //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu')
@@ -49,9 +49,9 @@ block content
     .col-lg-12.grid-margin.stretch-card
       .card
         .card-body
-          h4.card-title Striped Table
+          h4.card-title Konten
           p.card-description
-            | Add class 
+            | Tabel Konten Tabulampot 
           form.forms-sample(action='/insertcontent/pencarian', method='get')
             .form-group
               label(for='exampleInputName3') search content

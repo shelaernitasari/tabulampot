@@ -36,7 +36,10 @@ block content
               //-     option id menu 2
               .form-group
                 label(for='exampleInputName2') ID Menu
-                input#judul.form-control(type='text', placeholder='id menu', name='idmenu', value="#{idmenu}")
+                select.form-control(name='idmenu')
+                  each dd, i in menu
+                    option(value='#{dd.id}') #{dd.menu}
+                //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu', value="#{idmenu}")
               //- .form-group
               //-   label File upload
               //-   input.file-upload-default(type='file', name='img[]')

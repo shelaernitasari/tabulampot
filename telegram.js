@@ -6,7 +6,7 @@ module.exports = async (bot, message) => {
     keyboardResponse.reply_markup = {}
 
     let chat = message.text
-    // let photo = message.photo
+    // let photo = message.text
     // let lokasi = message.latitude
 
     let menu = await MenuModel.find({menu: chat})
@@ -17,15 +17,12 @@ module.exports = async (bot, message) => {
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
+            // let gambar = await isiModel.find({foto: photo})
             if (isi.length > 0) {
-                // if(isi[0].photo > 0){
-                //     photo = isi[0].photo
-                //     chat = isi[0].content
-                // }
-                // else{
-                //     chat = isi[0].content
-                // }
                 chat = isi[0].content
+                // photo = gambar[0].foto
+                // module.exports.b(photo)
+                
             } else {
                 chat = "belum ada"
             }
@@ -55,6 +52,9 @@ module.exports = async (bot, message) => {
     // bot.sendLocation(message.chat.id, lokasi);
     // console.log(message)
 };
+// ,function b (bot, message, photo) {
+//     bot.sendPhoto(message.chat.id, "https://shela.jagopesan.com/uploads/'+photo'");
+// };
 
 function parseMenu (menu) {
     let keyboard = []
