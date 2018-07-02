@@ -29,7 +29,7 @@ block content
                 //- input#menu.form-control(type='text', placeholder='Root', name='root')
                 select.form-control(name="root")
                   each dd, i in menu
-                    option(value='#{dd.id}') #{dd.menu} || #{dd.pertanyaan}
+                    option(value='#{dd.id}') #{dd.menu}
               .form-group
                 label(for='exampleInputName2') Menu
                 input#menu.form-control(type='text', placeholder='Menu', name='menu')
