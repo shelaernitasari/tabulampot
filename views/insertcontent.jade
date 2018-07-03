@@ -38,7 +38,7 @@ block content
                 //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu')
               .form-group
                 label File upload
-                input.file-upload-default(type='file', name='filename')
+                input.file-upload-default(type='file', name='foto')
                 .input-group.col-xs-12
                   input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
                   span.input-group-append
@@ -64,7 +64,6 @@ block content
             thead
               tr
                 th No
-                th id
                 th judul
                 th content
                 th tanggal
@@ -74,7 +73,6 @@ block content
              each data, i in content
               tr
                 td #{i+1}
-                td #{data.id}
                 td #{data.judul}
                 td #{data.content}
                 td #{data.tanggal}
