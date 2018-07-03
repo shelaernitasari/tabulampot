@@ -130,40 +130,51 @@ router.get('/pencarian', function(req, res){
       });
   });
 
-router.post('/', upload.single('foto'), async (req, res, next)=>{
+router.post('/', upload.single('foto'), (req, res, next)=>{
   // console.log(req.body.root);
   // console.log(req.body.menu);
-  let findmenu = await Menu.findById(req.body.idmenu);
-    
-    if(findmenu === null){
-        message : "id tidak ditemukan" ;
-    } 
-    else{
-        const isi = new Isi({
-              _id: new mongoose.Types.ObjectId(),
-              judul: req.body.judul,
-              content: req.body.content,
-              tanggal: Date.now(),
-              idmenu: req.body.idmenu,
-              foto: BASE_URL + 'uploads/' + req.file.filename
-        });
-        //console.log(isi);
-        isi.save()
-        .then(result => {
-            console.log(result);
+  // let findmenu = await Menu.findById(req.body.idmenu);
+
+         Menu.findById(req.body.idmenu)
+        .then(findmenu => {
+            if(!findmenu){
+                message : "id tidak ditemukan" ;
+            } 
+                const isi = new Isi({
+                      _id: new mongoose.Types.ObjectId(),
+                      judul: req.body.judul,
+                      content: req.body.content,
+                      tanggal: Date.now(),
+                      idmenu: req.body.idmenu,
+                      foto: BASE_URL + 'uploads/' + req.file.filename
+                });
+            // console.log(result);
             // res.status(200).json({
             //     message: "berhasil disimpan",
             //     createdIsi: result
             // });
-            res.redirect('/insertcontent');
+            return isi.save()
+            // res.redirect('/insertcontent');
         })
+        .then(result => {
+            res.status(201).json({
+                isi: {
+                    _id: result.id,
+                    judul: result.judul,
+                    content: result.content,
+                    tanggal: result.tanggal,
+                    idmenu: result.idmenu,
+                    foto: result.foto
+                }
+            });
+            res.redirect('/insertcontent');
+        }) 
         .catch(err => {
             console.log(err);
             res.status(500).json({
                 error: err
             });
         });
-    }
 });
 
 router.get('/editcontent/:id', function (req, res, next) {
