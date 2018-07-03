@@ -17,19 +17,21 @@ module.exports = async (bot, message) => {
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
-            // let gambar = await isiModel.find({foto: photo})
-
             console.log(isi);
             if (isi.length > 0) {
+
+                // bot.sendLocation(message.chat.id, lokasi);
+
                 chat = isi[0].content
-                //photo = gambar[0].foto
                 let photo = isi[0].foto
                 bot.sendPhoto(message.chat.id, photo);
-                // bot.sendPhoto(message.chat.id, "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSoJT82ERGkNSd-DUXrWKf3NOi7GKtYO4GIEB57YpO_5rJPSy_3Iw");
-                // module.exports.b(photo)
                 
             } else {
+                if(menu.menu == "FAQ"){
+                    bot.sendLocation(message.chat.id, -7.276361, 112.793847);
+                }else{
                 chat = "belum ada"
+                }
             }
             
         }else{
@@ -53,13 +55,9 @@ module.exports = async (bot, message) => {
 
 
     bot.sendMessage(message.chat.id, chat, keyboardResponse); 
-    // bot.sendPhoto(message.chat.id, photo);
     // bot.sendLocation(message.chat.id, lokasi);
     // console.log(message)
 };
-// ,function b (bot, message, photo) {
-//     bot.sendPhoto(message.chat.id, "https://shela.jagopesan.com/uploads/'+photo'");
-// };
 
 function parseMenu (menu) {
     let keyboard = []
