@@ -6,7 +6,7 @@ module.exports = async (bot, message) => {
     keyboardResponse.reply_markup = {}
 
     let chat = message.text
-    // let photo = message.text
+    let photo = message.text
     // let lokasi = message.latitude
 
     let menu = await MenuModel.find({menu: chat})
@@ -17,11 +17,11 @@ module.exports = async (bot, message) => {
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
-            // let gambar = await isiModel.find({foto: photo})
+            let gambar = await isiModel.find({foto: photo})
             if (isi.length > 0) {
                 chat = isi[0].content
-                // photo = gambar[0].foto
-                // bot.sendPhoto(message.chat.id, "https://shela.jagopesan.com/uploads/'+photo'");
+                photo = gambar[0].foto
+                bot.sendPhoto(message.chat.id, "https://shela.jagopesan.com/uploads/'+photo'");
                 // module.exports.b(photo)
                 
             } else {
