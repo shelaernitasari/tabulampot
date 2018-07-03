@@ -37,10 +37,10 @@ block content
                     option(value='#{dd.id}') #{dd.menu}
                 //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu')
               .form-group
-                label File upload
+                label(for='exampleInputName3') File upload
                 input.file-upload-default(type='file', name='foto')
                 .input-group.col-xs-12
-                  input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
+                  input.form-control.file-upload-info(type='file', name='foto', placeholder='Upload Image')
                   span.input-group-append
                     button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
               button.btn.btn-gradient-primary.mr-2(type='submit') Submit

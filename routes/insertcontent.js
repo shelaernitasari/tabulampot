@@ -147,7 +147,7 @@ router.post('/', upload.single('foto'), async (req, res, next)=>{
               idmenu: req.body.idmenu,
               foto: BASE_URL + 'uploads/' + req.file.filename
         });
-        console.log(isi);
+        //console.log(isi);
         isi.save()
         .then(result => {
             console.log(result);
@@ -157,11 +157,10 @@ router.post('/', upload.single('foto'), async (req, res, next)=>{
             // });
             res.redirect('/insertcontent');
         })
-        .catch(isi => {
-            // console.log(err);
-            console.log(isi);
+        .catch(err => {
+            console.log(err);
             res.status(500).json({
-                error: isi
+                error: err
             });
         });
     }
