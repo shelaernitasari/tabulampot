@@ -36,13 +36,13 @@ block content
                   each dd, i in menu
                     option(value='#{dd.id}') #{dd.menu}
                 //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu')
-              //- .form-group
-              //-   label File upload
-              //-   input.file-upload-default(type='file', name='img[]')
-              //-   .input-group.col-xs-12
-              //-     input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
-              //-     span.input-group-append
-              //-       button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
+              .form-group
+                label File upload
+                input.file-upload-default(type='file', name='foto')
+                .input-group.col-xs-12
+                  input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
+                  span.input-group-append
+                    button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
               button.btn.btn-gradient-primary.mr-2(type='submit') Submit
               button.btn.btn-light Cancel
     // tabel
@@ -69,6 +69,7 @@ block content
                 th content
                 th tanggal
                 th menu
+                th foto
             tbody
              each data, i in content
               tr
@@ -78,6 +79,7 @@ block content
                 td #{data.content}
                 td #{data.tanggal}
                 td #{data.idmenu.menu}
+                td #{data.foto}
                 td
                   a.button.btn.btn-primary(href="/insertcontent/editcontent/"+ data.id) edit
                   button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus

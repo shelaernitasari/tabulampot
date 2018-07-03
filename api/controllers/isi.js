@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Isi = require('../models/isi');
 const Menu = require('../models/menu');
 
+const BASE_URL = 'https://shela.jagopesan.com/'
+
 exports.isi_get_all = (req, res, next) => {
     Isi.find()
-    .select("_id judul content tanggal idmenu")
+    .select("_id judul content tanggal idmenu foto")
     .populate('idmenu','menu')
     .then(docs => {
         console.log(docs);
@@ -19,7 +23,8 @@ exports.isi_get_all = (req, res, next) => {
                         judul : doc.judul,
                         content : doc.content,
                         tanggal : doc.tanggal,
-                        idmenu : doc.idmenu
+                        idmenu : doc.idmenu,
+                        foto : doc.foto
                     }
                 })
             });
@@ -50,7 +55,8 @@ exports.isi_post = async (req, res, next ) => {
             judul: req.body.judul,
             content: req.body.content,
             tanggal: Date.now(),
-            idmenu: req.body.idmenu
+            idmenu: req.body.idmenu,
+            foto: BASE_URL + 'uploads/' + req.file.filename
         });
         isi.save()
         .then(result => {
@@ -74,7 +80,7 @@ exports.isi_get_id = (req, res, next) =>{
     const id = req.params.isiid;
     Isi.find()
     .where('idmenu').equals(id)
-    .select("_id judul content tanggal idmenu")
+    .select("_id judul content tanggal idmenu foto")
     .populate('idmenu','menu')
     .exec()
     .then(docs => {

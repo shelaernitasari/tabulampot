@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const multer = require('multer');
 var Isi = require('../api/models/isi');
 var Menu = require('../api/models/menu');
 var mongoose = require('mongoose');
@@ -8,9 +11,34 @@ var mongoose = require('mongoose');
 //   res.render('insertcontent');
 // });
 
+const BASE_URL = 'https://shela.jagopesan.com/'
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, './uploads');
+    },
+    filename: function(req, file, cb){
+        cb(null, Date.now() +'_'+ file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+        cb(null, true);
+    }else{
+        cb(new Error('not supported type of file'), false);
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    limits: {fileSize: 1024 * 1024 * 5},
+    fileFilter: fileFilter
+});
+
 router.get('/', function(req, res){
   Isi.find()
-  .select("_id judul content tanggal idmenu")
+  .select("_id judul content tanggal idmenu foto")
   .populate('idmenu','menu')
     .exec()
         .then(docs => {
@@ -59,7 +87,7 @@ router.get('/pencarian', function(req, res){
     let cari = req.query.caricontent;
     Isi.find()
       .where('_id').equals(cari)
-      .select('_id judul content tanggal idmenu')
+      .select('_id judul content tanggal idmenu foto')
       .populate('idmenu','menu')
       .exec()
           .then(docs => {
@@ -102,7 +130,7 @@ router.get('/pencarian', function(req, res){
       });
   });
 
-router.post('/', async (req, res, next)=>{
+router.post('/', upload.single('foto'), async (req, res, next)=>{
   // console.log(req.body.root);
   // console.log(req.body.menu);
   let findmenu = await Menu.findById(req.body.idmenu);
@@ -116,7 +144,8 @@ router.post('/', async (req, res, next)=>{
               judul: req.body.judul,
               content: req.body.content,
               tanggal: Date.now(),
-              idmenu: req.body.idmenu
+              idmenu: req.body.idmenu,
+              foto: BASE_URL + 'uploads/' + req.file.filename
         });
         isi.save()
         .then(result => {
@@ -141,7 +170,7 @@ router.get('/editcontent/:id', function (req, res, next) {
        
             console.log(data);
 
-            res.render('editcontent', { id:req.params.id, judul: data.judul, content: data.content, idmenu: data.idmenu});
+            res.render('editcontent', { id:req.params.id, judul: data.judul, content: data.content, idmenu: data.idmenu, foto:data.foto});
        
     });
 });
@@ -151,6 +180,7 @@ router.post('/update', function (req, res, next){
     var judul = req.body.judul;
     var content = req.body.content;
     var idmenu = req.body.idmenu;
+    var foto = BASE_URL + 'uploads/' + req.file.filename
 
     var updateData = {"judul":judul, "content": content, "idmenu":idmenu};
     Isi.findByIdAndUpdate(id, updateData, function(err, data){

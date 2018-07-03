@@ -5,7 +5,8 @@ const isiSchema = mongoose.Schema({
     judul : {type: String},
     content : {type: String},
     tanggal : {type: Date},
-    idmenu : {type: mongoose.Schema.Types.ObjectId, ref : 'Menu', required: true}
+    idmenu : {type: mongoose.Schema.Types.ObjectId, ref : 'Menu', required: true},
+    foto     : {type: String}
 });
 
 module.exports = mongoose.model('Isi', isiSchema);

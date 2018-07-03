@@ -21,6 +21,7 @@ module.exports = async (bot, message) => {
             if (isi.length > 0) {
                 chat = isi[0].content
                 // photo = gambar[0].foto
+                // bot.sendPhoto(message.chat.id, "https://shela.jagopesan.com/uploads/'+photo'");
                 // module.exports.b(photo)
                 
             } else {
