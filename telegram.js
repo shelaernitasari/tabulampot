@@ -30,7 +30,7 @@ module.exports = async (bot, message) => {
                 chat = menu[0].menu
                 if(chat == "FAQ"){
                     bot.sendLocation(message.chat.id, -7.276361, 112.793847);
-                    chat = menu[0].pertanyaan
+                    // chat = menu[0].pertanyaan
                 }else{
                 chat = "belum ada"
                 }
