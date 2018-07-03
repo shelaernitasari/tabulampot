@@ -145,8 +145,9 @@ router.post('/', upload.single('foto'), (req, res, next)=>{
                       judul: req.body.judul,
                       content: req.body.content,
                       tanggal: Date.now(),
-                      idmenu: req.body.idmenu,
-                      foto: BASE_URL + 'uploads/' + req.file.filename
+                      foto: BASE_URL + 'uploads/' + req.file.filename,
+                      idmenu: req.body.idmenu
+                      
                 });
             // console.log(result);
             // res.status(200).json({
