@@ -157,10 +157,11 @@ router.post('/', upload.single('foto'), async (req, res, next)=>{
             // });
             res.redirect('/insertcontent');
         })
-        .catch(err => {
-            console.log(err);
+        .catch(isi => {
+            // console.log(err);
+            console.log(isi);
             res.status(500).json({
-                error: err
+                error: isi
             });
         });
     }
