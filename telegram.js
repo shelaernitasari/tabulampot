@@ -17,10 +17,10 @@ module.exports = async (bot, message) => {
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
-            //let gambar = await isiModel.find({foto: photo})
+            let gambar = await isiModel.find({judul: photo})
             if (isi.length > 0) {
                 chat = isi[0].content
-                photo = isi[0].foto
+                photo = gambar[0].foto
                 bot.sendPhoto(message.chat.id, "photo");
                 // bot.sendPhoto(message.chat.id, "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSoJT82ERGkNSd-DUXrWKf3NOi7GKtYO4GIEB57YpO_5rJPSy_3Iw");
                 // module.exports.b(photo)
