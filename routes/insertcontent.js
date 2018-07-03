@@ -147,7 +147,7 @@ router.post('/', upload.single('foto'), async (req, res, next)=>{
               idmenu: req.body.idmenu,
               foto: BASE_URL + 'uploads/' + req.file.filename
         });
-        console.log(req.file.filename);
+        console.log(isi);
         isi.save()
         .then(result => {
             console.log(result);
