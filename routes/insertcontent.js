@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const multer = require('multer');
+var bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
+var multer = require('multer');
 var Isi = require('../api/models/isi');
 var Menu = require('../api/models/menu');
 var mongoose = require('mongoose');
+
 /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('insertcontent');
@@ -130,12 +131,13 @@ router.get('/pencarian', function(req, res){
       });
   });
 
-router.post('/', upload.single('foto'), (req, res, next)=>{
+router.post('/', upload.single('foto'), function (req, res, next){
   // console.log(req.body.root);
   // console.log(req.body.menu);
   // let findmenu = await Menu.findById(req.body.idmenu);
 
-         Menu.findById(req.body.idmenu)
+        Menu.findById(req.body.idmenu)
+        .exec()
         .then(findmenu => {
             if(!findmenu){
                 message : "id tidak ditemukan" ;
