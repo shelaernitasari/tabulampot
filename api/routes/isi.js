@@ -38,7 +38,7 @@ router.post('/', upload.single('foto'),  IsiController.isi_post);
 
 router.get('/:isiid', IsiController.isi_get_id);
 
-router.patch('/:isiid', IsiController.isi_update);
+router.patch('/:isiid', upload.single('foto'), IsiController.isi_update);
 
 router.delete('/:isiid', IsiController.isi_delete);
 

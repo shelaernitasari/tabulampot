@@ -109,7 +109,7 @@ exports.isi_get_id = (req, res, next) =>{
 exports.isi_update = (req, res, next) =>{
    const id= req.params.isiid;
    const updateOps = {};
-   for (const ops of req.body){
+   for (const ops of req.body & req.file){
        updateOps[ops.propName]= ops.value;
    }
    Isi.update({ _id: id}, {$set: updateOps})
