@@ -155,6 +155,7 @@ router.post('/', upload.single('foto'), (req, res, next)=>{
             //     createdIsi: result
             // });
             return isi.save()
+            console.log(isi);
             // res.redirect('/insertcontent');
         })
         .then(result => {
