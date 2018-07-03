@@ -5,7 +5,7 @@ module.exports = async (bot, message) => {
     let keyboardResponse = {}
     keyboardResponse.reply_markup = {}
 
-    let chat = message.text
+    let chat = message.text.toString().toLowerCase()
     // let photo = message.text
     // let lokasi = message.latitude
 
