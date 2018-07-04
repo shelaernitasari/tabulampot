@@ -21,14 +21,23 @@ module.exports = async (bot, message) => {
         let tampung = input[i]
         console.log(tampung);
 
-        if(input[i] === menu){
+        let find = await MenuModel.find({menu: tampung})
+        if(find){
             let hasil = input[i];
             console.log(hasil);
 
             // bot.sendMessage(message.chat.id, "shela cantik");    
             // break;
            
-        }    
+        } 
+        // if(input[i] === menu){
+        //     let hasil = input[i];
+        //     console.log(hasil);
+
+        //     // bot.sendMessage(message.chat.id, "shela cantik");    
+        //     // break;
+           
+        // }    
     } 
     
     if (menu.length > 0) {
