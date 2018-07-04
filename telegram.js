@@ -22,7 +22,7 @@ module.exports = async (bot, message) => {
         console.log(tampung);
 
         let find = await MenuModel.find({menu: tampung})
-        if(find){
+        if(find.length > 0){
             let hasil = tampung
             console.log(hasil);
 
