@@ -12,8 +12,8 @@ module.exports = async (bot, message) => {
     let menu = await MenuModel.find({menu: chat})
     // console.log('menu',menu)
 
-    let input = message.chat.id
-    let string = input.split(" ");
+    // let input = message.chat.id
+    let string = chat.split(" ");
 
     console.log(string);
 
