@@ -13,9 +13,17 @@ module.exports = async (bot, message) => {
     // console.log('menu',menu)
 
     // let input = message.chat.id
-    let string = chat.split(" ");
+    let input = chat.split(" ");
 
-    console.log(string);
+    console.log(input);
+
+    for ( let i =0; i < input.length; i++){
+        if(input[i].equals == "shela"){
+            let hasil = input[i];
+            break;
+        }
+        console.log(hasil);
+    }
 
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
