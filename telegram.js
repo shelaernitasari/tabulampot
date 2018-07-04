@@ -17,18 +17,19 @@ module.exports = async (bot, message) => {
 
     console.log(input);
 
-    for ( let i =0; i < input.length; i++){
+    for ( let i = 0; i < input.length; i++){
+        let tampung = input[i]
+        console.log(tampung);
+        
         if(input[i] === 'shela'){
             let hasil = input[i];
             console.log(hasil);
 
-            bot.sendMessage(message.chat.id, "shela cantik");
-            
+            bot.sendMessage(message.chat.id, "shela cantik");    
             break;
            
         }    
     } 
-   
     
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
