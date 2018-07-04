@@ -20,8 +20,9 @@ module.exports = async (bot, message) => {
     for ( let i = 0; i < input.length; i++){
         let tampung = input[i]
         console.log(tampung);
-        
-        if(input[i] === 'shela'){
+
+
+        if(input[i] === menu){
             let hasil = input[i];
             console.log(hasil);
 
