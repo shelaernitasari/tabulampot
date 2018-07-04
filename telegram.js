@@ -22,8 +22,8 @@ module.exports = async (bot, message) => {
             let hasil = input[i];
             console.log(hasil);
 
-            chat = "shela cantik"
-            console.log(chat);
+            bot.sendMessage(message.chat.id, "shela cantik");
+            
             break;
            
         }    
