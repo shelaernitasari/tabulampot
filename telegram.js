@@ -18,7 +18,7 @@ module.exports = async (bot, message) => {
     console.log(input);
 
     for ( let i =0; i < input.length; i++){
-        if(input[i].equals == "shela"){
+        if(input[i].equals == 'shela'){
             let hasil = input[i];
             console.log(hasil);
             break;
