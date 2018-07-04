@@ -12,6 +12,11 @@ module.exports = async (bot, message) => {
     let menu = await MenuModel.find({menu: chat})
     // console.log('menu',menu)
 
+    let input = message.chat.id
+    let string = input.split(" ");
+
+    console.log(string);
+
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         //console.log(targetMenu)
@@ -19,9 +24,6 @@ module.exports = async (bot, message) => {
             let isi = await isiModel.find({judul: chat})
             console.log(isi);
             if (isi.length > 0) {
-
-                // bot.sendLocation(message.chat.id, lokasi);
-
                 chat = isi[0].content
                 let photo = isi[0].foto
                 bot.sendPhoto(message.chat.id, photo);
