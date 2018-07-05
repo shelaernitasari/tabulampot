@@ -30,13 +30,13 @@ module.exports = async (bot, message) => {
         //     // bot.sendMessage(message.chat.id, "shela cantik");    
         //     // break;
         // } 
-        if(!find){
+        if(find.length < 0){
             
         } else {
             let hasil = tampung
             console.log(hasil);
-            // let namaMenu = await MenuModel.find({menu: hasil})
-            let findMenu = await isiModel.find({idmenu: menu[0]._id})
+            let namaMenu = await MenuModel.find({menu: hasil})
+            let findMenu = await isiModel.find({judul: namaMenu})
             chat = findMenu[0].content
             // bot.sendMessage(message.chat.id, chat);    
             // break;
