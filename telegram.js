@@ -35,7 +35,7 @@ module.exports = async (bot, message) => {
         } else {
             let hasil = tampung
             console.log(hasil);
-           // bot.sendMessage(message.chat.id, "shela cantik");    
+            bot.sendMessage(message.chat.id, hasil);    
             // break;
         }
         // if(input[i] === menu){
