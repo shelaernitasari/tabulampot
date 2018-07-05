@@ -1,3 +1,5 @@
+const Cleaner = require('nalapa').cleaner;
+
 const MenuModel = require('./api/models/menu')
 const isiModel = require('./api/models/isi')
 
@@ -13,6 +15,7 @@ module.exports = async (bot, message) => {
     // console.log('menu',menu)
 
     // let input = message.chat.id
+    chat = Cleaner.removeNonASCII(chat);
     let input = chat.split(" ");
 
     console.log(input);
