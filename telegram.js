@@ -24,19 +24,26 @@ module.exports = async (bot, message) => {
         let find = await MenuModel.find({menu: tampung});
         console.log(find);
         
-        if(find.length > 0){
+        // if(find.length > 0){
+        //     let hasil = tampung
+        //     console.log(hasil);
+        //     // bot.sendMessage(message.chat.id, "shela cantik");    
+        //     // break;
+        // } 
+        if(!find){
+            
+        } else {
             let hasil = tampung
             console.log(hasil);
-            // bot.sendMessage(message.chat.id, "shela cantik");    
+            bot.sendMessage(message.chat.id, "shela cantik");    
             // break;
-        } 
+        }
         // if(input[i] === menu){
         //     let hasil = input[i];
         //     console.log(hasil);
 
         //     // bot.sendMessage(message.chat.id, "shela cantik");    
-        //     // break;
-           
+        //     // break;  
         // }    
     } 
     
