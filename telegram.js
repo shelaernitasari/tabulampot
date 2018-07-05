@@ -33,12 +33,11 @@ module.exports = async (bot, message) => {
         if(!find){
             
         } else {
-                  
-            let isi = await isiModel.find({judul: chat})
-            chat = isi[0].content
             // let hasil = tampung
             // console.log(hasil);
-            bot.sendMessage(message.chat.id, chat);    
+            let findMenu = await isiModel.find({judul: find})
+            chat = findMenu[0].content
+            // bot.sendMessage(message.chat.id, chat);    
             // break;
         }
         // if(input[i] === menu){
