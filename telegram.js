@@ -33,10 +33,10 @@ module.exports = async (bot, message) => {
         if(!find){
             
         } else {
-            // let hasil = tampung
+            let hasil = tampung
             // console.log(hasil);
-            let mn = await MenuModel.find({find: menu[0]._id })
-            let findMenu = await isiModel.find({idmenu: mn})
+            let namaMenu = await MenuModel.find({menu: hasil})
+            let findMenu = await isiModel.find({idmenu: namaMenu[0]._id})
             chat = findMenu[0].content
             // bot.sendMessage(message.chat.id, chat);    
             // break;
