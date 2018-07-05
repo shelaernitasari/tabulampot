@@ -20,7 +20,19 @@ module.exports = async (bot, message) => {
     for ( let i = 0; i < input.length; i++){
         let tampung = input[i]
         // console.log(tampung);
-
+        let find = await MenuModel.find({menu: tampung});
+        console.log(find)
+        // if(find.length > 0){
+        //     let hasil = tampung
+        //     console.log(hasil);
+        //     let namaMenu = await MenuModel.find({menu: hasil})
+        //     console.log("nama Menu",namaMenu)
+        //     let findMenu = await isiModel.find({idmenu: namaMenu})
+        //     console.log("find Menu", findMenu)
+        //     // chat = findMenu[0].content
+        //     // bot.sendMessage(message.chat.id, chat);    
+        //     // break;
+        // }
         // let find = await MenuModel.find({menu: tampung});
         // console.log(find);
         
@@ -40,18 +52,7 @@ module.exports = async (bot, message) => {
         // }    
     } 
 
-    let find = await MenuModel.find({menu: tampung});
-    if(find.length > 0){
-        let hasil = tampung
-        console.log(hasil);
-        let namaMenu = await MenuModel.find({menu: hasil})
-        console.log("nama Menu",namaMenu)
-        let findMenu = await isiModel.find({idmenu: namaMenu})
-        console.log("find Menu", findMenu)
-        // chat = findMenu[0].content
-        // bot.sendMessage(message.chat.id, chat);    
-        // break;
-    }
+    
     
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
