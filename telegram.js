@@ -27,7 +27,6 @@ module.exports = async (bot, message) => {
         if(find.length > 0){
             tampung.push(find[0])
         }
-        console.log(tampung)
         // if(find.length > 0){
         //     let hasil = tampung
         //     console.log(hasil);
@@ -58,7 +57,7 @@ module.exports = async (bot, message) => {
         // }    
     } 
 
-    
+    console.log(tampung)
     
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
