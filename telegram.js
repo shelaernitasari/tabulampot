@@ -20,11 +20,14 @@ module.exports = async (bot, message) => {
 
     console.log(input);
 
+    let tampung = []
     for ( let i = 0; i < input.length; i++){
-        let tampung = input[i]
         // console.log(tampung);
-        let find = await MenuModel.find({menu: tampung});
-        console.log(find)
+        let find = await MenuModel.find({menu: input[i]});
+        if(find.length > 0){
+            tampung.push(find[0])
+        }
+        console.log(tampung)
         // if(find.length > 0){
         //     let hasil = tampung
         //     console.log(hasil);
