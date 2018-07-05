@@ -21,7 +21,7 @@ module.exports = async (bot, message) => {
         let tampung = input[i]
         // console.log(tampung);
 
-        let find = await MenuModel.find({menu: tampung});
+        // let find = await MenuModel.find({menu: tampung});
         // console.log(find);
         
         // if(find.length > 0){
@@ -30,19 +30,7 @@ module.exports = async (bot, message) => {
         //     // bot.sendMessage(message.chat.id, "shela cantik");    
         //     // break;
         // } 
-        if(find.length < 0){
-            
-        } else {
-            let hasil = tampung
-            console.log(hasil);
-            let namaMenu = await MenuModel.find({menu: hasil})
-            console.log("nama Menu",namaMenu)
-            let findMenu = await isiModel.find({judul: namaMenu})
-            console.log("find Menu", findMenu)
-            // chat = findMenu[0].content
-            // bot.sendMessage(message.chat.id, chat);    
-            // break;
-        }
+       
         // if(input[i] === menu){
         //     let hasil = input[i];
         //     console.log(hasil);
@@ -51,6 +39,19 @@ module.exports = async (bot, message) => {
         //     // break;  
         // }    
     } 
+
+    let find = await MenuModel.find({menu: tampung});
+    if(find.length > 0){
+        let hasil = tampung
+        console.log(hasil);
+        let namaMenu = await MenuModel.find({menu: hasil})
+        console.log("nama Menu",namaMenu)
+        let findMenu = await isiModel.find({idmenu: namaMenu})
+        console.log("find Menu", findMenu)
+        // chat = findMenu[0].content
+        // bot.sendMessage(message.chat.id, chat);    
+        // break;
+    }
     
     if (menu.length > 0) {
         let targetMenu = await MenuModel.find({root: menu[0]._id})
