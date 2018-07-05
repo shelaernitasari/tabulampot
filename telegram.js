@@ -22,7 +22,7 @@ module.exports = async (bot, message) => {
         // console.log(tampung);
 
         let find = await MenuModel.find({menu: tampung});
-        console.log(find);
+        // console.log(find);
         
         // if(find.length > 0){
         //     let hasil = tampung
@@ -34,7 +34,7 @@ module.exports = async (bot, message) => {
             
         } else {
             let hasil = tampung
-           // console.log(hasil);
+            console.log(hasil);
            // bot.sendMessage(message.chat.id, "shela cantik");    
             // break;
         }
