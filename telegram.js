@@ -20,6 +20,7 @@ module.exports = async (bot, message) => {
     let inputQuery = Tokenizer.tokenize(chat)
     let input = Tokenizer.tokenize(chat);
 
+    console.log(input);
   
     for(let x = 0 ; x < input.length-1;x++){
       inputQuery.push(input[x]+' '+input[x+1])
