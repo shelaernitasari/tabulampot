@@ -1,4 +1,5 @@
 const Cleaner = require('nalapa').cleaner;
+const Tokenizer = require('nalapa').tokenizer;
 
 const MenuModel = require('./api/models/menu')
 const isiModel = require('./api/models/isi')
@@ -16,55 +17,35 @@ module.exports = async (bot, message) => {
 
     // let input = message.chat.id
     chat = Cleaner.removeNonASCII(chat);
-    let input = chat.split(" ");
+    let inputQuery = Tokenizer.tokenize(chat)
+    let input = Tokenizer.tokenize(chat);
 
-    console.log(input);
+  
+    for(let x = 0 ; x < input.length-1;x++){
+      inputQuery.push(input[x]+' '+input[x+1])
+    }
+  
+    for(let x = 0 ; x < input.length-2;x++){
+      inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
+    }
 
-    let tampung = []
-    for ( let i = 0; i < input.length; i++){
-        // console.log(tampung);
-        let find = await MenuModel.find({menu: input[i]});
-        if(find.length > 0){
-            tampung.push(find[0])
+    for ( let i = 0; i < inputQuery.length; i++){
+        let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
+        console.log(tmpMenu)
+        if(tmpMenu.length > 0){
+            menu.push(tmpMenu[0])
         }
-        // if(find.length > 0){
-        //     let hasil = tampung
-        //     console.log(hasil);
-        //     let namaMenu = await MenuModel.find({menu: hasil})
-        //     console.log("nama Menu",namaMenu)
-        //     let findMenu = await isiModel.find({idmenu: namaMenu})
-        //     console.log("find Menu", findMenu)
-        //     // chat = findMenu[0].content
-        //     // bot.sendMessage(message.chat.id, chat);    
-        //     // break;
-        // }
-        // let find = await MenuModel.find({menu: tampung});
-        // console.log(find);
-        
-        // if(find.length > 0){
-        //     let hasil = tampung
-        //     console.log(hasil);
-        //     // bot.sendMessage(message.chat.id, "shela cantik");    
-        //     // break;
-        // } 
-       
-        // if(input[i] === menu){
-        //     let hasil = input[i];
-        //     console.log(hasil);
-
-        //     // bot.sendMessage(message.chat.id, "shela cantik");    
-        //     // break;  
-        // }    
     } 
 
-    console.log(tampung)
+//     console.log(menu)
+    
     
     if (menu.length > 0) {
-        let targetMenu = await MenuModel.find({root: menu[0]._id})
+        let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
-            console.log(isi);
+//             console.log(isi);
             if (isi.length > 0) {
                 chat = isi[0].content
                 let photo = isi[0].foto
@@ -113,7 +94,7 @@ function parseMenu (menu) {
     }
     // console.log(half);
     for (let i = 0 ; i < half; i++){
-        console.log(menu[i].menu) 
+//         console.log(menu[i].menu) 
         let subKeyboard = []
 
         subKeyboard.push(menu[i].menu)
