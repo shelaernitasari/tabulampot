@@ -20,6 +20,7 @@ module.exports = async (bot, message) => {
     let inputQuery = Tokenizer.tokenize(chat)
     let input = Tokenizer.tokenize(chat);
 
+    console.log(input);
   
     for(let x = 0 ; x < input.length-1;x++){
       inputQuery.push(input[x]+' '+input[x+1])
@@ -45,7 +46,7 @@ module.exports = async (bot, message) => {
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
-//             console.log(isi);
+             console.log(isi);
             if (isi.length > 0) {
                 chat = isi[0].content
                 let photo = isi[0].foto
