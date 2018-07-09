@@ -5,19 +5,19 @@ block content
   .content-wrapper
     .page-header
       h3.page-title
-        | Forms
+        | Menu
       nav(aria-label='breadcrumb')
         ol.breadcrumb
           li.breadcrumb-item
-            a(href='#') Forms
-          li.breadcrumb-item.active(aria-current='page') Basic elements
+            a(href='#') menu
+          li.breadcrumb-item.active(aria-current='page') halaman menu
     .row
       .col-12.grid-margin.stretch-card
         .card
           .card-body
             h4.card-title Menu
             p.card-description
-              | Tabel Menu Tabulampot
+              | Insert Menu Tabulampot
             form.forms-sample(action='/insertmenu', method='post')
               //- .form-group
               //-   label(for='exampleSelectGender') Root
@@ -42,12 +42,12 @@ block content
     .col-lg-12.stretch-card
       .card
         .card-body
-          h4.card-title Table with contextual classes
+          h4.card-title Tabel Menu 
           p.card-description
-            | Add class 
+            | menu 
           form.forms-sample(action='/insertmenu/pencarian', method='get')
             .form-group
-              label(for='exampleInputName2') search menu
+              label(for='exampleInputName2') cari berdasarkan root menu
               select.form-control(name="carimenu")
                 each dd, i in menu
                   option(value='#{dd.id}') #{dd.menu}
@@ -56,7 +56,7 @@ block content
             br
            form.forms-sample(action='/insertmenu/pencarianmenu', method='get')
             .form-group
-              label(for='exampleInputName3') search menu
+              label(for='exampleInputName3') cari menu
               select.form-control(name="carimenuid")
                 each dd, i in menu
                   option(value='#{dd.id}') #{dd.menu}
