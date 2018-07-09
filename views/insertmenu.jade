@@ -17,7 +17,7 @@ block content
           .card-body
             h4.card-title Menu
             p.card-description
-              | Insert Menu Tabulampot
+              | Input Menu Tabulampot
             form.forms-sample(action='/insertmenu', method='post')
               //- .form-group
               //-   label(for='exampleSelectGender') Root
@@ -25,7 +25,7 @@ block content
               //-     option id Root 1
               //-     option id Root 2
               .form-group
-                label(for='exampleInputName1') Root Input
+                label(for='exampleInputName1') Root 
                 //- input#menu.form-control(type='text', placeholder='Root', name='root')
                 select.form-control(name='root')
                   each dd, i in menu
@@ -36,8 +36,8 @@ block content
               .form-group
                 label(for='exampleInputName2') Pertanyaan
                 input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan')
-              button.btn.btn-gradient-primary.mr-2(type='submit') Submit
-              button.btn.btn-light Cancel
+              button.btn.btn-gradient-primary.mr-2(type='submit') Oke
+              button.btn.btn-light Batal
     .row          
     .col-lg-12.stretch-card
       .card
@@ -51,7 +51,7 @@ block content
               select.form-control(name="carimenu")
                 each dd, i in menu
                   option(value='#{dd.id}') #{dd.menu}
-            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+            button.btn.btn-gradient-primary.mr-2(type='submit') Cari
             br
             br
            form.forms-sample(action='/insertmenu/pencarianmenu', method='get')
@@ -60,7 +60,7 @@ block content
               select.form-control(name="carimenuid")
                 each dd, i in menu
                   option(value='#{dd.id}') #{dd.menu}
-            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+            button.btn.btn-gradient-primary.mr-2(type='submit') Cari
             br
             br
           table.table.table-bordered
