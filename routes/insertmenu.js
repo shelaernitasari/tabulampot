@@ -86,6 +86,33 @@ router.get('/pencarian', function(req, res){
               error: err
           });
       });
+});
+
+router.get('/pencarianmenu', function(req, res){
+    let cari = req.query.carimenuid;
+    Menu.find()
+      .where('_id').equals(cari)
+      .select('_id root menu pertanyaan')
+      .exec()
+          .then(docs => {
+          console.log(docs);
+          if(docs.length >= 0){
+              res.render('insertmenu',{
+                  count : docs.length,
+                  menu: docs
+              });
+          } else{
+              res.status(404).json({
+                  message: 'no entries found'
+              });
+          }
+        })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json({
+              error: err
+          });
+      });
   });
   
 

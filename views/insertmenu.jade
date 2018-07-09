@@ -47,8 +47,17 @@ block content
             | Add class 
           form.forms-sample(action='/insertmenu/pencarian', method='get')
             .form-group
-              label(for='exampleInputName1') search menu
+              label(for='exampleInputName2') search menu
               select.form-control(name="carimenu")
+                each dd, i in menu
+                  option(value='#{dd.id}') #{dd.menu}
+            button.btn.btn-gradient-primary.mr-2(type='submit') Submit
+            br
+            br
+           form.forms-sample(action='/insertmenu/pencarianmenu', method='get')
+            .form-group
+              label(for='exampleInputName3') search menu
+              select.form-control(name="carimenuid")
                 each dd, i in menu
                   option(value='#{dd.id}') #{dd.menu}
             button.btn.btn-gradient-primary.mr-2(type='submit') Submit
