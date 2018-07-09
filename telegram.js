@@ -24,36 +24,33 @@ module.exports = async (bot, message) => {
   
     for(let x = 0 ; x < input.length-1;x++){
       inputQuery.push(input[x]+' '+input[x+1])
-    
     }
   
     for(let x = 0 ; x < input.length-2;x++){
       inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
-      
     }
-
     
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
         console.log(tmpMenu)
-
-        // for(let n = 0 ; n < tmpMenu.length; n++){
-        //     nilai++ ;
-        // }
-
         if(tmpMenu.length > 0){
             menu.push(tmpMenu[0])
         }
-        // if(nilai > tmpMenu.length){
-        //     menu.push(tmpMenu[0])
-        // }
     } 
+
+    //   for ( let i = 0; i < inputQuery.length; i++){
+    //       let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} }).then(nilai = nilai + 1);
+    //       console.log(tmpMenu)
+
+    //       if(tmpMenu.length > 0){
+    //            menu.push(tmpMenu[0])
+    //     }
+    //   } 
 
 //     console.log(menu)
     
-    
     if (menu.length > 0) {
-        let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
+        let targetMenu = await MenuModel.find({root: menu[menu.length]._id})
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
