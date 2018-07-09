@@ -19,23 +19,34 @@ module.exports = async (bot, message) => {
     chat = Cleaner.removeNonASCII(chat);
     let inputQuery = Tokenizer.tokenize(chat)
     let input = Tokenizer.tokenize(chat);
-
+    let nilai = 0
     console.log(input);
   
     for(let x = 0 ; x < input.length-1;x++){
       inputQuery.push(input[x]+' '+input[x+1])
+    
     }
   
     for(let x = 0 ; x < input.length-2;x++){
       inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
+      
     }
 
+    
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
         console.log(tmpMenu)
+
+        // for(let n = 0 ; n < tmpMenu.length; n++){
+        //     nilai++ ;
+        // }
+
         if(tmpMenu.length > 0){
             menu.push(tmpMenu[0])
         }
+        // if(nilai > tmpMenu.length){
+        //     menu.push(tmpMenu[0])
+        // }
     } 
 
 //     console.log(menu)
