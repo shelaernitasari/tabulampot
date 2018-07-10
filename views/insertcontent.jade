@@ -64,18 +64,14 @@ block content
             thead
               tr
                 th No
-                th judul
                 th content
-                th tanggal
                 th menu
                 th foto
             tbody
              each data, i in content
               tr
                 td #{i+1}
-                td #{data.judul}
                 td #{data.content}
-                td #{data.tanggal}
                 td #{data.idmenu.menu}
                 td #{data.foto}
                 td
