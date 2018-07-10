@@ -36,9 +36,9 @@ module.exports = async (bot, message) => {
         if(tmpMenu.length > 0){
            let tampung = menu.push(tmpMenu[0])
            console.log("tampung : ", tmpMenu)
-            for (var i = 0 ; i < tmpMenu.length ; i++){
-                for (var j = i; j < tampung.length ; j++){
-                  let arrayMenu = menu[i][j].push(0);
+            for (var p = 0 ; p < tmpMenu.length ; p++){
+                for (var q = p; q < tampung.length ; q++){
+                  let arrayMenu = menu[p][q].push(0);
                   console.log(arrayMenu);
                 }
             }
