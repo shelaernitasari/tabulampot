@@ -40,7 +40,7 @@ module.exports = async (bot, message) => {
            console.log("tampung : ", tampung)
            
             for (var p = 0 ; p < tampung ; p++){ 
-                for (var q = 0; q < tmpMenu.length ; q++){
+                for (var q = p; q < tmpMenu.length ; q++){
                   ret = menu.push(tmpMenu[0]);
                   
                 }
