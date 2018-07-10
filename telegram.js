@@ -22,13 +22,13 @@ module.exports = async (bot, message) => {
     let nilai = 0
     console.log(input);
   
-    for(let x = 0 ; x < input.length-1;x++){
-      inputQuery.push(input[x]+' '+input[x+1])
-    }
+    // for(let x = 0 ; x < input.length-1;x++){
+    //   inputQuery.push(input[x]+' '+input[x+1])
+    // }
   
-    for(let x = 0 ; x < input.length-2;x++){
-      inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
-    }
+    // for(let x = 0 ; x < input.length-2;x++){
+    //   inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
+    // }
     
     let ret = []
     for ( let i = 0; i < inputQuery.length; i++){
