@@ -36,10 +36,10 @@ module.exports = async (bot, message) => {
         if(tmpMenu.length > 0){
            let tampung = menu.push(tmpMenu[0])
            console.log("tampung : ", tampung)
-            for (var p = 0 ; p < tampung ; p++){
+            for (var p = 0 ; p < tampung.length ; p++){
                 for (var q = p; q < tmpMenu.length ; q++){
-                  menu.push(tmpMenu[0]);
-                  console.log("array menu", menu.push(tmpMenu[0]));
+                  let arrayMenu = menu.push(tmpMenu[0]);
+                  console.log("array menu", arrayMenu);
                 }
             }
         }
