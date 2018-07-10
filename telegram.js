@@ -35,13 +35,13 @@ module.exports = async (bot, message) => {
         // console.log(tmpMenu)
         if(tmpMenu.length > 0){
            let tampung = menu.push(tmpMenu[0])
-           console.log("tampung : ", tmpMenu)
-            for (var p = 0 ; p < tmpMenu.length ; p++){
-                for (var q = p; q < tampung.length ; q++){
-                  let arrayMenu = menu.push(tmpMenu[0]);
-                  console.log("array menu", arrayMenu);
-                }
-            }
+           console.log("tampung : ", tampung)
+            // for (var p = 0 ; p < tmpMenu.length ; p++){
+            //     for (var q = p; q < tampung.length ; q++){
+            //       let arrayMenu = menu.push(tmpMenu[0]);
+            //       console.log("array menu", arrayMenu);
+            //     }
+            // }
         }
     } 
 
