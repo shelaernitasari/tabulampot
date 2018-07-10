@@ -30,6 +30,7 @@ module.exports = async (bot, message) => {
       inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
     }
     
+    let ret = []
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
         console.log("tmpMenu", tmpMenu)
@@ -37,9 +38,8 @@ module.exports = async (bot, message) => {
         if(tmpMenu.length > 0){
            let tampung = menu.push(tmpMenu[0])
            console.log("tampung : ", tampung)
-           let ret = []
-            for (var p = 0 ; p < tampung ; p++){
-                ret[p] = [] 
+           
+            for (var p = 0 ; p < tampung ; p++){ 
                 for (var q = 0; q < tmpMenu.length ; q++){
                   ret = menu.push(tmpMenu[0]);
                   
