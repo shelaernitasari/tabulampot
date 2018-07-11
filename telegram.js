@@ -39,7 +39,7 @@ module.exports = async (bot, message) => {
           if(tmpMenu.length > 0){
                tampung.push(tmpMenu[i])
                chatYangAda.push(inputQuery[i])
-               console.log("menu ya", tampung[i])
+               console.log("menu ya", tmpMenu[i])
           }
       } 
 
@@ -48,9 +48,9 @@ module.exports = async (bot, message) => {
         console.log("Ini chat yang ada " , chatYangAda[k])
     }
 
-    for(let j = 0; j < menu.length; j++){
-        menu[j].menu
-        console.log("Ambil yang ini  " , menu[j].menu)
+    for(let j = 0; j < tampung.length; j++){
+        tampung[j].menu
+        console.log("Ambil yang ini  " , tampung[j].menu)
 
         // for (var p = 0 ; p < menu.length ; p++){ 
         //     for (var q = p; q < tmpMenu.length ; q++){
