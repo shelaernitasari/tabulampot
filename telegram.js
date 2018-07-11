@@ -65,7 +65,8 @@ module.exports = async (bot, message) => {
 //     console.log(menu)
     
     if (menu.length > 0) {
-        let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
+        // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
+        let targetMenu = await MenuModel.find({root: menu[0]._id})
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
