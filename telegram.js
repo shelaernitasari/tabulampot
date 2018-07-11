@@ -32,7 +32,20 @@ module.exports = async (bot, message) => {
         inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
     }
     
-    // let ret = []
+      for ( let i = 0; i < inputQuery.length; i++){
+          let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
+          console.log(tmpMenu)
+
+          if(tmpMenu.length > 0){
+               menu.push(tmpMenu[0])
+          }
+      } 
+
+      for(let j = 0; j < menu.length; j++){
+          console.log(menu[j])
+      }
+
+          // let ret = []
     // let tampung = []
     // for ( let i = 0; i < inputQuery.length; i++){
     //     let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
@@ -52,16 +65,6 @@ module.exports = async (bot, message) => {
     //         console.log("return", ret);
     //     }
     // } 
-
-      for ( let i = 0; i < inputQuery.length; i++){
-          let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
-          console.log(tmpMenu)
-
-          if(tmpMenu.length > 0){
-               menu.push(tmpMenu[0])
-        }
-      } 
-
 //     console.log(menu)
     
     if (menu.length > 0) {
