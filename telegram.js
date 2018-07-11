@@ -45,19 +45,19 @@ module.exports = async (bot, message) => {
     for(let k =0 ; k < chatYangAda.length; k++){
         chatYangAda[k]
         console.log("Ini chat yang ada " , chatYangAda[k])
+    }
 
-        for(let j = 0; j < menu.length; j++){
-            menu[j].menu 
-            console.log("Ambil yang ini  " , menu[j].menu)
+    for(let j = 0; j < menu.length; j++){
+        menu[j].menu 
+        console.log("Ambil yang ini  " , menu[j].menu)
 
-            // for (var p = 0 ; p < menu.length ; p++){ 
-            //     for (var q = p; q < tmpMenu.length ; q++){
-            //         menu.push(menu[j].menu);
-            //         console.log("menu akhir", menu[j].menu)
-            //     }
-            // }
+        // for (var p = 0 ; p < menu.length ; p++){ 
+        //     for (var q = p; q < tmpMenu.length ; q++){
+        //         menu.push(menu[j].menu);
+        //         console.log("menu akhir", menu[j].menu)
+        //     }
+        // }
 
-        }
     }
 
     // let ret = []
