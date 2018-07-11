@@ -40,8 +40,8 @@ module.exports = async (bot, message) => {
               // menu.push(tmpMenu[i])
                chatYangAda.push(inputQuery[i])
           }
-          tampung = tmpMenu[i]
-          console.log("menu ya", tampung)
+          tampung[i] = tmpMenu
+          console.log("menu ya", tampung[i])
       } 
 
     for(let k =0 ; k < chatYangAda.length; k++){
