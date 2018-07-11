@@ -49,7 +49,7 @@ module.exports = async (bot, message) => {
         console.log("Ini chat yang ada " , chatYangAda[k])
     }
 
-    for(let j = 0; j < tampung[i].length; j++){
+    for(let j = 0; j < tampung.length; j++){
        //  menu[j]
         console.log("Ambil yang ini  " , tampung[j])
 
