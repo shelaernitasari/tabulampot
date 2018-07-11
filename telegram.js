@@ -13,6 +13,7 @@ module.exports = async (bot, message) => {
     // let lokasi = message.latitude
 
     let menu = await MenuModel.find({menu: chat})
+    let chatYangAda = []
     // console.log('menu',menu)
 
     // let input = message.chat.id
@@ -37,10 +38,11 @@ module.exports = async (bot, message) => {
 
           if(tmpMenu.length > 0){
                menu.push(tmpMenu[0])
+               chatYangAda.push(inputQuery[i])
           }
-
-          
       } 
+
+      console.log("Ini chat yang ada " , chatYangAda);
 
       for(let j = 0; j < menu.length; j++){
           console.log("Ambil yang ini  " , menu[j].menu)
@@ -55,8 +57,6 @@ module.exports = async (bot, message) => {
         
 
       }
-
-
 
           // let ret = []
     // let tampung = []
