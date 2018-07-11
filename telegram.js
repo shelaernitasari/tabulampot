@@ -36,10 +36,15 @@ module.exports = async (bot, message) => {
           let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
          // console.log(tmpMenu)
 
-          if(tmpMenu.length > 0){
-               tampung.push(tmpMenu[i])
-               chatYangAda.push(inputQuery[i])
-          }
+        //   if(tmpMenu.length > 0){
+        //        tampung.push(tmpMenu[i])
+        //        chatYangAda.push(inputQuery[i])
+        //   }
+
+        for(let l = 0; l < tmpMenu.length; l++){
+            tampung.push(tmpMenu[l])
+            chatYangAda.push(inputQuery[l])
+        }
           console.log("menu ya", tampung)
       } 
 
