@@ -14,6 +14,7 @@ module.exports = async (bot, message) => {
 
     let menu = await MenuModel.find({menu: chat})
     let chatYangAda = []
+    let tampung = []
     // console.log('menu',menu)
 
     // let input = message.chat.id
@@ -36,9 +37,9 @@ module.exports = async (bot, message) => {
          // console.log(tmpMenu)
 
           if(tmpMenu.length > 0){
-               menu.push(tmpMenu[i])
+               tampung.push(tmpMenu[i])
                chatYangAda.push(inputQuery[i])
-               console.log("menu ya", menu.tmpMenu[i])
+               console.log("menu ya", tampung[i])
           }
       } 
 
