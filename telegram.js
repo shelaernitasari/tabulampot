@@ -24,43 +24,33 @@ module.exports = async (bot, message) => {
     let nilai = 0
     console.log(input);
     
-    for(let x = 0 ; x < input.length-2;x++){
-        inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
-    }
+    // for(let x = 0 ; x < input.length-2;x++){
+    //     inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
+    // }
     
-    for(let x = 0 ; x < input.length-1;x++){
-      inputQuery.push(input[x]+' '+input[x+1])
-    }
+    // for(let x = 0 ; x < input.length-1;x++){
+    //   inputQuery.push(input[x]+' '+input[x+1])
+    // }
 
-      for ( let i = 0; i < inputQuery.length; i++){
-          let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
-         // console.log(tmpMenu)
+    // for ( let i = 0; i < inputQuery.length; i++){
+    //       let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
+    //      // console.log(tmpMenu)
 
-          if(tmpMenu.length > 0){
-              // menu.push(tmpMenu[i])
-               chatYangAda.push(inputQuery[i])
-          }
-          tampung[i] = tmpMenu
-          console.log("menu ya", tampung[i])
-      } 
+    //       if(tmpMenu.length > 0){
+    //           menu.push(tmpMenu[0])
+    //            chatYangAda.push(inputQuery[i])
+    //       }
+    // } 
 
-    for(let k =0 ; k < chatYangAda.length; k++){
-        chatYangAda[k]
-        console.log("Ini chat yang ada " , chatYangAda[k])
-    }
+    // for(let k =0 ; k < chatYangAda.length; k++){
+    //     chatYangAda[k]
+    //     console.log("Ini chat yang ada " , chatYangAda[k])
+    // }
 
-    for(let j = 0; j < tampung.length; j++){
-       //  menu[j]
-        console.log("Ambil yang ini  " , tampung[j])
-
-        // for (var p = 0 ; p < menu.length ; p++){ 
-        //     for (var q = p; q < tmpMenu.length ; q++){
-        //         menu.push(menu[j].menu);
-        //         console.log("menu akhir", menu[j].menu)
-        //     }
-        // }
-
-    }
+    // for(let j = 0; j < menu.length; j++){
+    //    //  menu[j]
+    //     console.log("Ambil yang ini  " , menu[j])
+    // }
 
     // let ret = []
     // let tampung = []
@@ -84,6 +74,15 @@ module.exports = async (bot, message) => {
     // } 
 //     console.log(menu)
     
+    for ( let i = 0; i < inputQuery.length; i++){
+        let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
+         // console.log(tmpMenu)
+        if(tmpMenu.length > 0){
+            tampung.push(tmpMenu[i])
+        }
+        console.log(tampung)
+    } 
+
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
         let targetMenu = await MenuModel.find({root: menu[0]._id})
