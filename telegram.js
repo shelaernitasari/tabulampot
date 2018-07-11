@@ -37,7 +37,7 @@ module.exports = async (bot, message) => {
           console.log(tmpMenu)
 
           if(tmpMenu.length > 0){
-               menu.push(tmpMenu[0])
+               menu.push(tmpMenu[i])
                chatYangAda.push(inputQuery[i])
           }
       } 
