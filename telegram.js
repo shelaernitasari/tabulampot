@@ -42,7 +42,7 @@ module.exports = async (bot, message) => {
       } 
 
       for(let j = 0; j < menu.length; j++){
-          console.log(menu[j])
+          console.log("ini menu J " , menu[j])
       }
 
           // let ret = []
