@@ -30,6 +30,7 @@ module.exports = async (bot, message) => {
         inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
     }
     
+
       for ( let i = 0; i < inputQuery.length; i++){
           let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
           console.log(tmpMenu)
@@ -37,17 +38,21 @@ module.exports = async (bot, message) => {
           if(tmpMenu.length > 0){
                menu.push(tmpMenu[0])
           }
+
+          
       } 
 
       for(let j = 0; j < menu.length; j++){
-          console.log("ini menu J " , menu[j])
+          console.log("Ambil yang ini  " , menu[j].menu)
 
-        for (var p = 0 ; p < menu.length ; p++){ 
-            for (var q = p; q < tmpMenu.length ; q++){
-                menu.push(menu[j].menu);
-                console.log("menu akhir", menu[j].menu)
-            }
-        }
+        // for (var p = 0 ; p < menu.length ; p++){ 
+        //     for (var q = p; q < tmpMenu.length ; q++){
+        //         menu.push(menu[j].menu);
+        //         console.log("menu akhir", menu[j].menu)
+        //     }
+        // }
+
+        
 
       }
 
