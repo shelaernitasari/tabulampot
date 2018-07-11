@@ -83,7 +83,7 @@ module.exports = async (bot, message) => {
          // console.log(tmpMenu)
     if(tmpMenu.length > 0 ){
         for( let j = 0 ; j < tmpMenu.length ; j++){
-            tampung.push(tmpMenu[i])
+            tampung.push(tmpMenu[j])
         }
     }
         console.log("tampung", tampung)
