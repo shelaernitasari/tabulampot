@@ -36,16 +36,11 @@ module.exports = async (bot, message) => {
           let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
          // console.log(tmpMenu)
 
-        //   if(tmpMenu.length > 0){
-        //        tampung.push(tmpMenu[i])
-        //        chatYangAda.push(inputQuery[i])
-        //   }
-
-        for(let l = 0; l < tmpMenu.length; l++){
-            tampung.push(tmpMenu[l])
-            chatYangAda.push(inputQuery[l])
-        }
-          console.log("menu ya", tampung)
+          if(tmpMenu.length > 0){
+               menu.push(tmpMenu[i])
+               chatYangAda.push(inputQuery[i])
+          }
+          console.log("menu ya", menu)
       } 
 
     for(let k =0 ; k < chatYangAda.length; k++){
@@ -53,9 +48,9 @@ module.exports = async (bot, message) => {
         console.log("Ini chat yang ada " , chatYangAda[k])
     }
 
-    for(let j = 0; j < tampung.length; j++){
-        tampung[j]
-        console.log("Ambil yang ini  " , tampung[j])
+    for(let j = 0; j < menu.length; j++){
+        menu[j]
+        console.log("Ambil yang ini  " , menu[j])
 
         // for (var p = 0 ; p < menu.length ; p++){ 
         //     for (var q = p; q < tmpMenu.length ; q++){
