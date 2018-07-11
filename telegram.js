@@ -77,9 +77,10 @@ module.exports = async (bot, message) => {
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
          // console.log(tmpMenu)
-        if(tmpMenu.length > 0){
+        for( let j = 0 ; j < tmpMenu.length ; j++){
             tampung.push(tmpMenu[i])
         }
+       
         console.log(tampung)
     } 
 
