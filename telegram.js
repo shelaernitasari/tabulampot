@@ -22,8 +22,6 @@ module.exports = async (bot, message) => {
     let nilai = 0
     console.log(input);
       
-
-  
     for(let x = 0 ; x < input.length-1;x++){
       inputQuery.push(input[x]+' '+input[x+1])
     }
@@ -43,7 +41,17 @@ module.exports = async (bot, message) => {
 
       for(let j = 0; j < menu.length; j++){
           console.log("ini menu J " , menu[j])
+
+        for (var p = 0 ; p < menu.length ; p++){ 
+            for (var q = p; q < tmpMenu.length ; q++){
+                menu.push(menu[j].menu);
+                console.log("menu akhir", menu[j].menu)
+            }
+        }
+
       }
+
+
 
           // let ret = []
     // let tampung = []
