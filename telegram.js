@@ -98,7 +98,7 @@ module.exports = async (bot, message) => {
             setMenu.add(tmpMenu[j])
             // console.log("tmp menu", tmpMenu[j]) 
         }     
-    }  
+    }  console.log("set menu", setMenu)
         for(let j = 0; j < nama.length; j++){
             console.log("nama", nama)
             for(let k = 0; k < setMenu.length ; k++){
