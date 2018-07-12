@@ -90,11 +90,11 @@ module.exports = async (bot, message) => {
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         //console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
+        ws.add(tmpMenu)
         for(let j = 0; j < tmpMenu.length; j++){
             setMenu.add(tmpMenu[j])
-            ws.add(tmpMenu[j])
-            console.log(ws)
-        }      
+        }   
+        console.log(ws)   
     }  console.log("set",ws)
 
     for ( let i = 0; i < inputQuery.length; i++){
