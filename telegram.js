@@ -75,6 +75,8 @@ module.exports = async (bot, message) => {
     //     }
     // } 
 //     console.log(menu)
+    const setMenu = new Set();
+
     for(let x = 0 ; x < input.length-2;x++){
         inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
     }
@@ -87,10 +89,11 @@ module.exports = async (bot, message) => {
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         // console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
-        Set(tmpMenu[i])
-        console.log("set" , Set(tmpMenu[i]))
-
-
+        setMenu.add(tmpMenu)
+        for (let item of setMenu) {
+            console.log("set", item);
+           
+        }
     }
 
     if (menu.length > 0) {
