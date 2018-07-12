@@ -12,8 +12,7 @@ module.exports = async (bot, message) => {
     // let photo = message.text
     // let lokasi = message.latitude
     let semuaMenu = await MenuModel.find().select('menu')
-    let pecahsemuamenu = Tokenizer.tokenize(semuaMenu)
-    console.log("semua menu",pecahsemuamenu)
+    // console.log("semua menu",semuaMenu)
     let menu = await MenuModel.find({menu: chat})
     
     let chatYangAda = []
