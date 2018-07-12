@@ -102,16 +102,17 @@ module.exports = async (bot, message) => {
 
         for(let j = 0; j < nama.length; j++){
            //  console.log("nama", nama)
-            for(let k = 0; k < setMenu.size ; k++){
-                  var x = Object.values(setMenu[k]);
-                  console.log(x[2]);
-        
-                if(nama[j] == data_string.menu){
-                    nilai[k]++
-                }
-            console.log("nilai", nilai[k])
-            
-            }
+           let it = 0;
+           
+           setMenu.forEach(function(value) {
+            console.log("value", value);
+            var x = Object.values(value);
+            console.log("x", x[2]);
+            // if(nama[j] == x[2]){
+            //     nilai[it]=nilai[it]++
+            //     it++
+            // }
+          });
         }  
     
 
