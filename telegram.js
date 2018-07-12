@@ -94,27 +94,21 @@ module.exports = async (bot, message) => {
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < tmpMenu.length; j++){
             nama[iterator] = tmpMenu[j].menu
-            console.log("nama",nama)
             iterator++
             setMenu.add(tmpMenu[j])
             // console.log("tmp menu", tmpMenu[j]) 
         }     
     }  
-
-    for ( let i = 0; i < inputQuery.length; i++){
-        let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
-        // console.log("blok", tmpMenu)
-        // console.log("Ini chat yang ada " , inputQuery[i])
-        for(let j = 0; j < tmpMenu.length; j++){
+        for(let j = 0; j < nama.length; j++){
             for(let k = 0; k < setMenu.length ; k++){
                 // console.log("set menu", setMenu)
-                if(tmpMenu[j] === setMenu[k]){
+                if(nama[j] == setMenu[k].menu){
                     nilai[k]++
                 }
-            // console.log("nilai", nilai[k])
+            console.log("nilai", nilai[k])
             }
         }  
-    }
+    
 
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
