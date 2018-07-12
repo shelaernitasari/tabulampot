@@ -75,7 +75,7 @@ module.exports = async (bot, message) => {
     //     }
     // } 
 //     console.log(menu)
-    const setMenu = new Set();
+    const setMenu = new Set([]);
     const ws = new WeakSet();
     const nama = []
     let iterator = 0
@@ -118,7 +118,7 @@ module.exports = async (bot, message) => {
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < tmpMenu.length; j++){
             // tmpMenu[i]
-            setMenu.add(tmpMenu[j])
+            setMenu[i].add(tmpMenu[j])
             // console.log("tmp menu", tmpMenu[j]) 
         }     
     }  
@@ -130,10 +130,11 @@ module.exports = async (bot, message) => {
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < tmpMenu.length; j++){
             
-            for (k = 0; k < setMenu.length; k++){
-                console.log(setMenu.length)
+            for (k = 0; k < setMenu.size; k++){
+                
             } 
-        }     
+        }   
+        console.log(setMenu[i])  
     }
     // console.log("saya", saya)
   
