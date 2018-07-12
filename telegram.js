@@ -86,12 +86,13 @@ module.exports = async (bot, message) => {
             //  menu[j]
              console.log("Ambil yang ini  " , tmpMenu[j])
              
-             for(let k = 0; k < menu.length ; k++){
-                 if(tmpMenu[j] == menu[k]){
+             for(let k = 0; k < semuaMenu.length ; k++){
+                 if(tmpMenu[j] == semuaMenu[k]){
                      nilai.tmpMenu[j]++
                  }
              }
          }
+         console.log("nilai", nilai)
     }
 
     // for(let k =0 ; k < inputQuery.length; k++){
