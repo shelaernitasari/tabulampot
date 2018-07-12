@@ -76,6 +76,7 @@ module.exports = async (bot, message) => {
     // } 
 //     console.log(menu)
     const setMenu = new Set();
+    var ws = new WeakSet();
 
     for(let x = 0 ; x < input.length-2;x++){
         inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
@@ -91,21 +92,21 @@ module.exports = async (bot, message) => {
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < tmpMenu.length; j++){
             setMenu.add(tmpMenu[j])
-        
-        }  
-    }  // console.log("set",setMenu)
+            ws.add(tmpMenu[j])
+        }      
+    }  console.log("set",ws)
 
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
-        console.log("blok", tmpMenu)
+        // console.log("blok", tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < tmpMenu.length; j++){
             for(let k = 0; k < setMenu.length ; k++){
-                console.log("set menu", setMenu)
+                // console.log("set menu", setMenu)
                 if(tmpMenu[j] === setMenu[k]){
                     nilai[k]++
                 }
-            console.log("nilai", nilai[k])
+            // console.log("nilai", nilai[k])
             }
         }  
     }
