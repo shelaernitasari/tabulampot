@@ -75,8 +75,8 @@ module.exports = async (bot, message) => {
     //     }
     // } 
 //     console.log(menu)
-    const setMenu = new Set();
-    const ws = new WeakSet();
+    let setMenu = new Set();
+    let ws = new WeakSet();
 
     for(let x = 0 ; x < input.length-2;x++){
         inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
