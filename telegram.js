@@ -90,10 +90,7 @@ module.exports = async (bot, message) => {
         // console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         setMenu.add(tmpMenu)
-        for (let item of setMenu) {
-            console.log("set", item);
-           
-        }
+        console.log("set",setMenu)
     }
 
     if (menu.length > 0) {
