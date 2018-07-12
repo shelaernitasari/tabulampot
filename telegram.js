@@ -103,9 +103,9 @@ module.exports = async (bot, message) => {
         for(let j = 0; j < nama.length; j++){
            //  console.log("nama", nama)
             for(let k = 0; k < setMenu.size ; k++){
-                
-                const data_string = JSON.stringify(setMenu[k])
-                console.log(data_string)
+                  var x = Object.values(setMenu[k]);
+                  console.log(x[2]);
+        
                 if(nama[j] == data_string.menu){
                     nilai[k]++
                 }
