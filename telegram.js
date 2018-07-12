@@ -84,15 +84,17 @@ module.exports = async (bot, message) => {
 
         for(let j = 0; j < tmpMenu.length; j++){
             //  menu[j]
-             console.log("Ambil yang ini  " , tmpMenu[j])
-             
+             console.log("Ambil yang ini  " , tmpMenu[j].menu)
+             let pecahmenu = Tokenizer.tokenize(tmpMenu[j].menu)
+             console.log("pecah menu", pecahmenu)
              for(let k = 0; k < semuaMenu.length ; k++){
                  if(tmpMenu[j] == semuaMenu[k]){
                      nilai.tmpMenu[j]++
                  }
+                 console.log("nilai", nilai)
              }
          }
-         console.log("nilai", nilai)
+         
     }
 
     // for(let k =0 ; k < inputQuery.length; k++){
