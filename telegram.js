@@ -123,7 +123,7 @@ module.exports = async (bot, message) => {
         }     
     }  
     // console.log("set menu", setMenu)
-    let saya = [][]
+    let saya = []
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         // console.log(tmpMenu)
