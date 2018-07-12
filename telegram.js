@@ -99,9 +99,10 @@ module.exports = async (bot, message) => {
             // console.log("tmp menu", tmpMenu[j]) 
         }     
     }  console.log("set menu", setMenu)
+
         for(let j = 0; j < nama.length; j++){
             console.log("nama", nama)
-            for(let k = 0; k < setMenu.length ; k++){
+            for(let k = 0; k < setMenu.size ; k++){
                 console.log("set menu", setMenu)
                 if(nama[j] == setMenu[k].menu){
                     nilai[k]++
