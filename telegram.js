@@ -75,7 +75,7 @@ module.exports = async (bot, message) => {
 //     console.log(menu)
     
     for ( let i = 0; i < inputQuery.length; i++){
-        let tmpMenu = await MenuModel.find({menu: {$regex: tampung[i], $options:"$i"} });
+        let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         console.log(tmpMenu)
         
     }
