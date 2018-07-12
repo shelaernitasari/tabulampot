@@ -131,8 +131,7 @@ module.exports = async (bot, message) => {
         for(let j = 0; j < tmpMenu.length; j++){
             
             for (k = 0; k < setMenu.size; k++){
-                console.log(setMenu)
-                saya = setMenu[k]
+                saya = setMenu[j][k]
             } 
         }     
     }
