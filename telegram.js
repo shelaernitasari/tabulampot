@@ -23,7 +23,7 @@ module.exports = async (bot, message) => {
     chat = Cleaner.removeNonASCII(chat);
     let inputQuery = Tokenizer.tokenize(chat)
     let input = Tokenizer.tokenize(chat);
-    let nilai = 0
+    let nilai = []
     console.log(inputQuery);
     
     // for(let x = 0 ; x < input.length-2;x++){
@@ -94,6 +94,20 @@ module.exports = async (bot, message) => {
         
         }  
     }  console.log("set",setMenu)
+
+    for ( let i = 0; i < inputQuery.length; i++){
+        let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
+        //console.log(tmpMenu)
+        // console.log("Ini chat yang ada " , inputQuery[i])
+        for(let j = 0; j < tmpMenu.length; j++){
+            for(let k = 0; k < setMenu.length ; k++){
+                if(tmpMenu[j].menu === setMenu[k].menu){
+                    nilai[k]++
+                }
+            console.log("nilai", nilai[k])
+            }
+        }  
+    }
 
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
