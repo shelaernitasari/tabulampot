@@ -12,7 +12,7 @@ module.exports = async (bot, message) => {
     // let photo = message.text
     // let lokasi = message.latitude
     let semuaMenu = await MenuModel.find().select('menu')
-    console.log("semua menu",semuaMenu)
+    // console.log("semua menu",semuaMenu)
     let menu = await MenuModel.find({menu: chat})
     
     let chatYangAda = []
@@ -86,15 +86,18 @@ module.exports = async (bot, message) => {
             //  menu[j]
              console.log("Ambil yang ini  " , tmpMenu[j].menu)
              let pecahmenu = Tokenizer.tokenize(tmpMenu[j].menu)
-             console.log("pecah menu", pecahmenu)
+            
+
              for(let k = 0; k < semuaMenu.length ; k++){
+                let pecahsemuamenu = Tokenizer.tokenize(semuamenu[j])
+                console.log("pecah semua menu", pecahsemuamenu)
                  if(tmpMenu[j] == semuaMenu[k]){
                      nilai.tmpMenu[j]++
                  }
-                 console.log("nilai", nilai)
+               
              }
          }
-         
+         console.log("nilai", nilai)
     }
 
     // for(let k =0 ; k < inputQuery.length; k++){
