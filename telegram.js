@@ -78,7 +78,7 @@ module.exports = async (bot, message) => {
     const setMenu = new Set();
     const ws = new WeakSet();
     const nama = []
-    const iterator = 0
+    let iterator = 0
     
     for(let x = 0 ; x < input.length-2;x++){
         inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
