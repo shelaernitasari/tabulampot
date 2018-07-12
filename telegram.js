@@ -119,21 +119,22 @@ module.exports = async (bot, message) => {
         for(let j = 0; j < tmpMenu.length; j++){
             // tmpMenu[i]
             setMenu.add(tmpMenu[j])
-            console.log("tmp menu", tmpMenu[j]) 
+            // console.log("tmp menu", tmpMenu[j]) 
         }     
     }  
     // console.log("set menu", setMenu)
-    let datanya = []
+    let saya = [][]
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         // console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < tmpMenu.length; j++){
-            for (k = 0; k < setMenu.size; k++){
-                console.log(setMenu);
+            for (k = 0; k < setMenu.length; k++){
+                saya = setMenu[j][k]
             } 
         }     
     }
+    console.log("saya", saya)
   
 
     if (menu.length > 0) {
