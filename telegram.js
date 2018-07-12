@@ -90,11 +90,11 @@ module.exports = async (bot, message) => {
         //console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
     for(let j = 0; j < tmpMenu.length; j++){
-       //  menu[j]
-        console.log("Ambil yang ini  " , tmpMenu[j])
+        setMenu.add(tmpMenu[j])
+       
     }
-        // setMenu.add(tmpMenu)
-        // console.log("set",setMenu)
+    console.log("set",setMenu)
+        
     }
 
     if (menu.length > 0) {
