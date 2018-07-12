@@ -98,16 +98,18 @@ module.exports = async (bot, message) => {
             setMenu.add(tmpMenu[j])
             // console.log("tmp menu", tmpMenu[j]) 
         }     
-    }  console.log("set menu", setMenu)
+    }  // console.log("set menu", setMenu)
 
         for(let j = 0; j < nama.length; j++){
-            console.log("nama", nama)
+           //  console.log("nama", nama)
             for(let k = 0; k < setMenu.size ; k++){
-                console.log("set menu", setMenu)
-                if(nama[j] == setMenu[k].menu){
+                
+                let data_string = JSON.stringify(setMenu[k])
+                if(nama[j] == data_string.menu){
                     nilai[k]++
                 }
             console.log("nilai", nilai[k])
+            
             }
         }  
     
