@@ -89,7 +89,7 @@ module.exports = async (bot, message) => {
             
 
              for(let k = 0; k < semuaMenu.length ; k++){
-                let pecahsemuamenu = Tokenizer.tokenize(semuamenu[j])
+                let pecahsemuamenu = Tokenizer.tokenize(semuaMenu[j])
                 console.log("pecah semua menu", pecahsemuamenu)
                  if(tmpMenu[j] == semuaMenu[k]){
                      nilai.tmpMenu[j]++
