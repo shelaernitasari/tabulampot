@@ -11,7 +11,8 @@ module.exports = async (bot, message) => {
     let chat = message.text
     // let photo = message.text
     // let lokasi = message.latitude
-    let semuaMenu = await MenuModel.find({menu})
+    let semuaMenu = await MenuModel.find().select('menu')
+    console.log("semua menu",semuaMenu)
     let menu = await MenuModel.find({menu: chat})
     
     let chatYangAda = []
@@ -79,7 +80,7 @@ module.exports = async (bot, message) => {
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         // console.log(tmpMenu)
         console.log("Ini chat yang ada " , inputQuery[i])
-        console.log("menu  " , semuaMenu)
+        // console.log("menu  " , semuaMenu)
 
         for(let j = 0; j < tmpMenu.length; j++){
             //  menu[j]
