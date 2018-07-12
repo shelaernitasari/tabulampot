@@ -129,9 +129,9 @@ module.exports = async (bot, message) => {
         // console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         for(let j = 0; j < setMenu.size; j++){
-            
+           
             for (k = 0; k < tmpMenu.length; k++){
-                saya[j][k]=0
+                saya[j][k].push([0])
             } 
         }   
         
