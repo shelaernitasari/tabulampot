@@ -22,7 +22,7 @@ module.exports = async (bot, message) => {
     let inputQuery = Tokenizer.tokenize(chat)
     let input = Tokenizer.tokenize(chat);
     let nilai = 0
-    console.log(input);
+    console.log(inputQuery);
     
     // for(let x = 0 ; x < input.length-2;x++){
     //     inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
@@ -75,19 +75,11 @@ module.exports = async (bot, message) => {
 //     console.log(menu)
     
     for ( let i = 0; i < inputQuery.length; i++){
-        tampung = inputQuery[i]
-    
-    console.log(tampung);
-
-    let tmpMenu = await MenuModel.find({menu: {$regex: tampung[i], $options:"$i"} });
-         // console.log(tmpMenu)
-        if(tmpMenu.length > 0 ){
-            for( let j = 0 ; j < tmpMenu.length ; j++){
-                tampung.push(tmpMenu[j])
-            }
-        }
-        console.log("tampung", tampung)
+        let tmpMenu = await MenuModel.find({menu: {$regex: tampung[i], $options:"$i"} });
+        console.log(tmpMenu)
+        
     }
+
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
         let targetMenu = await MenuModel.find({root: menu[0]._id})
