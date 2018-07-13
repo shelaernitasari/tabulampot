@@ -138,8 +138,16 @@ module.exports = async (bot, message) => {
         }
     }
 
+    let x = 0;
+    let y = 0;
+    for(let i = 0; i < hitung.length ; i ++){
+        if(hitung[i] < y){
+            x = i
+        }
+        y = hitung[i]
+    }
     console.log("hitung", hitung)
-  
+    console.log("y", y)
 
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
