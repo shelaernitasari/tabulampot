@@ -9,9 +9,10 @@ module.exports = async (bot, message) => {
     keyboardResponse.reply_markup = {}
 
     let chat = message.text
+
     // let photo = message.text
     // let lokasi = message.latitude
-    let semuaMenu = await MenuModel.find().select('menu')
+    // let semuaMenu = await MenuModel.find().select('menu')
     // console.log("semua menu",semuaMenu)
     let menu = await MenuModel.find({menu: chat})
     
@@ -25,56 +26,7 @@ module.exports = async (bot, message) => {
     let input = Tokenizer.tokenize(chat);
     let nilai = []
     console.log(inputQuery);
-    
-    // for(let x = 0 ; x < input.length-2;x++){
-    //     inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
-    // }
-    
-    // for(let x = 0 ; x < input.length-1;x++){
-    //   inputQuery.push(input[x]+' '+input[x+1])
-    // }
-
-    // for ( let i = 0; i < inputQuery.length; i++){
-    //       let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
-    //      // console.log(tmpMenu)
-
-    //       if(tmpMenu.length > 0){
-    //           menu.push(tmpMenu[0])
-    //            chatYangAda.push(inputQuery[i])
-    //       }
-    // } 
-
-    // for(let k =0 ; k < chatYangAda.length; k++){
-    //     chatYangAda[k]
-    //     console.log("Ini chat yang ada " , chatYangAda[k])
-    // }
-
-    // for(let j = 0; j < menu.length; j++){
-    //    //  menu[j]
-    //     console.log("Ambil yang ini  " , menu[j])
-    // }
-
-    // let ret = []
-    // let tampung = []
-    // for ( let i = 0; i < inputQuery.length; i++){
-    //     let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery.reverse()[i], $options:"$i"} });
-    //     console.log("tmpMenu", tmpMenu)
-
-    //     if(tmpMenu.length > 0){
-    //        tampung = menu.push(tmpMenu[0])
-    //        console.log("tampung : ", tampung)
-           
-    //         for (var p = 0 ; p < tampung ; p++){ 
-    //             for (var q = p; q < tmpMenu.length ; q++){
-    //               ret = menu.push(tmpMenu[0]);
-                  
-    //             }
-    //         }
-    //         return ret
-    //         console.log("return", ret);
-    //     }
-    // } 
-//     console.log(menu)
+   
     const setMenu = new Set();
     const tmpMenuAl = [];
     const ws = new WeakSet();
@@ -88,31 +40,7 @@ module.exports = async (bot, message) => {
     for(let x = 0 ; x < input.length-1;x++){
       inputQuery.push(input[x]+' '+input[x+1])
     }
-
-    // for ( let i = 0; i < inputQuery.length; i++){
-    //     let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
-    //     // console.log(tmpMenu)
-    //     // console.log("Ini chat yang ada " , inputQuery[i])
-    //     for(let j = 0; j < tmpMenu.length; j++){
-    //         nama[iterator] = tmpMenu[j].menu
-    //         iterator++
-    //         setMenu.add(tmpMenu[j])
-    //         // console.log("tmp menu", tmpMenu[j]) 
-    //     }     
-    // }  // console.log("set menu", setMenu)
-    // for(let j = 0; j < nama.length; j++){
-    //        //  console.log("nama", nama)
-    //        // let it = 0;
-    //        setMenu.forEach(function(value) {
-    //         console.log("value", value);
-    //         var x = Object.values(value);
-    //         console.log("x", x[2]);
-    //         // if(nama[j] == x[2]){
-    //         //     nilai[it]=nilai[it]++
-    //         //     it++
-    //         // }
-    //       });
-    // }  
+  
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         tmpMenuAl.push(tmpMenu)
@@ -146,12 +74,8 @@ module.exports = async (bot, message) => {
             indexIn = i
         }
     }
-    console.log("hitung", tmpIn)
-    console.log("y", indexIn)
 
-    menu.push(setMenuTmp[indexIn]);
-    chat = menu
-    console.log(chat)
+    let menu = await MenuModel.find({menu: setMenuTmp[indexIn].menu})
 
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
