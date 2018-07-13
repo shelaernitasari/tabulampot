@@ -116,11 +116,6 @@ module.exports = async (bot, message) => {
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         tmpMenuAl.push(tmpMenu)
-        // console.log("Ini chat yang ada " , inputQuery[i])
-        // for(let j = 0; j < tmpMenu.length; j++){
-            // tmpMenu[i]
-            // console.log("tmp menu", tmpMenu[j]) 
-            // }     
     }  
     // console.log("set menu", setMenu)
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
@@ -129,9 +124,20 @@ module.exports = async (bot, message) => {
         }
     }
     console.log(setMenu)
-    let hitung = []
-    
-    // console.log("hitung", hitung)
+    let hitung = [setMenu.size]
+    for (let i = 0 ; i < setMenu.size ; i++) {
+        hitung[i] = 0
+        for(let j = 0 ; j < tmpMenuAl.length ; j++) {
+            for(let k=0; k < tmpMenuAl[j].length; k++){
+                if(tmpMenuAl[j][k] == setMenu[i]){
+                    hitung[i]++
+                }
+            }
+            
+        }
+    }
+
+    console.log("hitung", hitung)
   
 
     if (menu.length > 0) {
