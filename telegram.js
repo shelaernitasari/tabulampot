@@ -114,14 +114,14 @@ module.exports = async (bot, message) => {
     // }  
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
-        console.log(tmpMenu)
         setMenu.add(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         // for(let j = 0; j < tmpMenu.length; j++){
             // tmpMenu[i]
             // console.log("tmp menu", tmpMenu[j]) 
-        // }     
+            // }     
     }  
+    console.log(setMenu)
     // console.log("set menu", setMenu)
     let hitung = []
     for ( let i = 0; i < inputQuery.length; i++){
