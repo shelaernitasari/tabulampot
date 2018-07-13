@@ -75,7 +75,7 @@ module.exports = async (bot, message) => {
     //     }
     // } 
 //     console.log(menu)
-    const setMenu = new Set([]);
+    const setMenu = new Set();
     const ws = new WeakSet();
     const nama = []
     let iterator = 0
@@ -114,32 +114,31 @@ module.exports = async (bot, message) => {
     // }  
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
-        // console.log(tmpMenu)
+        console.log(tmpMenu)
+        setMenu.add(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
-        for(let j = 0; j < tmpMenu.length; j++){
+        // for(let j = 0; j < tmpMenu.length; j++){
             // tmpMenu[i]
-            setMenu.add(tmpMenu[j])
             // console.log("tmp menu", tmpMenu[j]) 
-        }     
+        // }     
     }  
     // console.log("set menu", setMenu)
-    let saya = []
+    let hitung = []
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         // console.log(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         
-        for(let j = 0; j < sum(tmpMenu.length); j++){
-            saya[j] = 0
+        for(let j = 0; j < setMenu.size; j++){
+            hitung[j] = 0
             
-            for (k = 0; k < setMenu.size; k++){
-               //  saya[j][k] = 0
+            for (k = 0; k < tmpMenu.length; k++){
+               //  hitung[j][k] = 0
             } 
         }   
         
     }
-    console.log(saya)
-    // console.log("saya", saya)
+    // console.log("hitung", hitung)
   
 
     if (menu.length > 0) {
