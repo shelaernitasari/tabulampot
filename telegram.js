@@ -122,13 +122,15 @@ module.exports = async (bot, message) => {
             // console.log("tmp menu", tmpMenu[j]) 
             // }     
     }  
-    console.log(tmpMenuAl)
     // console.log("set menu", setMenu)
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
-        for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
             setMenu.add(tmpMenuAl[i][j])
-        }
     }
+    // for (let i = 0 ; i < tmpMenuAl.length ; i++) {
+    //     for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
+    //         setMenu.add(tmpMenuAl[i][j])
+    //     }
+    // }
     console.log(setMenu)
     let hitung = []
     
