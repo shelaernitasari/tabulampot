@@ -149,7 +149,7 @@ module.exports = async (bot, message) => {
     console.log("hitung", tmpIn)
     console.log("y", indexIn)
 
-    menu.push(setMenu[indexIn]);
+    menu.push(setMenuTmp[indexIn]);
     console.log(menu)
 
     if (menu.length > 0) {
