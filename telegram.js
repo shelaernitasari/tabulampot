@@ -73,7 +73,7 @@ module.exports = async (bot, message) => {
             tmpIn = hitung[i]
             indexIn = i
         }
-    }
+    } console.log(hitung)
     
     try {
         menu = await MenuModel.find({menu: JSON.parse(setMenuTmp[indexIn]).menu})
