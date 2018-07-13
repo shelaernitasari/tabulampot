@@ -129,7 +129,7 @@ module.exports = async (bot, message) => {
         hitung[i] = 0
         for(let j = 0 ; j < tmpMenuAl.length ; j++) {
             for(let k=0; k < tmpMenuAl[j].length; k++){
-                if(tmpMenuAl[j][k] == setMenu[i]){
+                if(String(tmpMenuAl[j][k]._id) == String(JSON.parse(setMenu[i])._id)){
                     hitung[i]++
                 }
             }
