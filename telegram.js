@@ -124,7 +124,7 @@ module.exports = async (bot, message) => {
     }  
     // console.log("set menu", setMenu)
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
-            setMenu.add(tmpMenuAl[i][j])
+            setMenu.add(tmpMenuAl[i])
     }
     // for (let i = 0 ; i < tmpMenuAl.length ; i++) {
     //     for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
