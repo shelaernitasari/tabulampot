@@ -64,7 +64,9 @@ module.exports = async (bot, message) => {
             }
             
         }
-    }
+    } 
+    console.log(setMenuTmp)
+    console.log(hitung)
 
     let tmpIn = hitung[0]
     let indexIn = 0
@@ -73,11 +75,10 @@ module.exports = async (bot, message) => {
             tmpIn = hitung[i]
             indexIn = i
         }
-    } console.log(hitung)
+    } 
     
     try {
         menu = await MenuModel.find({menu: JSON.parse(setMenuTmp[indexIn]).menu})
-
         chat = menu[0].menu
         console.log(chat)
     } catch (e) {
