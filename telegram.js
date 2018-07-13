@@ -150,7 +150,8 @@ module.exports = async (bot, message) => {
     console.log("y", indexIn)
 
     menu.push(setMenuTmp[indexIn]);
-    console.log(menu)
+    chat = menu
+    console.log(chat)
 
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
