@@ -75,7 +75,7 @@ module.exports = async (bot, message) => {
     //     }
     // } 
 //     console.log(menu)
-    const setMenu = new Set();
+    const setMenu = new Set([]);
     const tmpMenuAl = [];
     const ws = new WeakSet();
     const nama = []
@@ -124,13 +124,10 @@ module.exports = async (bot, message) => {
     }  
     // console.log("set menu", setMenu)
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
-            setMenu.add(tmpMenuAl[i])
+        for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
+            setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
+        }
     }
-    // for (let i = 0 ; i < tmpMenuAl.length ; i++) {
-    //     for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
-    //         setMenu.add(tmpMenuAl[i][j])
-    //     }
-    // }
     console.log(setMenu)
     let hitung = []
     
