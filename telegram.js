@@ -75,7 +75,7 @@ module.exports = async (bot, message) => {
     //     }
     // } 
 //     console.log(menu)
-    const setMenu = new Set([]);
+    const setMenu = new Set();
     const tmpMenuAl = [];
     const ws = new WeakSet();
     const nama = []
