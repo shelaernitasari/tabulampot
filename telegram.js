@@ -76,6 +76,7 @@ module.exports = async (bot, message) => {
     // } 
 //     console.log(menu)
     const setMenu = new Set();
+    const tmpMenuAl = [];
     const ws = new WeakSet();
     const nama = []
     let iterator = 0
@@ -114,14 +115,14 @@ module.exports = async (bot, message) => {
     // }  
     for ( let i = 0; i < inputQuery.length; i++){
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
-        setMenu.add(tmpMenu)
+        tmpMenuAl.push(tmpMenu)
         // console.log("Ini chat yang ada " , inputQuery[i])
         // for(let j = 0; j < tmpMenu.length; j++){
             // tmpMenu[i]
             // console.log("tmp menu", tmpMenu[j]) 
             // }     
     }  
-    console.log(setMenu)
+    console.log(tmpMenuAl)
     // console.log("set menu", setMenu)
     let hitung = []
     for ( let i = 0; i < inputQuery.length; i++){
