@@ -77,6 +77,7 @@ module.exports = async (bot, message) => {
 
     menu = await MenuModel.find({menu: setMenuTmp[indexIn].menu})
 
+    console.log(menu)
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
         let targetMenu = await MenuModel.find({root: menu[0]._id})
