@@ -76,7 +76,7 @@ module.exports = async (bot, message) => {
     }
     try {
         menu = await MenuModel.find({menu: JSON.parse(setMenuTmp[indexIn]).menu})
-        chat = menu[0].menu
+        chat = menu
     } catch (e) {
         menu = [] 
     }
