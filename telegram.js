@@ -123,7 +123,7 @@ module.exports = async (bot, message) => {
             setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
         }
     }
-    console.log(setMenu)
+    setMenu = Array.from(setMenu)
     let hitung = [setMenu.size]
     for (let i = 0 ; i < setMenu.size ; i++) {
         hitung[i] = 0
