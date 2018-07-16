@@ -42,7 +42,7 @@ module.exports = async (bot, message) => {
     }
   
     for ( let i = 0; i < inputQuery.length; i++){
-        let tmpMenu = await MenuModel.find({menu: {$regex: /\winputQuery[i]/w, $options:"$i"} });
+        let tmpMenu = await MenuModel.find({menu: {$regex: /\binputQuery[i]/, $options:"$i"} });
         tmpMenuAl.push(tmpMenu)
     }  
     // console.log("set menu", setMenu)
