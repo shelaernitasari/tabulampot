@@ -100,7 +100,7 @@ module.exports = async (bot, message) => {
                 
             } else {
                 chat = menu[0].menu
-                if(chat == "About"){
+                if(chat == "Tentang Penulis"){
                     bot.sendLocation(message.chat.id, -7.276361, 112.793847);
                     // chat = menu[0].pertanyaan
                 }else{
