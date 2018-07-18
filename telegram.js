@@ -45,19 +45,20 @@ module.exports = async (bot, message) => {
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         tmpMenuAl.push(tmpMenu)
     }  
-    // console.log("set menu", setMenu)
+    
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
         for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
             setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
         }
     }
+    console.log("set menu", setMenu)
     let setMenuTmp = Array.from(setMenu)
     let hitung = [setMenu.size]
     for (let i = 0 ; i < setMenuTmp.length ; i++) {
         hitung[i] = 0
         for(let j = 0 ; j < tmpMenuAl.length ; j++) {
             for(let k=0; k < tmpMenuAl[j].length; k++){
-                // console.log(JSON.parse(setMenuTmp[i]))
+                console.log(JSON.parse(setMenuTmp[i]))
                 if(String(tmpMenuAl[j][k]._id) == String(JSON.parse(setMenuTmp[i])._id)){
                     hitung[i]++
                 }
