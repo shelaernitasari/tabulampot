@@ -26,7 +26,7 @@ module.exports = async (bot, message) => {
     chat = Cleaner.removeNonASCII(chat);
     let inputQuery = Tokenizer.tokenize(chat);
     let input = Tokenizer.tokenize(chat);
-    inputQuery = Cleaner.removeNonAlphaNumeric(input);
+    inputQuery = Cleaner.removeNonAlphaNumeric(inputQuery);
     let nilai = []
     console.log(inputQuery);
    
