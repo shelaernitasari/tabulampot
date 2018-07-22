@@ -21,10 +21,12 @@ module.exports = async (bot, message) => {
     // console.log('menu',menu)
 
     // let input = message.chat.id
+   
+    
     chat = Cleaner.removeNonASCII(chat);
-    chat = Cleaner.removeNonAlphaNumeric(chat);
     let inputQuery = Tokenizer.tokenize(chat)
     let input = Tokenizer.tokenize(chat);
+    inputQuery = Cleaner.removeNonAlphaNumeric(input);
     let nilai = []
     console.log(inputQuery);
    
