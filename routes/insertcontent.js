@@ -161,16 +161,16 @@ router.post('/', upload.single('foto'), function (req, res, next){
             // res.redirect('/insertcontent');
         })
         .then(result => {
-            res.status(201).json({
-                isi: {
-                    _id: result.id,
-                    judul: result.judul,
-                    content: result.content,
-                    tanggal: result.tanggal,
-                    idmenu: result.idmenu,
-                    foto: result.foto
-                }
-            });
+            // res.status(201).json({
+            //     isi: {
+            //         _id: result.id,
+            //         judul: result.judul,
+            //         content: result.content,
+            //         tanggal: result.tanggal,
+            //         idmenu: result.idmenu,
+            //         foto: result.foto
+            //     }
+            // });
             res.redirect('/insertcontent');
         }) 
         .catch(err => {
