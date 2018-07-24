@@ -191,7 +191,7 @@ router.get('/editcontent/:id', function (req, res, next) {
     });
 });
 
-router.post('/update', function (req, res, next){
+router.post('/update', upload.single('foto'), function (req, res, next){
     var id = req.body.id;
     var judul = req.body.judul;
     var content = req.body.content;
