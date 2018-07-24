@@ -197,7 +197,7 @@ router.post('/update', function (req, res, next){
     var content = req.body.content;
     var foto = BASE_URL + 'uploads/' + req.file.filename
 
-    var updateData = {"judul":judul, "content": content};
+    var updateData = {"judul":judul, "content": content, "foto":foto};
     Isi.findByIdAndUpdate(id, updateData, function(err, data){
         if(err){
             console.log("error");
