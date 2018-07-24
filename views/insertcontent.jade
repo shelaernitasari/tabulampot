@@ -18,7 +18,7 @@ block content
             h4.card-title Form Content
             p.card-description
               | Input Content
-            form.forms-sample(action='/insertcontent', method='post')
+            form.forms-sample(action='/insertcontent', method='post', enctype='multipart/form-data')
               .form-group
                 label(for='exampleInputName1') Judul
                 input#judul.form-control(type='text', placeholder='Judul', name='judul')
@@ -39,10 +39,7 @@ block content
               .form-group
                 label(for='exampleInputName3') File upload
                 input.file-upload-default(type='file', name='foto')
-                .input-group.col-xs-12
-                  input.form-control.file-upload-info(type='text', name='foto', placeholder='Upload Image')
-                  span.input-group-append
-                    button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
+                
               button.btn.btn-gradient-primary.mr-2(type='submit') Oke
               button.btn.btn-light Batal
     // tabel
