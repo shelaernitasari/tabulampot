@@ -18,7 +18,7 @@ block content
             h4.card-title Form Edit Content
             p.card-description
               | Edit Content
-            form.forms-sample(action='/insertcontent/update', method='post')
+            form.forms-sample(action='/insertcontent/update', method='post', enctype='multipart/form-data')
               .form-group
                 label(for='exampleInputName1') ID Content
                 input#id.form-control(type='text', placeholder='ID Content', name='id', value="#{id}" readonly)
@@ -34,19 +34,15 @@ block content
               //-   select#exampleSelectGender.form-control
               //-     option id menu 1
               //-     option id menu 2
-              .form-group
-                label(for='exampleInputName2') ID Menu
-                select.form-control(name='idmenu')
-                  each dd, i in menu
-                    option(value='#{dd.id}') #{dd.menu}
+              //- .form-group
+              //-   label(for='exampleInputName2') ID Menu
+              //-   select.form-control(name='idmenu')
+              //-     each dd, i in menu
+              //-       option(value='#{dd.id}') #{dd.menu}
                 //- input#judul.form-control(type='text', placeholder='id menu', name='idmenu', value="#{idmenu}")
               .form-group
-                label File upload
-                input.file-upload-default(type='file', name='foto')
-                .input-group.col-xs-12
-                  input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
-                  span.input-group-append
-                    button.file-upload-browse.btn.btn-gradient-primary(type='button') Upload
+                label(for='exampleInputName3') File upload
+                input.form-control(type='file', name='foto')
               button.btn.btn-gradient-primary.mr-2(type='submit') Oke
               button.btn.btn-light Batal
 
