@@ -18,9 +18,8 @@ module.exports = async (bot, message) => {
     // let semuaMenu = await MenuModel.find().select('menu')
     // console.log("semua menu",semuaMenu)
     let menu = await MenuModel.find({menu: chat})
-    
     // coba tfidf
-    let cobakata = await MenuModel.find({katakunci: chat})
+    // let cobakata = await MenuModel.find({katakunci: chat})
     
     let chatYangAda = []
     let tampung = []
@@ -42,71 +41,71 @@ module.exports = async (bot, message) => {
     console.log(inputQuery);
 
     // coba tfidf
-    tfidf.addDocument(cobakata)
-    tfidf.tfidfs(inputQuery, function(i, measure) {
-        console.log('document #' + i + ' is ' + measure);
-    });
+    // tfidf.addDocument(cobakata)
+    // tfidf.tfidfs(inputQuery, function(i, measure) {
+    //     console.log('document #' + i + ' is ' + measure);
+    // });
 
-    // const setMenu = new Set();
-    // const tmpMenuAl = [];
-    // const ws = new WeakSet();
-    // const nama = []
-    // let iterator = 0
+    const setMenu = new Set();
+    const tmpMenuAl = [];
+    const ws = new WeakSet();
+    const nama = []
+    let iterator = 0
     
-    // for(let x = 0 ; x < input.length-2;x++){
-    //     inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
-    // }
+    for(let x = 0 ; x < input.length-2;x++){
+        inputQuery.push(input[x]+' '+input[x+1] + ' '+ input[x+2])
+    }
     
-    // for(let x = 0 ; x < input.length-1;x++){
-    //   inputQuery.push(input[x]+' '+input[x+1])
-    // }
+    for(let x = 0 ; x < input.length-1;x++){
+      inputQuery.push(input[x]+' '+input[x+1])
+    }
   
-    // for ( let i = 0; i < inputQuery.length; i++){
-    //     let tmpMenu = await MenuModel.find({katakunci: {$regex: inputQuery[i], $options:"$i"} });
-    //     tmpMenuAl.push(tmpMenu)
-    // }  
+    for ( let i = 0; i < inputQuery.length; i++){
+        let tmpMenu = await MenuModel.find({katakunci: {$regex: inputQuery[i], $options:"$i"} });
+        tmpMenuAl.push(tmpMenu)
+    }  
     
-    // // tf idf
+    // tf idf
 
-    // for (let i = 0 ; i < tmpMenuAl.length ; i++) {
-    //     for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
-    //         setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
-    //     }
-    // }
-    // console.log("set menu", setMenu)
-    // let setMenuTmp = Array.from(setMenu)
-    // let hitung = [setMenu.size]
-    // for (let i = 0 ; i < setMenuTmp.length ; i++) {
-    //     hitung[i] = 0
-    //     for(let j = 0 ; j < tmpMenuAl.length ; j++) {
-    //         for(let k=0; k < tmpMenuAl[j].length; k++){
-    //             console.log(JSON.parse(setMenuTmp[i]))
-    //             if(String(tmpMenuAl[j][k]._id) == String(JSON.parse(setMenuTmp[i])._id)){
-    //                 hitung[i]++
-    //             }
-    //         }
+    for (let i = 0 ; i < tmpMenuAl.length ; i++) {
+        for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
+            setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
+        }
+    }
+    console.log("set menu", setMenu)
+    let setMenuTmp = Array.from(setMenu)
+    let hitung = [setMenu.size]
+    for (let i = 0 ; i < setMenuTmp.length ; i++) {
+        hitung[i] = 0
+        for(let j = 0 ; j < tmpMenuAl.length ; j++) {
+            for(let k=0; k < tmpMenuAl[j].length; k++){
+                console.log(JSON.parse(setMenuTmp[i]))
+                if(String(tmpMenuAl[j][k]._id) == String(JSON.parse(setMenuTmp[i])._id)){
+                    hitung[i]++
+                }
+            }
             
-    //     }
-    // } 
-    // console.log(setMenuTmp)
-    // console.log(hitung)
+        }
+    } 
+    console.log(setMenuTmp)
+    console.log(hitung)
 
-    // let tmpIn = hitung[0]
-    // let indexIn = 0
-    // for(let i = 1; i < hitung.length ; i ++){
-    //     if(tmpIn < hitung[i]){
-    //         tmpIn = hitung[i]
-    //         indexIn = i
-    //     }
-    // } 
+    let tmpIn = hitung[0]
+    let indexIn = 0
+    for(let i = 1; i < hitung.length ; i ++){
+        if(tmpIn < hitung[i]){
+            tmpIn = hitung[i]
+            indexIn = i
+        }
+    } 
     
-    // try {
-    //     menu = await MenuModel.find({menu: JSON.parse(setMenuTmp[indexIn]).menu})
-    //     chat = menu[0].menu
-    //     console.log(chat)
-    // } catch (e) {
-    //     menu = [] 
-    // }
+    try {
+        menu = await MenuModel.find({menu: JSON.parse(setMenuTmp[indexIn]).menu})
+        chat = menu[0].menu
+        console.log(chat)
+    } catch (e) {
+        menu = [] 
+    }
 
     console.log(menu)
     if (menu.length > 0) {
