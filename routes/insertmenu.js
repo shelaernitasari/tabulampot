@@ -38,7 +38,7 @@ const upload = multer({
 
 router.get('/', function(req, res){
   Menu.find()
-    .select('_id root menu pertanyaan')
+    .select('_id root menu pertanyaan katakunci')
     .exec()
         .then(docs => {
         console.log(docs);
@@ -65,7 +65,7 @@ router.get('/pencarian', function(req, res){
     let cari = req.query.carimenu;
     Menu.find()
       .where('root').equals(cari)
-      .select('_id root menu pertanyaan')
+      .select('_id root menu pertanyaan katakunci')
       .exec()
           .then(docs => {
           console.log(docs);
@@ -92,7 +92,7 @@ router.get('/pencarianmenu', function(req, res){
     let cari = req.query.carimenuid;
     Menu.find()
       .where('_id').equals(cari)
-      .select('_id root menu pertanyaan')
+      .select('_id root menu pertanyaan katakunci')
       .exec()
           .then(docs => {
           console.log(docs);
@@ -121,7 +121,7 @@ router.get('/editmenu/:id', function (req, res, next) {
        
             console.log(data);
 
-            res.render('editmenu', { id:req.params.id, root: data.root, menu: data.menu, pertanyaan: data.pertanyaan});
+            res.render('editmenu', { id:req.params.id, root: data.root, menu: data.menu, pertanyaan: data.pertanyaan, katakunci: data.katakunci});
        
     });
 });
@@ -133,8 +133,9 @@ router.post('/update', function (req, res, next){
     var id = req.body.id;
     var menu = req.body.menu;
     var pertanyaan = req.body.pertanyaan;
+    var katakunci = req.body.katakunci;
 
-    var updateData = {"menu": menu, "pertanyaan":pertanyaan};
+    var updateData = {"menu": menu, "pertanyaan":pertanyaan, "katakunci":katakunci};
     Menu.findByIdAndUpdate(id, updateData, function(err, data){
         if(err){
             console.log("error");
@@ -167,7 +168,8 @@ router.post('/', function(req, res){
         _id: new mongoose.Types.ObjectId(),
         root: req.body.root,
         menu: req.body.menu,
-        pertanyaan: req.body.pertanyaan
+        pertanyaan: req.body.pertanyaan,
+        katakunci: req.body.katakunci
     });
     menu.save()
            .then(function(result) {

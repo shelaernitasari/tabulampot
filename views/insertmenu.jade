@@ -34,8 +34,11 @@ block content
                 label(for='exampleInputName2') Menu
                 input#menu.form-control(type='text', placeholder='Menu', name='menu')
               .form-group
-                label(for='exampleInputName2') Pertanyaan
+                label(for='exampleInputName3') Pertanyaan
                 input#menu.form-control(type='text', placeholder='Pertanyaan', name='pertanyaan')
+              .form-group
+                label(for='exampleInputName4') Kata Kunci
+                input#menu.form-control(type='text', placeholder='Kata Kunci', name='katakunci')
               button.btn.btn-gradient-primary.mr-2(type='submit') Oke
               button.btn.btn-light Batal
     .row          
@@ -71,6 +74,7 @@ block content
                 th root
                 th menu
                 th pertanyaan
+                th katakunci
                 th aksi
             tbody
             each data, i in menu
@@ -80,6 +84,7 @@ block content
                 td #{data.root}
                 td #{data.menu}
                 td #{data.pertanyaan}
+                td #{data.katakunci}
                 td
                   a.button.btn.btn-primary(href="/insertmenu/editmenu/"+ data.id) edit
                   button.btn.btn-danger(onclick='app.Delete("'+data.id+'")') hapus

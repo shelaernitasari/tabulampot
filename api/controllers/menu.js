@@ -5,7 +5,7 @@ const Menu = require('../models/menu');
 
 exports.menu_get_all = (req, res, next) => {
     Menu.find()
-    .select("_id root menu")
+    .select("_id root menu pertanyaan katakunci")
     .then(docs => {
         console.log(docs);
         if(docs.length >= 0){
@@ -16,7 +16,8 @@ exports.menu_get_all = (req, res, next) => {
                         _id : doc._id,
                         root : doc.root,
                         menu : doc.menu,
-                        pertanyaan : doc.pertanyaan
+                        pertanyaan : doc.pertanyaan,
+                        katakunci : doc.katakunci
                     }
                 })
             });
@@ -40,7 +41,8 @@ exports.menu_post = (req, res, next) => {
         _id: new mongoose.Types.ObjectId(),
         root: req.body.root,
         menu: req.body.menu,
-        pertanyaan : req.body.pertanyaan
+        pertanyaan : req.body.pertanyaan,
+        katakunci : req.body.katakunci
        
     });
     menu.save()
@@ -74,7 +76,8 @@ exports.menu_get_id = (req, res, next) =>{
                     _id: doc._id,
                     root: doc.root,
                     menu: doc.menu,
-                    pertanyaan : doc.pertanyaan
+                    pertanyaan : doc.pertanyaan,
+                    katakunci : doc.katakunci
                 }
             })
         };

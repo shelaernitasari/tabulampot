@@ -4,7 +4,8 @@ const menuSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     root : {type: mongoose.Schema.Types.ObjectId, ref : 'Menu', required: false},
     menu : {type: String},
-    pertanyaan : {type: String}
+    pertanyaan : {type: String},
+    katakunci : {type: String}
     
 });
 

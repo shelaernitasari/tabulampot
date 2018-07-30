@@ -46,10 +46,14 @@ module.exports = async (bot, message) => {
     }
   
     for ( let i = 0; i < inputQuery.length; i++){
+        // to do stemming
+
         let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
         tmpMenuAl.push(tmpMenu)
     }  
     
+    // tf idf
+
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
         for(let j = 0 ; j < tmpMenuAl[i].length ; j++) {
             setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
