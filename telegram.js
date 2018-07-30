@@ -1,5 +1,6 @@
 const Cleaner = require('nalapa').cleaner;
 const Tokenizer = require('nalapa').tokenizer;
+const akarata = require('akarata');
 
 const MenuModel = require('./api/models/menu')
 const isiModel = require('./api/models/isi')
@@ -25,8 +26,12 @@ module.exports = async (bot, message) => {
     // chat = Cleaner.removeNonAlphaNumeric(chat);
     chat = Cleaner.removeNonASCII(chat);
     chat = chat.replace("?", "");
-    let inputQuery = Tokenizer.tokenize(chat);
-    let input = Tokenizer.tokenize(chat);
+    chat = chat.toLowerCase();
+    console.log(chat);
+    let inputQueryb = Tokenizer.tokenize(chat);
+    let inputb = Tokenizer.tokenize(chat);
+    let inputQuery = akarata.stem(inputQueryb);
+    let input = akarata.stem(inputb)
     
     let nilai = []
     console.log(inputQuery);
@@ -46,9 +51,7 @@ module.exports = async (bot, message) => {
     }
   
     for ( let i = 0; i < inputQuery.length; i++){
-        // to do stemming
-
-        let tmpMenu = await MenuModel.find({menu: {$regex: inputQuery[i], $options:"$i"} });
+        let tmpMenu = await MenuModel.find({katakunci: {$regex: inputQuery[i], $options:"$i"} });
         tmpMenuAl.push(tmpMenu)
     }  
     
