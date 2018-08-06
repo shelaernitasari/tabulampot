@@ -61,7 +61,8 @@ module.exports = async (bot, message) => {
     }
   
     for ( let i = 0; i < inputQuery.length; i++){
-        let tmpMenu = await MenuModel.find({katakunci: {$regex: inputQuery[i], $options:"$i"} });
+        // let tmpMenu = await MenuModel.find({katakunci: {$regex: inputQuery[i], $options:"$i"} });
+        let tmpMenu = await MenuModel.find({katakunci: {$regex: /^inputQuery[i]/, $options:"$b" }});
         tmpMenuAl.push(tmpMenu)
     }  
     
