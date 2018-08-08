@@ -61,12 +61,12 @@ module.exports = async (bot, message) => {
     }
   
     for ( let i = 0; i < inputQuery.length; i++){
-        let regExp = '^.*\b' + inputQuery[i]+ '\b.*$';
-        console.log(regExp)
-        let tmpMenu = await MenuModel.find({katakunci: {$regex: inputQuery[i], $options:"$i" }});
+        let kataQ = inputQuery[i]
+        console.log(kataQ)
+        let tmpMenu = await MenuModel.find({katakunci: {$regex: /^.*\b kataQ \b.*$/, $options:"$i" }});
         tmpMenuAl.push(tmpMenu)
     }  
-    
+    console.log(tmpMenuAl)
     // tf idf
 
     for (let i = 0 ; i < tmpMenuAl.length ; i++) {
