@@ -31,14 +31,14 @@ module.exports = async (bot, message) => {
     chat = Cleaner.removeNonASCII(chat);
     chat = chat.replace("?", "");
     chat = chat.toLowerCase();
-    console.log(chat);
+    // console.log(chat);
     let inputQueryb = Tokenizer.tokenize(chat);
     let inputb = Tokenizer.tokenize(chat);
     let inputQuery = akarata.stem(inputQueryb);
     let input = akarata.stem(inputb)
     
     let nilai = []
-    console.log(inputQuery);
+    // console.log(inputQuery);
 
     // coba tfidf
     // tfidf.addDocument(cobakata)
@@ -74,7 +74,7 @@ module.exports = async (bot, message) => {
             setMenu.add(JSON.stringify(tmpMenuAl[i][j]))
         }
     }
-    console.log("set menu", setMenu)
+    // console.log("set menu", setMenu)
     let setMenuTmp = Array.from(setMenu)
     let hitung = [setMenu.size]
     for (let i = 0 ; i < setMenuTmp.length ; i++) {
@@ -89,8 +89,8 @@ module.exports = async (bot, message) => {
             
         }
     } 
-    console.log(setMenuTmp)
-    console.log(hitung)
+    // console.log(setMenuTmp)
+    // console.log(hitung)
 
     let tmpIn = hitung[0]
     let indexIn = 0
@@ -109,14 +109,14 @@ module.exports = async (bot, message) => {
         menu = [] 
     }
 
-    console.log(menu)
+    // console.log(menu)
     if (menu.length > 0) {
         // let targetMenu = await MenuModel.find({root: menu[menu.length - 1]._id})
         let targetMenu = await MenuModel.find({root: menu[0]._id})
         //console.log(targetMenu)
         if(targetMenu.length == 0 ){
             let isi = await isiModel.find({judul: chat})
-             console.log(isi);
+            //  console.log(isi);
             if (isi.length > 0) {
                 chat = isi[0].content
                 let photo = isi[0].foto
